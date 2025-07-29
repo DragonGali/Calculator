@@ -2,6 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios' 
+
+//ill need this for later
+const api = axios.create({
+  baseURL: 'http://localhost:3000/api'
+})
+
+
 
 function App() {
   const [count, setCount] = useState(0)
