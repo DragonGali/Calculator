@@ -1,0 +1,19 @@
+.radio-buttons {
+    position: absolute;
+    top: 50%;  /* adjust as needed */
+    left: 43%;
+    transform: translate(-50%, -50%); /* centers text */
+    overflow: hidden;
+}
+
+#test {
+    position: absolute;
+    top: 50%;  /* adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%); /* centers text */
+}
+
+.ChooseApplication .wrapper {
+    width: 25vw;
+    height: 20vh;
+}

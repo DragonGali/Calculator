@@ -1,28 +1,31 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import ChooseAplication from './Components/ChooseApplication';'./Components/ChooseApplication.jsx'
 import './App.css'
 
-const URL = 'https://dummyjson.com/test';
+// const URL = 'https://dummyjson.com/test';
 
 function App() {
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    const fun  = async () => {
-      let data = await fetch(URL);
-      data.json().then((json) => {
-        console.log(json);
-      })
-    }
+  //   const fun  = async () => {
+  //     let data = await fetch(URL);
+  //     data.json().then((json) => {
+  //       console.log(json);
+  //     })
+  //   }
 
-    fun();
+  //   fun();
       
-  }, [])
+  // }, [])
 
 
   return ( <div className="App">
-    <p>REST API</p>
+    <div id="flex-container">
+      {/* <div id="atlantium-logo"></div> */}
+      <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
+      <ChooseAplication id="choose-application"/>
+    </div>
   </div>
   )
 }
