@@ -5,7 +5,7 @@
   --text: #171919;
   --white: #FFFFFF;
   --grey-blue: #D4D6E0;
-  --blue-text:#D4D6E0;
+  --blue-text:#4A6678;
   --title-box: #597991;
 
   background-color: var(--background);
@@ -119,6 +119,16 @@ form hr {
   border-top: 0.4vh solid var(--primary);
   margin: 1vh 1vw;
   width: 100%;
+}
+
+.type-box {
+  font-family: "Inter-Medium";
+  border-style: solid;
+  border-color: var(--primary);
+  color: var(--blue-text);
+  padding: 0.55vh 0.2vw;
+  text-align: center;
+  font-size: 1vw;
 }
 
 

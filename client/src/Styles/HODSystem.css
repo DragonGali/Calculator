@@ -1,0 +1,13 @@
+.HODSystem .wrapper {
+    width: 23vw;
+    height: 20vh;
+}
+
+.horizontal-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+

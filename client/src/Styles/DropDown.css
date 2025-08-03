@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* Wrapper styles */
+.dropdown-wrapper {
+  font-family: "Inter-Light";
+  padding: 20px;
+}
+
+.selected-item p span {
+  font-weight: bold;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  perspective: 800px;
+  z-index: 1;
+}
+
+/* Active dropdown gets higher z-index */
+.dropdown.active {
+  z-index: 9999;
+}
+
+/* Dropdown label/button */
+.dropdown-label {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  font-size: calc(1vh + 0.5vw);
+  background: var(--white);
+  border-style: solid;
+  border-color: var(--primary);
+  display: block;
+  padding: 0 0.2vw 0 0.5vw;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transition: transform 300ms;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.dropdown.active .dropdown-label {
+  transform: rotateX(30deg);
+  z-index: 9999;
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+  position: absolute;
+  right: 0px;
+  width: 2.3vw;
+  text-align: center;
+  font-size: 1.5vh;
+  padding: 0.2vh;
+  height: 70%;
+  line-height: 24px;
+  border-left: 1px solid #ddd;
+}
+
+/* Dropdown list */
+.dropdown-list {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: block;
+  list-style: none;
+  left: 0;
+  opacity: 1;
+  transition: transform 300ms ease;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.dropdown-item span {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+  user-select: none;
+  width: 100%;
+  font-size: 1vw;
+  padding: 0 0.5vw;
+  display: block;
+  color: #fff;
+  letter-spacing: 0.1vw;
+}
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.2;
+}

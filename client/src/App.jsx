@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import ChooseAplication from './Components/ChooseApplication';'./Components/ChooseApplication.jsx'
+import ChooseApplication from './Components/ChooseApplication.jsx'
+import HODSystem from './Components/HODSystem.jsx'
 import './App.css'
 
 // const URL = 'https://dummyjson.com/test';
@@ -24,7 +25,10 @@ function App() {
     <div id="flex-container">
       {/* <div id="atlantium-logo"></div> */}
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
-      <ChooseAplication id="choose-application"/>
+      <div className="systems-container">
+        <ChooseApplication id="choose-application"/>
+        <HODSystem id="hod-system"/>
+      </div>
     </div>
   </div>
   )
