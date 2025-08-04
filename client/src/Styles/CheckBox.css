@@ -12,18 +12,12 @@
   font-size: 5vw;
 }
 
-/* Responsive font sizing with clamp for better control */
-@supports (font-size: clamp(16px, 3vw, 50px)) {
-  .buttons {
-    font-size: clamp(16px, 3vw, 50px);
-  }
-}
 
-label {
+
+.CheckBox label {
   cursor: pointer;
   color: var(--primary);
   display: block;
-  margin-top: 2.3vh;
 }
 
 .label-text {
@@ -34,7 +28,6 @@ label {
 
 .label-text:before {
     display: none;
-    margin-top: -1vh;
 }
 
 input[type="checkbox"] + .label-text:before {

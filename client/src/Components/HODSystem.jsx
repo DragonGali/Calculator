@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Dropdown from '../Components/DropDown';
 import Checkbox from '../Components/CheckBox';
+import InputField from '../Components/InputField';
 
 import '../Styles/HODSystem.css';
 import data from "../data";
@@ -31,7 +32,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.modules]}
-                    height={size.height * 0.05} width={size.width * 0.15}
+                    height={size.height * 0.051} width={size.width * 0.15}
                     placeholder={data.modules[0].label}
                     />
                 </div>
@@ -41,10 +42,16 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.model]}
-                    height={size.height * 0.05} width={size.width * 0.08}
+                    height={size.height * 0.051} width={size.width * 0.08}
                     placeholder={data.model[0].label}
                     />
                     <Checkbox items={[{ id: 1, text: 'Vertical', disabled: false }]} className="checkbox" />
+                </div>
+                <div className='horizontal-container'>
+                    <div className="type-box">
+                        <p>Branch:</p>
+                    </div>
+                   <InputField/>
                 </div>
             </div>
         </div>

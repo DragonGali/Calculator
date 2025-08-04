@@ -23,7 +23,6 @@ function App() {
 
   return ( <div className="App">
     <div id="flex-container">
-      {/* <div id="atlantium-logo"></div> */}
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
       <div className="systems-container">
         <ChooseApplication id="choose-application"/>

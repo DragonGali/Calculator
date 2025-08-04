@@ -18,7 +18,7 @@ function ChooseAplication () {
             <div className="radio-buttons">
                 <form>
                     {options.map((option) => (
-                        <label>
+                        <label className='form-control'>
                             <input
                             type="radio"
                             name="Application"
@@ -31,7 +31,7 @@ function ChooseAplication () {
                         </label>
                     ))}
                     <hr />
-                    <label>
+                    <label className='form-control'>
                             <input
                             type="radio"
                             name="Application"
