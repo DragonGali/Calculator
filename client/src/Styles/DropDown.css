@@ -3,7 +3,6 @@
 /* Wrapper styles */
 .dropdown-wrapper {
   font-family: "Inter-Light";
-  padding: 20px;
 }
 
 .selected-item p span {
@@ -40,6 +39,7 @@
   transition: transform 300ms;
   backface-visibility: hidden;
   user-select: none;
+  min-height: 30px;
 }
 
 .dropdown.active .dropdown-label {
@@ -84,6 +84,10 @@
   z-index: 100;
 }
 
+.dropdown-item:hover {
+  filter:brightness(1.2)
+}
+
 .dropdown-item span {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   backface-visibility: hidden;
@@ -92,7 +96,7 @@
   font-size: 1vw;
   padding: 0 0.5vw;
   display: block;
-  color: #fff;
+  color: var(--white);
   letter-spacing: 0.1vw;
 }
 

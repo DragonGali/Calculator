@@ -1,13 +1,36 @@
 .HODSystem .wrapper {
     width: 23vw;
-    height: 20vh;
+    height: 30vh;
+    overflow: visible;
+}
+
+.HODSystem .title-box {
+    margin-left: 5vw;
+    width: 12vw;
 }
 
 .horizontal-container {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: row;
+    height: 5vh;
+    gap: 0.5vw;
 }
 
+.vertical-container {
+    display: flex;
+    flex-flow: column;
+    gap: 2vh
+
+}
+
+.type-box {
+    width: 5vw;
+    height: 5.5vh;
+    padding-top: 1vh;
+}
+
+.checkbox {
+    padding-top: 5vh;
+}
 
 
