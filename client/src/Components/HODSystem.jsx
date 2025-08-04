@@ -22,7 +22,7 @@ function HODSystem () {
 
      return ( <div className="HODSystem">
         <div className="title-box">
-                <p>HOD System</p>
+            <p>HOD System</p>
         </div>
         <div className="wrapper">
             <div className="vertical-container">
@@ -51,7 +51,7 @@ function HODSystem () {
                     <div className="type-box">
                         <p>Branch:</p>
                     </div>
-                   <InputField/>
+                   <InputField placeholder='' value={1}/>
                 </div>
             </div>
         </div>

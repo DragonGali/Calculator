@@ -40,7 +40,8 @@
 
 /* Batman styles */
 .txtbx__field--batman {
-  color: var(--primary);
+  color: var(--text);
+  font-size: 1vw;
 }
 
 .txtbx__field--batman:focus + .txtbx__label--batman .txtbx__label-content--batman,
@@ -50,6 +51,7 @@
 
 .txtbx__label--batman {
   color: var(--text);
+  font-size: 1vw;
 }
 
 .txtbx__label--batman::before {
