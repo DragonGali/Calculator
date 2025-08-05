@@ -11,14 +11,14 @@ function ChooseAplication () {
 
 
      return ( <div className="ChooseApplication">
-        <div className="wrapper">
-            <div className="title-box">
+        <div className="title-box">
                 <p>Choose Application</p>
-            </div>
+        </div>
+        <div className="wrapper">
             <div className="radio-buttons">
                 <form>
                     {options.map((option) => (
-                        <label>
+                        <label className='form-control'>
                             <input
                             type="radio"
                             name="Application"
@@ -31,7 +31,7 @@ function ChooseAplication () {
                         </label>
                     ))}
                     <hr />
-                    <label>
+                    <label className='form-control'>
                             <input
                             type="radio"
                             name="Application"

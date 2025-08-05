@@ -1,21 +1,37 @@
 #flex-container {
   display: flex;
   flex-flow: column;
-  width: 100%;
+  width: 80%;
   height: 100vh;
-  gap: 5vh;
+  gap: 1vh;
+  margin-left: 10vw;
+  margin-top: 1vh;
 }
 
 
-#atlantium-logo {
-  width: 100vw;
-  height: 20vh;
+#atlantium-img {
+  width: 100%;
+}
+
+.systems-container {
   display: flex;
-  align-items: center;
-  background-image: url("/AtlantiumLogo_Long.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: 1vh;
+  margin-left: 1vw;
+}
+
+@media screen and (max-width: 800px) {
+  #flex-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .systems-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  
 }
 
 

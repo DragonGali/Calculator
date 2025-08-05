@@ -1,0 +1,77 @@
+/* AnimatedCheckbox.css */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+
+* {
+  font-family: 'Inter-Light';
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.buttons {
+  font-size: 5vw;
+}
+
+
+
+.CheckBox label {
+  cursor: pointer;
+  color: var(--primary);
+  display: block;
+}
+
+.label-text {
+    color: var(--text);
+    font-size: 1.2vw;
+}
+
+
+.label-text:before {
+    display: none;
+}
+
+input[type="checkbox"] + .label-text:before {
+  content: "\f096";
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-size: 1.8vw;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  width: 0em;
+  display: inline-block;
+  margin-right: 2vw;
+  color: var(--primary);
+}
+
+
+input[type="checkbox"]:checked + .label-text:before {
+  content: "\f14a";
+  color: var(--heightlight);
+  animation: tick 150ms ease-in;
+}
+
+
+
+input[type="checkbox"]:disabled + .label-text:before {
+  content: "\f0c8";
+}
+
+@keyframes tick {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-height: 1000px) {
+  .input[type="checkbox"] + .label-text:before {
+    font-size: 4vh;
+  }
+}
+

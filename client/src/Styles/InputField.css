@@ -1,0 +1,93 @@
+/* Batman Input Styles */
+.txtbx {
+  display: inline-block;
+  position: relative;
+  background-color: var(--white);
+  font-size: 1rem;
+  margin: 0.5em;
+  height: 4vh;
+}
+
+.txtbx__field {
+  border: none;
+  width: 7vw;
+  font-size: 1em;
+  padding: 0.3em;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: transparent;
+}
+
+.txtbx__field:focus {
+  outline: none;
+}
+
+.txtbx__label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.8em;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+}
+
+.txtbx__label-content {
+    padding: 0.5em;
+}
+
+/* Batman styles */
+.txtbx__field--batman {
+  color: var(--text);
+  font-size: 1vw;
+}
+
+.txtbx__field--batman:focus + .txtbx__label--batman .txtbx__label-content--batman,
+.txtbx--batman.filled .txtbx__label-content--batman {
+  transform: scale(0);
+}
+
+.txtbx__label--batman {
+  color: var(--text);
+  font-size: 1vw;
+}
+
+.txtbx__label--batman::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  border: 4px solid var(--primary);
+  border-right: none;
+  box-sizing: border-box;
+  transition: transform 150ms ease-in-out;
+}
+
+.txtbx__field--batman:focus + .txtbx__label--batman::before {
+  transform: translateX(-5px);
+}
+
+.txtbx__label--batman::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  border: 4px solid var(--primary);
+  border-left: none;
+  box-sizing: border-box;
+  transition: transform 150ms ease-in-out;
+}
+
+.txtbx__field--batman:focus + .txtbx__label--batman::after {
+  transform: translateX(5px);
+}
+
+.txtbx__label-content--batman {
+  transition: transform 150ms ease-in-out;
+}

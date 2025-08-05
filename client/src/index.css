@@ -5,10 +5,17 @@
   --text: #171919;
   --white: #FFFFFF;
   --grey-blue: #D4D6E0;
-  --blue-text:#D4D6E0;
+  --blue-text:#4A6678;
   --title-box: #597991;
 
   background-color: var(--background);
+}
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -33,8 +40,9 @@
     position: relative;
     border-color: var(--primary);
     border-style: solid;
-    border-radius: 10px;
+    border-radius: 1rem;
     box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.4);
+    overflow: hidden;
 }
 
 
@@ -42,13 +50,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative;
   background-color: var(--title-box);
   height: 5vh;
-  top: -3vh;
   z-index: 1; border-radius: 4px;
   box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
-  padding: 0 1vw;
+  margin-bottom: -3vh;
 }
 
 .title-box p {
@@ -60,40 +67,39 @@
 
 /* Forms */
 
-form {
+.ChooseApplication form {
   display: flex;
   flex-wrap: wrap;
+  gap: 1vh;
   flex-direction: column;
   overflow: hidden;
 }
+
 
 label {
   display: flex;
   cursor: pointer;
   font-family: "Inter-Light";
   position: relative;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1vmax;
+  font-size: 1vw;
   color: var(--text);
 }
 
 /* Hidden input */
 label input {
   position: absolute;
-  left: -9999px;
+  visibility: hidden;
 }
 
 
-label input:checked + span:before {
+.ChooseApplication label input:checked + span:before {
   box-shadow: inset 0 0 0 0.5vw var(--highlight);
 }
 
 /* Radio button visual */
-label span {
+.ChooseApplication label span {
   display: flex;
   align-items: center;
-  padding: 0.3vw 0.7vw 0.375vw 0.375vw;
   border-radius: 99vw;
   white-space: nowrap;
 }
@@ -102,25 +108,37 @@ label span:hover {
   background-color: var(--grey-blue);
 }
 
-label span:before {
+.ChooseApplication label span:before {
   display: flex;
-  flex-shrink: 0;
+  gap: clamp(5px, 0.5vw + 1vh, 28px);
   content: "";
-  width: 1.7vw;
-  height: 1.7vw;
+  width: 1.7em;
+  height: 1.7em;
   border-radius: 50%;
   margin-right: 0.7em;
   box-shadow: inset 0 0 0 0.2vw var(--primary);
   transition: box-shadow 0.25s ease;
 }
 
-form hr {
+.ChooseApplication form hr {
   border: none;
   border-top: 0.4vh solid var(--primary);
   margin: 1vh 1vw;
   width: 100%;
 }
 
+.type-box {
+  font-family: "Inter-Medium";
+  font-weight: bold;
+  border-style: solid;
+  border-color: var(--primary);
+  color: var(--blue-text);
+  text-align: center;
+  justify-content: center;
+  font-size: 1vw;
+  overflow: hidden;
+  min-height: 30px;
+}
 
 
 
