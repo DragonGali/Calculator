@@ -18,7 +18,7 @@ const Checkbox = ({
   };
 
   return (
-    <div className="buttons">
+    <div className="check-box">
       {items.map((item, index) => (
         <React.Fragment key={item.id}>
           <label>

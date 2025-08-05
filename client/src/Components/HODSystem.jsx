@@ -12,6 +12,13 @@ function HODSystem () {
     height: window.innerHeight
   });
 
+  const [pressedButton, setPressedButton] = useState(null);
+
+  const handleClick = (button) => {
+    setPressedButton(button);
+  };
+
+
   useEffect(() => {
     const handleResize = () => {
       setSize({ width: window.innerWidth, height: window.innerHeight });
@@ -32,7 +39,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.modules]}
-                    height={size.height * 0.051} width={size.width * 0.15}
+                    height={size.height * 0.047} width={size.width * 0.15}
                     placeholder={data.modules[0].label}
                     />
                 </div>
@@ -42,7 +49,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.model]}
-                    height={size.height * 0.051} width={size.width * 0.08}
+                    height={size.height * 0.047} width={size.width * 0.08}
                     placeholder={data.model[0].label}
                     />
                     <Checkbox items={[{ id: 1, text: 'Vertical', disabled: false }]} className="checkbox" />
@@ -51,7 +58,19 @@ function HODSystem () {
                     <div className="type-box">
                         <p>Branch:</p>
                     </div>
-                   <InputField placeholder='' value={1}/>
+                   <InputField placeholder='' value={1} height={size.height* 0.05} width={size.width * 0.08}/>
+                   <div className="type-box">
+                        <p>[Units]</p>
+                    </div>
+                </div>
+                <div className='horizontal-container'>
+                    {data.HODButtons.map((button, index) => (
+                        <div className="buttons" key={index}>
+                            <div className={`button ${pressedButton === button ? 'IsPressed' : ''}`} onClick={() => handleClick(button)}>
+                                <p>{button}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

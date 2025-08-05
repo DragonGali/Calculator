@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import ChooseApplication from './Components/ChooseApplication.jsx'
 import HODSystem from './Components/HODSystem.jsx'
+import CalculatrVersion from './Components/CalculatorVersion.jsx'
 import './App.css'
 
 // const URL = 'https://dummyjson.com/test';
@@ -27,6 +28,7 @@ function App() {
       <div className="systems-container">
         <ChooseApplication id="choose-application"/>
         <HODSystem id="hod-system"/>
+        <CalculatrVersion id="calculator-version"/>
       </div>
     </div>
   </div>

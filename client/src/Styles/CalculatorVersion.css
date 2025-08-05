@@ -1,0 +1,11 @@
+.CalculatorVersion .wrapper {
+    width: 22vw;
+    height: 13vh;
+    min-height: 50px;
+}
+
+.CalculatorVersion .title-box {
+    margin-left: 5vw;
+    width: 12vw;
+    min-height: 20px;
+}

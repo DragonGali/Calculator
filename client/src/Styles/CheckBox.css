@@ -8,39 +8,40 @@
   user-select: none;
 }
 
-.buttons {
-  font-size: 5vw;
+.check-box {
+  font-size: 3vw;
 }
 
 
 
-.CheckBox label {
+.check-box label {
   cursor: pointer;
   color: var(--primary);
   display: block;
+  margin-top: 1.9vh;
 }
 
-.label-text {
+.check-box .label-text {
     color: var(--text);
-    font-size: 1.2vw;
+    font-size: 1.1vw;
 }
 
 
-.label-text:before {
+.check-box .label-text:before {
     display: none;
 }
 
-input[type="checkbox"] + .label-text:before {
+.check-box [type="checkbox"] + .label-text:before {
   content: "\f096";
   font-family: "FontAwesome";
   font-style: normal;
-  font-size: 1.8vw;
+  font-size: 1.6vw;
   font-variant: normal;
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   width: 0em;
   display: inline-block;
-  margin-right: 2vw;
+  margin-right: 1.6vw;
   color: var(--primary);
 }
 

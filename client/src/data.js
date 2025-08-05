@@ -1,4 +1,11 @@
 const data = {
+
+    options: [
+        'Full Range UV Systems',
+        'Medium Pressure UV Systems',
+        'Decholoration | Ozone Decomposition'
+    ],
+
     modules: [
         { value: "RZ-163", label: "RZ-163" },
         { value: "RZ-163-UHP", label: "RZ-163-UHP" },
@@ -7,6 +14,8 @@ const data = {
         { value: "WW module", label: "WW module" }
     ],
     model: [{value: "11", label: "11"}, {value: "12", label: "12"}, {value: "13", label: "13"}, {value: "14", label: "14"}],
+
+    HODButtons: ['Regular', 'Ozone Free', 'VUV']
 }
 
 export default data;
