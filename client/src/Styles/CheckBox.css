@@ -1,4 +1,4 @@
-/* AnimatedCheckbox.css */
+/* I must use this font for the checkbox to look right */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 
@@ -18,7 +18,7 @@
   cursor: pointer;
   color: var(--primary);
   display: block;
-  margin-top: 1.9vh;
+  margin-top: 1.5vh;
 }
 
 .check-box .label-text {

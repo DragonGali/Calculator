@@ -43,6 +43,8 @@
     border-radius: 1rem;
     box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.4);
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -81,7 +83,7 @@ label {
   cursor: pointer;
   font-family: "Inter-Light";
   position: relative;
-  font-size: 0.9vw;
+  font-size: min(0.9vw, 1em);
   color: var(--text);
 }
 
@@ -104,7 +106,8 @@ label input {
   white-space: nowrap;
 }
 
-label span:hover {
+label:hover {
+  border-radius: 10px;
   background-color: var(--grey-blue);
 }
 
@@ -133,11 +136,11 @@ label span:hover {
   border-style: solid;
   border-color: var(--primary);
   color: var(--blue-text);
+  font-size: 0.9vw;
   text-align: center;
   justify-content: center;
-  font-size: 0.9vw;
   overflow: hidden;
-  min-height: 25px;
+  max-height: 4.5vh;
 }
 
 

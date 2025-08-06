@@ -14,6 +14,11 @@ function ChooseAplication () {
             <div className="radio-buttons">
                 <form>
                     {data.options.map((option, index) => (
+                        /*Im using "Fragment here, since I want to put a line (hr)
+                        in the middle of the radio buttons while still mapping all of them.
+                        I have to use it because when you map normally you can only return one
+                        component.
+                        */
                         <Fragment key={index}>
                             {index === data.options.length - 1 && <hr />}
                             <label className='form-control'>

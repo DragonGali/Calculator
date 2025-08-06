@@ -1,0 +1,25 @@
+import { useState, useEffect, Fragment} from 'react'
+import '../Styles/PathogenInactivation.css';
+import data from "../data";
+
+function PathogenInactivation () {
+
+  const [pressedButton, setPressedButton] = useState(null);
+
+    const handleClick = (button) => {
+    setPressedButton(button);
+  }
+   
+
+  return ( <div className="PathogenInactivation">
+    <div className="title-box">
+            <p>Plot Figures</p>
+    </div>
+    <div className="wrapper">
+    </div>
+    
+    </div>
+  
+  )}
+
+export default PathogenInactivation;

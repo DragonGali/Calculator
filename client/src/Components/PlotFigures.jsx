@@ -1,8 +1,8 @@
 import { useState, useEffect, Fragment} from 'react'
-import '../Styles/CalculatorVersion.css';
+import '../Styles/PlotFigures.css';
 import data from "../data";
 
-function CalculatorVersion () {
+function PlotFigures () {
 
   const [pressedButton, setPressedButton] = useState(null);
 
@@ -11,13 +11,13 @@ function CalculatorVersion () {
   }
    
 
-  return ( <div className="CalculatorVersion">
+  return ( <div className="PlotFigures">
     <div className="title-box">
-            <p>Calculator Version</p>
+            <p>Plot Figures</p>
     </div>
     <div className="wrapper">
-        <div className='horizontal-container'>
-                {data.CalculatorVersionButtons.map((button, index) => (
+        <div className='vertical-container'>
+                {data.PlotFiguresButtons.map((button, index) => (
                     <div className='button' onClick={() => handleClick(button)}>
                             <p>{button}</p>
                     </div>
@@ -29,4 +29,4 @@ function CalculatorVersion () {
   
   )}
 
-export default CalculatorVersion;
+export default PlotFigures;

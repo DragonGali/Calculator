@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../Styles/CheckBox.css';
 
-const Checkbox = ({ 
+const Checkbox = ({//I ended up needing only one checkbox, but it can handle more
   items = [
     { id: 1, text: 'Item One', disabled: false },
     { id: 2, text: 'Item Two', disabled: false },
@@ -10,6 +10,7 @@ const Checkbox = ({
 }) => {
   const [checkedItems, setCheckedItems] = useState({});
 
+  //function that updates all checked checkboxes when clicked
   const handleCheckboxChange = (id) => {
     setCheckedItems(prev => ({
       ...prev,

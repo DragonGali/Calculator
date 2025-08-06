@@ -1,11 +1,36 @@
 .CalculatorVersion .wrapper {
+    min-height: 90px;
+}
+
+.CalculatorVersion {
     width: 22vw;
-    height: 13vh;
-    min-height: 50px;
 }
 
 .CalculatorVersion .title-box {
     margin-left: 5vw;
     width: 12vw;
     min-height: 20px;
+}
+
+.CalculatorVersion .horizontal-container {
+    display: flex;
+    flex-flow: row;
+    gap: 1vw;
+    margin-top: 1vh;
+    text-align: center;
+}
+
+.CalculatorVersion .button {
+    background-color: var(--white);
+    border: solid var(--primary) 0.2em;
+    border-radius: 0.5em;
+    padding: 2vh 2vw 2vh 2vw;
+    font-size: 0.9vw;
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    cursor: pointer;
+}
+
+.CalculatorVersion .button:hover {
+    filter: brightness(1.3);
 }

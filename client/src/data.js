@@ -1,3 +1,5 @@
+import PlotFigures from "./Components/PlotFigures";
+
 const data = {
 
     options: [
@@ -15,7 +17,11 @@ const data = {
     ],
     model: [{value: "11", label: "11"}, {value: "12", label: "12"}, {value: "13", label: "13"}, {value: "14", label: "14"}],
 
-    HODButtons: ['Regular', 'Ozone Free', 'VUV']
+    HODButtons: ['Regular', 'Ozone Free', 'VUV'],
+
+    CalculatorVersionButtons: ['Developer', 'Marketing'],
+
+    PlotFiguresButtons: ['PlotPlot Red = f(UVT)', 'Plot Red = f(Flow)', 'Plot Red = f(Rel.Drive)']
 }
 
 export default data;

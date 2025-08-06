@@ -7,6 +7,7 @@ import '../Styles/HODSystem.css';
 import data from "../data";
 
 function HODSystem () {
+    //This function updates the width and height variable that I use based on the screen sizes
     const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight
@@ -14,6 +15,7 @@ function HODSystem () {
 
   const [pressedButton, setPressedButton] = useState(null);
 
+  //Changes which button is currently pressed
   const handleClick = (button) => {
     setPressedButton(button);
   };
@@ -23,6 +25,10 @@ function HODSystem () {
     const handleResize = () => {
       setSize({ width: window.innerWidth, height: window.innerHeight });
     };
+
+    //Sets the first button as clicked from the start
+    handleClick(data.HODButtons[0]);
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -39,7 +45,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.modules]}
-                    height={size.height * 0.047} width={size.width * 0.15}
+                    height={size.height * 0.047} width={size.width * 0.15}//setting size of the component
                     placeholder={data.modules[0].label}
                     />
                 </div>
@@ -66,7 +72,7 @@ function HODSystem () {
                 <div className='horizontal-container'>
                     {data.HODButtons.map((button, index) => (
                         <div className="buttons" key={index}>
-                            <div className={`button ${pressedButton === button ? 'IsPressed' : ''}`} onClick={() => handleClick(button)}>
+                            <div className={`button ${pressedButton === button ? 'IsPressed' : 'NotPressed'}`} onClick={() => handleClick(button)}>
                                 <p>{button}</p>
                             </div>
                         </div>

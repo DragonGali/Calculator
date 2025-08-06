@@ -16,11 +16,13 @@
 .systems-container {
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
-  gap: 1vh;
-  margin-left: 1vw;
+  gap: 3vh;
+  height: 80%;
+  width: 100%;
 }
 
+
+/* When the screen isnt wide enough, the container takes all of the screen */
 @media screen and (max-width: 800px) {
   #flex-container {
     width: 100%;

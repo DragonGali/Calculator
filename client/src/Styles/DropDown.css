@@ -40,6 +40,7 @@
   backface-visibility: hidden;
   user-select: none;
   min-height: 25px;
+
 }
 
 .dropdown.active .dropdown-label {

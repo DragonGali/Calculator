@@ -5,6 +5,7 @@
   background-color: var(--white);
   font-size: 0.9rem;
   min-height: 30px;
+  max-height: 4.5vh;
 }
 
 .txtbx__field {
