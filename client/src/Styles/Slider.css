@@ -1,0 +1,115 @@
+/* Range Slider Container */
+.range-slider-container {
+  position: relative;
+  padding-top: 4vh; /* Space for the display box */
+}
+
+/* Value Display Box */
+.range-value-display {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: var(--text);
+  line-height: 4.5vh;
+  text-align: center;
+  border-radius: 0.3vw;
+  background: var(--white);
+  padding: 0.5vh 0.5vw;
+  font-family: 'Inter-Light';
+  font-size: 0.9vw;
+  font-weight: bold;
+  border-color: var(--primary);
+  border-style: solid;
+  border-width: 0.1rem;
+  z-index: 1;
+  min-height: 20px;
+}
+
+/* Range Slider Input */
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1vh;
+  border-radius: 0.5vw;
+  background: var(--grey-blue);
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 2; /* Higher z-index to appear above the display box */
+  min-height: 5px;
+  max-height: 10px;
+}
+
+/* Webkit Browsers (Chrome, Safari, Edge) */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.7vw;
+  height: 1.5vh;
+  border-radius: 50%;
+  background: var(--highlight);
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+  position: relative;
+  z-index: 3; /* Highest z-index to ensure it's on top */
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  background: var(--slider-hover);
+}
+
+.range-slider:active::-webkit-slider-thumb {
+  background: var(--slider-hover);
+}
+
+/* Firefox */
+.range-slider::-moz-range-thumb {
+  width: 0.7vw;
+  height: 1.5vh;
+  border: 0;
+  border-radius: 50%;
+  background: var(--highlight);
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+  position: relative;
+  z-index: 3;
+}
+
+.range-slider::-moz-range-thumb:hover {
+  background: var(--slider-hover);
+}
+
+.range-slider:active::-moz-range-thumb {
+  background: var(--slder-hover);
+}
+
+.range-slider::-moz-range-track {
+  background: var(--grey-blue);
+  border: 0;
+  height: 1vh;
+  border-radius: 0.5vw;
+}
+
+/* Focus State */
+.range-slider:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 0.2vw var(--white), 0 0 0 0.4vw var(--slider-hover);
+}
+
+/* Remove Focus Outline on Firefox */
+.range-slider::-moz-focus-inner,
+.range-slider::-moz-focus-outer {
+  border: 0;
+}
+
+
+@media screen and (max-height:400px) {
+    .range-slider-container {
+        padding-top: 2.5vh;
+    }
+}

@@ -45,7 +45,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.modules]}
-                    height={size.height * 0.047} width={size.width * 0.15}//setting size of the component
+                    height={size.height * 0.047} width={size.width * 0.136}//setting size of the component
                     placeholder={data.modules[0].label}
                     />
                 </div>

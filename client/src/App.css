@@ -23,7 +23,18 @@
 
 
 /* When the screen isnt wide enough, the container takes all of the screen */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 600px) {
+  #flex-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .systems-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+
   #flex-container {
     width: 100%;
     margin-left: 0;

@@ -21,7 +21,17 @@ const data = {
 
     CalculatorVersionButtons: ['Developer', 'Marketing'],
 
-    PlotFiguresButtons: ['PlotPlot Red = f(UVT)', 'Plot Red = f(Flow)', 'Plot Red = f(Rel.Drive)']
+    PlotFiguresButtons: ['PlotPlot Red = f(UVT)', 'Plot Red = f(Flow)', 'Plot Red = f(Rel.Drive)'],
+
+    Specifications: {
+        top: [
+            ['Lamp Efficiency:', 25 , 100, '[% Efficiency]'],
+            ['Relative Drive:', 40, 100, '[% Power]'],
+            ['UVT-1cm @254nm:', 25, 99, '[%-1cm]'],
+            ['UVT-1cm @215nm:', 0, 99, '[%-1cm]']
+        ]
+        
+    }
 }
 
 export default data;
