@@ -1,37 +1,89 @@
 .HODSystem .wrapper {
-    width: 23vw;
-    height: 30vh;
     overflow: visible;
+}
+
+.HODSystem {
+    min-height: 30vh;
+    width: 22vw;
 }
 
 
 .HODSystem .title-box {
     margin-left: 5vw;
     width: 12vw;
+    min-height: 20px;
 }
 
 .HODSystem .horizontal-container {
     display: flex;
     flex-flow: row;
-    height: 5vh;
     gap: 0.5vw;
+    min-height: 20px;
+    max-height: 4.5vh;
 }
 
 .HODSystem .vertical-container {
     display: flex;
     flex-flow: column;
-    gap: 2vh
-
+    gap: 1.5vh;
+    margin-top: 2vh;
+    min-height: 100px;
 }
 
 .HODSystem .type-box {
-    width: 5vw;
-    height: 5.5vh;
-    padding-top: 1vh;
+    padding: 0.5vh 1vw 0.5vh 1vw;
 }
 
 .HODSystem .checkbox {
     padding-top: 5vh;
 }
 
+.HODSystem .buttons {
+    display: flex;
+    flex-flow: row;
+    gap: 1vw;
+}
+
+.HODSystem .button  {
+    background-color: var(--background);
+    font-size: 0.9vw;
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    padding: 0.5vh 1vw;
+    border: 3px solid var(--primary);
+    color: var(--blue-text);
+    border-radius: 0.7em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-height: 25px;
+}
+
+.HODSystem .button.IsPressed {
+    background-color: var(--highlight);
+    color: var(--white);
+}
+
+.HODSystem .button.NotPressed:hover {
+    filter: brightness(1.1);
+}
+
+.HODSystem .button p {
+    text-align: center;
+    padding-top: 0.4vh;
+}
+
+@media screen and (max-height: 320px) {
+
+    .HODSystem .wrapper {
+        min-height: 55vh;
+    }
+
+    .HODSystem .vertical-container {
+        margin-top: 0vh;
+        gap: 0.1vw;
+    }
+
+
+    
+}
 

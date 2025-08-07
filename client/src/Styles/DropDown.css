@@ -25,7 +25,7 @@
 .dropdown-label {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   color: var(--text);
-  font-size: calc(1vh + 0.5vw);
+  font-size: 0.9vw;
   background: var(--white);
   border-style: solid;
   border-color: var(--primary);
@@ -39,7 +39,8 @@
   transition: transform 300ms;
   backface-visibility: hidden;
   user-select: none;
-  min-height: 30px;
+  min-height: 25px;
+
 }
 
 .dropdown.active .dropdown-label {
@@ -54,7 +55,7 @@
   width: 2.3vw;
   text-align: center;
   font-size: 1.5vh;
-  padding: 0.2vh;
+  padding: 0.5vh;
   height: 70%;
   line-height: 24px;
   border-left: 1px solid #ddd;
@@ -93,7 +94,7 @@
   backface-visibility: hidden;
   user-select: none;
   width: 100%;
-  font-size: 1vw;
+  font-size: 0.9vw;
   padding: 0 0.5vw;
   display: block;
   color: var(--white);
@@ -103,6 +104,12 @@
 
 html {
   line-height: 1.2;
+}
+
+@media screen and (max-height: 400px){
+  .dropdown-arrow {
+    font-size: 0.7vw;
+  }
 }
 
 

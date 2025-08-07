@@ -1,13 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment} from 'react'
 import '../Styles/ChooseApplication.css';
+import data from "../data";
 
 function ChooseAplication () {
     const [selectedOption, setSelectedOption] = useState('');
-
-    const options = [
-        'Full Range UV Systems',
-        'Medium Pressure UV Systems',
-    ]
 
 
      return ( <div className="ChooseApplication">
@@ -17,30 +13,26 @@ function ChooseAplication () {
         <div className="wrapper">
             <div className="radio-buttons">
                 <form>
-                    {options.map((option) => (
-                        <label className='form-control'>
-                            <input
-                            type="radio"
-                            name="Application"
-                            value={option}
-                            onChange={(e) => {setSelectedOption(e.target.value)}}
-                            checked={selectedOption === option}
-                            key={options.indexOf(option)}>
-                            </input>
-                            <span>{option}</span>
-                        </label>
+                    {data.options.map((option, index) => (
+                        /*Im using "Fragment here, since I want to put a line (hr)
+                        in the middle of the radio buttons while still mapping all of them.
+                        I have to use it because when you map normally you can only return one
+                        component.
+                        */
+                        <Fragment key={index}>
+                            {index === data.options.length - 1 && <hr />}
+                            <label className='form-control'>
+                                <input
+                                    type="radio"
+                                    name="Application"
+                                    value={option}
+                                    onChange={(e) => {setSelectedOption(e.target.value)}}
+                                    checked={selectedOption === option}
+                                />
+                        <   span>{option}</span>
+                            </label>
+                    </Fragment>
                     ))}
-                    <hr />
-                    <label className='form-control'>
-                            <input
-                            type="radio"
-                            name="Application"
-                            value="Decholoration | Ozone Decomposition"
-                            onChange={(e) => {setSelectedOption(e.target.value)}}
-                            checked={selectedOption === "Decholoration | Ozone Decomposition"}>
-                            </input>
-                            <span>{"Decholoration | Ozone Decomposition"}</span>
-                    </label>
                     
                 </form>
             </div>

@@ -7,7 +7,9 @@ const InputField = ({
   value, 
   onChange,
   name,
-  id 
+  id,
+  width = 115,
+  height = 30
 }) => {
   const [inputValue, setInputValue] = useState(value || '');
   const [focused, setFocused] = useState(false);
@@ -21,7 +23,7 @@ const InputField = ({
   };
 
   return (
-    <div className={`txtbx txtbx--batman ${inputValue.length > 0 ? 'filled' : ''}`}>
+    <div className={`txtbx txtbx--batman ${inputValue.length > 0 ? 'filled' : ''}`} style={{ width: `${width}px`, height: `${height}px` }}>
       <input
         type={type}
         name={name}

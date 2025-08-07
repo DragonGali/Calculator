@@ -1,0 +1,20 @@
+.Specifications {
+    min-height: 30vh;
+    width: 30vw;
+}
+
+.Specifications .title-box {
+    margin-left: 5vw;
+    width: 12vw;
+    min-height: 20px;
+}
+
+.Specifications .vertical-container {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5vh;
+}
+
+.Specifications .type-box {
+    padding: 1vh 4vw 1vh 4vw;
+}

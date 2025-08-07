@@ -1,21 +1,20 @@
 .radio-buttons {
-    position: absolute;
-    top: 50%;  /* adjust as needed */
-    left: 45%;
-    transform: translate(-50%, -50%); /* centers text */
+    margin-right: 3vw;
     overflow: hidden;
+}
+
+.ChooseApplication {
+    width: 22vw;
 }
 
 
 .ChooseApplication .wrapper {
-    width: 23vw;
-    height: 25vh;
-    min-height: 95px;
+    min-height: 120px;
 }
 
 .ChooseApplication .title-box {
     margin-left: 5vw;
     width: 12vw;
-    min-height: 20px;
+    min-height: 18px;
 }
 
