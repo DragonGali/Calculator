@@ -17,7 +17,7 @@ function CalculatorVersion () {
     </div>
     <div className="wrapper">
         <div className='horizontal-container'>
-                {data.CalculatorVersionButtons.map((button, index) => (
+                {data.CalculatorVersionButtons.map((button, key) => (
                     <div className='button' onClick={() => handleClick(button)}>
                             <p>{button}</p>
                     </div>

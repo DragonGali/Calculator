@@ -149,7 +149,14 @@ label:hover {
   align-items: center;
   justify-content: center;
   
-  overflow: hidden;
+  overflow: hidden; 
+}
+
+p{
+  user-select: text !important;
+  -webkit-user-select: text !important; /* Safari */
+  -moz-user-select: text !important;    /* Firefox */
+  -ms-user-select: text !important; 
 }
 
 

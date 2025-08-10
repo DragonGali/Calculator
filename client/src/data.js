@@ -42,10 +42,14 @@ const data = {
 
                 buttons: ["Reset To Default Values", "Flow For Target Dose"]
         }
+    },
 
-        
-        
-    }
+    Results: [
+        {fieldName: "Reduction Equivalent Dose (RED):", value: 67.6, scale: "[mj/cm²]"},
+        {fieldName: "Head Loss (on HOD Systems Only):", value: 0.03, options: [{value: "[m/H₂O]", label: "[m/H₂O]"}, {value: "[cm/H₂O]", label: "[cm/H₂O]"}, {value: "[in/H₂O]", label: "[in/H₂O]"}, {value: "[bar]", label: "[bar]"}, {value: "[PSI]", label: ["PSI"]}]},
+        {fieldName: "Maximum Electrical Power:", value: 1.705, scale: "[kW]"},
+        {fieldName: "Est. avg. lamp power consumption:", value: 1.534, scale: "[kW]"}
+    ]
 }
 
 export default data;
