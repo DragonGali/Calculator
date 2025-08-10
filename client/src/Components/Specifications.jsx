@@ -3,8 +3,13 @@ import '../Styles/Specifications.css';
 import data from "../data";
 
 import Slider from '../Components/Slider.jsx'
+import DropDown from '../Components/DropDown.jsx'
 
 function Specifications () {
+
+  //All the texts that are used in the buttons and dropdowns.
+  const topData = data.Specifications.top;
+  const bottomData = data.Specifications.bottom;
 
   const [pressedButton, setPressedButton] = useState(null);
 
@@ -35,7 +40,7 @@ function Specifications () {
     </div>
     <div className="wrapper">
         <div className="vertical-container">
-                {data.Specifications.top.map((field,index) => (
+                {topData.map((field,index) => (
                   <div className="horizontal-container">
                     <div className="type-box">
                         <p>{field[0]}</p>
@@ -44,9 +49,26 @@ function Specifications () {
                     <div className="type-box">
                         <p>{field[3]}</p>
                     </div>
+                    
                 </div>
                 ))}
                 <hr className='line'></hr>
+                <div className='horizontal-container'>
+                    <div className='type-box'>
+                      <p>{bottomData.fieldName}</p>
+                    </div>
+                    <Slider width={size.width * 0.05} height={size.height * 0.05} min={bottomData.ranges[0].min} max={bottomData.ranges[0].max}></Slider>
+                    <DropDown options={[...bottomData.options]}
+                    width={size.width * 0.1} height={size.height * 0.055}
+                    placeholder={bottomData.options[0].value}></DropDown>
+                </div>
+                <div className='horizontal-container'>
+                  {bottomData.buttons.map((button, index) => (
+                    <div className='button' onClick={() => handleClick(button)}>
+                            <p>{button}</p>
+                    </div>
+                ))}
+                </div>
         <div/>
     </div>
     </div>
