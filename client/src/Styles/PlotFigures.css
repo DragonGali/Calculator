@@ -15,7 +15,7 @@
     border: solid var(--primary) 0.2em;
     border-radius: 2em;
     padding: 1vh 4vw 1vh 4vw;
-    font-size: 0.9vw;
+    font-size: var(--font-regular);
     font-weight: bold;
     font-family: 'Inter-Medium';
     cursor: pointer;

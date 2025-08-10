@@ -19,7 +19,7 @@
   background: var(--white);
   padding: 0.5vh 0.5vw;
   font-family: 'Inter-Light';
-  font-size: 0.9vw;
+  font-size: var(--font-regular);
   font-weight: bold;
   border-color: var(--primary);
   border-style: solid;

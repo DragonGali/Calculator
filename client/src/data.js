@@ -29,7 +29,21 @@ const data = {
             ['Relative Drive:', 40, 100, '[% Power]'],
             ['UVT-1cm @254nm:', 25, 99, '[%-1cm]'],
             ['UVT-1cm @215nm:', 0, 99, '[%-1cm]']
-        ]
+        ],
+
+        bottom: {
+                fieldName: "Flow rate:",
+
+                options: [
+                    {value: "[m³/hr]", label: "[m³/hr]"},
+                    {value: "[US GPM]", label: "[US GPM]"}],
+
+                ranges: [{min: 30, max: 360}, {min: 132, max: 1585}],
+
+                buttons: ["Reset To Default Values", "Flow For Target Dose"]
+        }
+
+        
         
     }
 }
