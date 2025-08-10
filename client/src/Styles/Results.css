@@ -1,0 +1,56 @@
+.Results {
+    width: 30vw;
+}
+
+.Results .wrapper {
+    overflow: visible;
+}
+
+
+.Results .vertical-container {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5vh;
+    margin-top: 2vh;
+}
+
+.Results .type-box {
+    height: 5vh;
+    width: 16vw;
+}
+
+.Results .small {
+    width: 7vw;
+}
+
+.Results .horizontal-container {
+    display: flex;
+    flex-flow: row;
+    gap: 0.5vw;
+}
+
+.Results .value-box {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text);
+    font-family: 'Inter-Light';
+    font-weight: bold;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: var(--primary);
+    border-width: 0.1em;
+    width: 4vw;
+    height: 5.5vh;
+    font-size: var(--font-regular);
+}
+
+.Results .line {
+     border: none;
+     border-top: 0.4vh solid var(--primary);
+     margin-top: 1vh;
+     margin-bottom: 1vh;
+     width: 100%;
+}
