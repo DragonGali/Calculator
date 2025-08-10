@@ -27,8 +27,6 @@
     display: flex;
     flex-flow: row;
     gap: 0.5vw;
-    min-height: 20px;
-    max-height: 10vh;
 }
 
 .Results .value-box {
