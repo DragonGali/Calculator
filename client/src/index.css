@@ -55,9 +55,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   position: relative;
   background-color: var(--title-box);
-  height: 4vh;
+  padding: 1vh;
   margin-left: 50%;
   transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
@@ -69,7 +70,7 @@
 .title-box p {
     font-family: 'Inter-Medium';
     color: var(--white);
-    font-size: 0.9vw;
+    font-size: var(--font-regular);
     margin: 0;
 }
 

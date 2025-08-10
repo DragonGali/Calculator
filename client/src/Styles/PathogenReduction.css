@@ -1,0 +1,18 @@
+.PathogenReduction .title-box {
+    width: 20vw;
+}
+
+.PathogenReduction .vertical-container {
+    margin-top: 3vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.PathogenReduction .container {
+    width: 25vw;
+    height: 30vh;
+    border: solid 0.1em var(--primary);
+    border-radius: 1em;
+}

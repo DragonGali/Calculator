@@ -13,11 +13,15 @@ function PathogenReduction () {
 
   return ( <div className="PathogenReduction">
     <div className="title-box">
-            <p>Plot Figures</p>
+            <p>Pathogens - Log Reduction Dosage [mJ/cm²]</p>
     </div>
     <div className="wrapper">
+      <div className='vertical-container'>
+          <div className='container'>
+        
+          </div>
+      </div>
     </div>
-    
     </div>
   
   )}
