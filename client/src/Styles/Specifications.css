@@ -1,20 +1,32 @@
 .Specifications {
-    min-height: 30vh;
-    width: 30vw;
+    width:30vw;
 }
 
-.Specifications .title-box {
-    margin-left: 5vw;
-    width: 12vw;
-    min-height: 20px;
-}
 
 .Specifications .vertical-container {
     display: flex;
     flex-flow: column;
     gap: 0.5vh;
+    margin-top: 2vh;
 }
 
 .Specifications .type-box {
-    padding: 1vh 4vw 1vh 4vw;
+    height: 6vh;
+    width: 10vw;
+}
+
+.Specifications .horizontal-container {
+    display: flex;
+    flex-flow: row;
+    gap: 0.5vw;
+    min-height: 20px;
+    max-height: 10vh;
+}
+
+.Specifications .line {
+     border: none;
+     border-top: 0.4vh solid var(--primary);
+     margin-top: 1vh;
+     width: 100%;
+    
 }

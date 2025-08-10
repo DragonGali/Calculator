@@ -1,6 +1,7 @@
 .radio-buttons {
     margin-right: 3vw;
     overflow: hidden;
+    margin-top: 2vh;
 }
 
 .ChooseApplication {
@@ -8,13 +9,4 @@
 }
 
 
-.ChooseApplication .wrapper {
-    min-height: 120px;
-}
-
-.ChooseApplication .title-box {
-    margin-left: 5vw;
-    width: 12vw;
-    min-height: 18px;
-}
 

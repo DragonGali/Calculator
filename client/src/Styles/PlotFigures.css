@@ -1,18 +1,13 @@
 .PlotFigures {
-    min-height: 30vh;
     width: 22vw;
 }
 
-.PlotFigures .title-box {
-    margin-left: 5vw;
-    width: 12vw;
-    min-height: 20px;
-}
 
 .PlotFigures .vertical-container {
     display: flex;
     flex-flow: column;
     gap: 0.5vh;
+    margin-top: 2vh;
 }
 
 .PlotFigures .button {

@@ -7,6 +7,7 @@
   --grey-blue: #D4D6E0;
   --blue-text:#4A6678;
   --title-box: #597991;
+  --slider-hover: #1abc9c;
 
   background-color: var(--background);
 }
@@ -55,9 +56,12 @@
   position: relative;
   background-color: var(--title-box);
   height: 4vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
   box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
   margin-bottom: -2vh;
+  min-height: 20px;
 }
 
 .title-box p {
@@ -137,10 +141,13 @@ label:hover {
   border-color: var(--primary);
   color: var(--blue-text);
   font-size: 0.9vw;
-  text-align: center;
+  
+  /* Perfect centering */
+  display: flex;
+  align-items: center;
   justify-content: center;
+  
   overflow: hidden;
-  max-height: 4.5vh;
 }
 
 
