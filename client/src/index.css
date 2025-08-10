@@ -10,6 +10,8 @@
   --slider-hover: #1abc9c;
 
   background-color: var(--background);
+
+  --font-regular: 0.9vw;
 }
 
 /* Reset styles */
@@ -87,7 +89,7 @@ label {
   cursor: pointer;
   font-family: "Inter-Light";
   position: relative;
-  font-size: min(0.9vw, 1em);
+  font-size: var(--font-regular);
   color: var(--text);
 }
 
@@ -140,7 +142,7 @@ label:hover {
   border-style: solid;
   border-color: var(--primary);
   color: var(--blue-text);
-  font-size: 0.9vw;
+  font-size: var(--font-regular);
   
   /* Perfect centering */
   display: flex;

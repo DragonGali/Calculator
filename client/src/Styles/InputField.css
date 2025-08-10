@@ -11,7 +11,7 @@
 .txtbx__field {
   border: none;
   width: 7vw;
-  font-size: 1em;
+  font-size: var(--font-regular);
   padding-top: 1vh;
   box-sizing: border-box;
   text-align: center;
@@ -28,7 +28,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  font-size: 0.8em;
+  font-size: var(--font-regular);
   pointer-events: none;
   user-select: none;
   text-align: center;
@@ -50,7 +50,7 @@
 
 .txtbx__label--batman {
   color: var(--text);
-  font-size: 1vw;
+  font-size: var(--font-regular);
 }
 
 .txtbx__label--batman::before {
