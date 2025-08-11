@@ -8,6 +8,8 @@
   --blue-text:#4A6678;
   --title-box: #597991;
   --slider-hover: #1abc9c;
+  --tree-hover: #d2e1ed;
+  --tree-select: #b9d5e9;
 
   background-color: var(--background);
 

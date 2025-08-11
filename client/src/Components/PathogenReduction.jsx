@@ -2,6 +2,8 @@ import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PathogenReduction.css';
 import data from "../data";
 
+import TreeView from "../Components/TreeView.jsx"
+
 function PathogenReduction () {
 
   const [pressedButton, setPressedButton] = useState(null);
@@ -18,7 +20,7 @@ function PathogenReduction () {
     <div className="wrapper">
       <div className='vertical-container'>
           <div className='container'>
-        
+            <TreeView data={data.PathogenReduction.treeView}></TreeView>
           </div>
       </div>
     </div>

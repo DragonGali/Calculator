@@ -1,3 +1,4 @@
+import PathogenReduction from "./Components/PathogenReduction";
 import PlotFigures from "./Components/PlotFigures";
 
 const data = {
@@ -49,7 +50,43 @@ const data = {
         {fieldName: "Head Loss (on HOD Systems Only):", value: 0.03, options: [{value: "[m/H₂O]", label: "[m/H₂O]"}, {value: "[cm/H₂O]", label: "[cm/H₂O]"}, {value: "[in/H₂O]", label: "[in/H₂O]"}, {value: "[bar]", label: "[bar]"}, {value: "[PSI]", label: ["PSI"]}]},
         {fieldName: "Maximum Electrical Power:", value: 1.705, scale: "[kW]"},
         {fieldName: "Est. avg. lamp power consumption:", value: 1.534, scale: "[kW]"}
-    ]
+    ],
+
+    PathogenReduction: {
+        treeView: [
+                    {
+                    label: 'Deciduous',
+                    children: [
+                    { label: 'Birch' },
+                    {
+                        label: 'Maple',
+                        children: [
+                        { label: 'Field maple' },
+                        { label: 'Red maple' },
+                        { label: 'Sugar maple' }
+                        ]
+                    },
+                    { label: 'Oak' }
+                    ]
+                },
+                {
+                    label: 'Coniferous',
+                    children: [
+                    { label: 'Cedar' },
+                    { label: 'Pine' },
+                    { label: 'Spruce' }
+                    ]
+                },
+                {
+                    label: 'Non-trees',
+                    children: [
+                    { label: 'Bamboo' },
+                    { label: 'Cactus' },
+                    { label: 'Fern' }
+                    ]
+                }
+            ]
+    }
 }
 
 export default data;
