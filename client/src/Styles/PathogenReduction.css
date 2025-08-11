@@ -35,7 +35,7 @@
 }
 
 .PathogenReduction .container::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
+  background-color: var(--primary);
   border-radius: 100vw; /* Increased from 8px for rounder edges */
 
   /* Make a visible "thumb outline" — using transparent border + background-clip
