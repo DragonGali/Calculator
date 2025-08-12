@@ -53,7 +53,13 @@ const data = {
     ],
 
     PathogenReduction: {
-        treeView: [
+        treeView: {
+
+            labels: [
+                "Pathogen Type" , "1-Log Dose [mJ/cm2]"
+            ],
+            
+            treeData : [
                     {
                     label: 'Deciduous',
                     children: [
@@ -85,8 +91,35 @@ const data = {
                     { label: 'Fern' }
                     ]
                 }
+            ]},
+
+        tableView: {
+
+            labels: [
+                "Pathogen Type" , "1-Log Dose [mJ/cm2]"
+            ],
+            
+            tableData : [
+                { name: 'Aeromonas Handrohenus', oneLog: 1.0, twoLog: 2.0, threeLog: 4.6 },
+                { name: 'Aeromonas Handrophila', oneLog: 1.1, twoLog: 2.6, threeLog: 3.9 },
+                { name: 'Bacillus Anthracis', oneLog: 8.7, twoLog: 17.4, threeLog: 26.1 },
+                { name: 'Bacillus Cereus', oneLog: 1.8, twoLog: 3.6, threeLog: 5.4 },
+                { name: 'Bacillus Subtilis', oneLog: 2.2, twoLog: 4.4, threeLog: 6.6 },
+                { name: 'Campylobacter Jejuni', oneLog: 1.5, twoLog: 3.0, threeLog: 4.5 },
+                { name: 'Clostridium Perfringens', oneLog: 3.0, twoLog: 6.0, threeLog: 9.0 },
+                { name: 'E. Coli', oneLog: 3.0, twoLog: 6.0, threeLog: 9.0 },
+                { name: 'Enterococcus Faecalis', oneLog: 4.6, twoLog: 9.2, threeLog: 13.8 },
+                { name: 'Legionella Pneumophila', oneLog: 0.9, twoLog: 1.8, threeLog: 2.7 },
+                { name: 'Listeria Monocytogenes', oneLog: 2.4, twoLog: 4.8, threeLog: 7.2 },
+                { name: 'Pseudomonas Aeruginosa', oneLog: 5.5, twoLog: 11.0, threeLog: 16.5 },
+                { name: 'Salmonella Typhimurium', oneLog: 2.5, twoLog: 5.0, threeLog: 7.5 },
+                { name: 'Staphylococcus Aureus', oneLog: 2.2, twoLog: 4.4, threeLog: 6.6 },
+                { name: 'Streptococcus Faecalis', oneLog: 3.8, twoLog: 7.6, threeLog: 11.4 }
             ]
-    }
+        },
+
+        buttons : ["Display Tree View", "Display Table View", "Full Table"]
+    },
 }
 
 export default data;
