@@ -58,7 +58,7 @@ function PathogenReduction () {
                 <TreeView data={data.PathogenReduction.treeView.treeData} />
               )}
               {viewMode === buttons[1] && (
-                <TableView data={data.PathogenReduction.tableView.tableData} />
+                <TableView data={data.PathogenReduction.tableView.tableData}/>
               )}
             </div>
           </div>

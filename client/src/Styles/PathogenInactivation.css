@@ -1,0 +1,40 @@
+.PathogenInactivation .title-box{
+    width: 20vw;
+}
+
+
+.PathogenInactivation .horizontal-container {
+    display: flex;
+    flex-flow: row;
+    gap: 0.5vw;
+    max-height: 4.5vh;
+}
+
+.PathogenInactivation .vertical-container {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5vh;
+    margin-top: 2vh;
+}
+
+
+.PathogenInactivation .type-box {
+    width: 7vw;
+}
+
+.PathogenInactivation .value-box {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text);
+    font-family: 'Inter-Medium';
+    font-weight: 600;
+    border-style: solid;
+    border-color: var(--primary);
+    border-width: 0.2em;
+    width: 8vw;
+
+    font-size: var(--font-regular);
+}

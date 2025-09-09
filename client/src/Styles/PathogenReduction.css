@@ -29,13 +29,14 @@
 .PathogenReduction .scroll-container{
     width: 24.5vw;
     height: 30vh;
-    overflow: auto;
+    overflow: overlay;
 }
 
 /* WebKit browsers (Chrome/Edge/Safari) */
 .PathogenReduction .scroll-container::-webkit-scrollbar {
   width: 1vw;
   height: 2vh;
+  position: absolute;
 }
 
 .PathogenReduction .scroll-container::-webkit-scrollbar-track {

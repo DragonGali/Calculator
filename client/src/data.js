@@ -1,3 +1,4 @@
+import PathogenInactivation from "./Components/PathogenInactivation";
 import PathogenReduction from "./Components/PathogenReduction";
 import PlotFigures from "./Components/PlotFigures";
 
@@ -120,6 +121,10 @@ const data = {
 
         buttons : ["Display Tree View", "Display Table View", "Full Table"]
     },
+
+    PathogenInactivation : {
+        
+    }
 }
 
 export default data;
