@@ -4,11 +4,13 @@ import data from "../data";
 
 import TreeView from "../Components/TreeView.jsx"
 import TableView from "../Components/TableView.jsx"
+import FullTable from './FullTable.jsx';
 
-function PathogenReduction () {
+const PathogenReduction = (openFullTable) => {
 
   const buttons = data.PathogenReduction.buttons;
 
+  
   const [pressedButton, setPressedButton] = useState(null);
   const [viewMode, setViewMode] = useState(buttons[0]); // 'tree', 'table', or 'fullTable'
 
@@ -18,6 +20,9 @@ function PathogenReduction () {
 
   useEffect (() => {
     handleClick(buttons[0])
+    if (viewMode === buttons[2]) {
+      openFullTable();
+    }
   }, [])
 
 
@@ -57,7 +62,7 @@ function PathogenReduction () {
               {viewMode === buttons[0] && (
                 <TreeView data={data.PathogenReduction.treeView.treeData} />
               )}
-              {viewMode === buttons[1] && (
+              {(viewMode === buttons[1] || viewMode === buttons[2]) && (
                 <TableView data={data.PathogenReduction.tableView.tableData}/>
               )}
             </div>

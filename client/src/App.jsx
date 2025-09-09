@@ -9,6 +9,7 @@ import PathogenReduction from './Components/PathogenReduction.jsx'
 import PathogenInactivation from './Components/PathogenInactivation.jsx'
 import Dichlorination from './Components/Dichlorination.jsx'
 import './App.css'
+import FullTable from './Components/FullTable.jsx'
 
 // const URL = 'https://dummyjson.com/test';
 
@@ -30,6 +31,8 @@ function App() {
       
   // }, [])
 
+  const [fullTableOpened, setFullTableOpened] = useState(false);
+
   return ( <div className="App">
     <div id="flex-container">
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
@@ -40,12 +43,13 @@ function App() {
         <PlotFigures id="plot-figures"/>
         <Specifications id="specifications"/>
         <Results id="results"/>
-        <PathogenReduction id="Pathogens-reduction"/>
+        <PathogenReduction id="Pathogens-reduction" openFullTable={() => setFullTableOpened(true)}/>
         <PathogenInactivation id="pathogen-inactivation"/>
         <Dichlorination id="dichlorination"/>
+        <FullTable isOpen={fullTableOpened} onClose={() => setFullTableOpened(false)} children={<p>Full Table Content</p>}/>
       </div>
     </div>
-  </div>
+  </div>  
   )
 }
 
