@@ -1,0 +1,125 @@
+.PathogenReduction {
+    width: 26.5vw;
+}
+
+.PathogenReduction .title-box {
+    width: 20vw;
+}
+
+.PathogenReduction .vertical-container {
+    margin-top: 3vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: baseline;
+    align-items: center;
+}
+
+/* Outer box - keeps a consistent border you can color reliably */
+.PathogenReduction .container {
+  width: 25vw;
+  height: 30vh;
+  border: solid 0.1em var(--primary);
+  border-radius: 1em;
+  box-sizing: border-box;
+  background: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+
+.PathogenReduction .scroll-container{
+    width: 24.5vw;
+    height: 30vh;
+    overflow: overlay;
+}
+
+/* WebKit browsers (Chrome/Edge/Safari) */
+.PathogenReduction .scroll-container::-webkit-scrollbar {
+  width: 1vw;
+  height: 2vh;
+  position: absolute;
+}
+
+.PathogenReduction .scroll-container::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 100vw;
+  margin: 1vh;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 100vw; /* Increased from 8px for rounder edges */
+
+  /* Make a visible "thumb outline" — using transparent border + background-clip
+     lets the track-border remain visible while thumb keeps separation. */
+  border: 2px solid var(--primary);
+  background-clip: padding-box;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tree-select);
+  cursor: grab;
+}
+
+
+/* Dynamic header styles */
+.PathogenReduction .view-header {
+    display: grid;
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    font-size: var(--font-regular);
+    margin-left: 0.7vw;
+    height: 3vh;
+}
+
+.PathogenReduction .pathogen-type-header {
+    text-align: left;
+    border-right: 0.15em solid var(--primary);
+}
+
+.PathogenReduction .dose-header, .log-header {
+    text-align: center;
+}
+
+.log-header {
+    width: 4.5vw;
+}
+
+.PathogenReduction .dose-header {
+    width: 11vw;
+}
+
+.PathogenReduction .log-header:not(:last-child) {
+    border-right: 0.15em solid var(--primary);
+}
+
+.PathogenReduction .buttons {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+    gap: 0.5vw;
+}
+
+.PathogenReduction .button {
+    background-color: var(--background);
+    border: 3px solid var(--primary);
+    color: var(--blue-text);
+    border-radius: 2em;
+    font-size: var(--font-regular);
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    cursor: pointer;
+    text-align: center;
+    padding: 0.2vh 0.7vw 0.2vh 0.7vw;
+    transition: background-color 0.3s;
+}
+
+.PathogenReduction .button.IsPressed {
+    background-color: var(--highlight);
+    color: var(--white);
+}
+
+.PathogenReduction .button:hover {
+    filter: brightness(1.1);
+}

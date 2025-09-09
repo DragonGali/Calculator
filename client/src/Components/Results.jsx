@@ -45,7 +45,7 @@ function Results () {
               <DropDown
                 className="drop-down"
                 options={[...field.options]}
-                height={size.height * 0.047} 
+                height={size.height * 0.056} 
                 width={size.width * 0.07}
                 placeholder={field.options[0].value}
               />

@@ -13,9 +13,19 @@ function PathogenInactivation () {
 
   return ( <div className="PathogenInactivation">
     <div className="title-box">
-            <p>Plot Figures</p>
+            <p>Pathogen-Specific Log-Inactivation</p>
     </div>
     <div className="wrapper">
+      <div className="vertical-container">
+        <div className="horizontal-container">
+          <div className='type-box'>
+              <p>Selected</p>
+          </div>
+          <div className='value-box'>
+            <p>Manul Input</p>
+          </div>
+        </div>
+      </div>
     </div>
     
     </div>
