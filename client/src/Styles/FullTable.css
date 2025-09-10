@@ -15,7 +15,7 @@
 .FullTable .draggable-header {
   background: var(--highlight);
   color: var(--white);
-  font-size: var9(--font-regular);
+  font-size: 1.2vw;
   font-weight: bold;
   cursor: grab;
   user-select: none;

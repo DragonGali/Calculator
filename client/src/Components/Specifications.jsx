@@ -41,7 +41,7 @@ function Specifications () {
     <div className="wrapper">
         <div className="vertical-container">
                 {topData.map((field,index) => (
-                  <div className="horizontal-container">
+                  <div className="horizontal-container" key={index}>
                     <div className="type-box">
                         <p>{field[0]}</p>
                     </div>
@@ -64,7 +64,7 @@ function Specifications () {
                 </div>
                 <div className='horizontal-container'>
                   {bottomData.buttons.map((button, index) => (
-                    <div className='button' onClick={() => handleClick(button)}>
+                    <div className='button' key={index} onClick={() => handleClick(button)}>
                             <p>{button}</p>
                     </div>
                 ))}

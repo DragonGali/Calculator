@@ -46,10 +46,10 @@ function App() {
         <PlotFigures id="plot-figures"/>
         <Specifications id="specifications"/>
         <Results id="results"/>
-        <PathogenReduction id="Pathogens-reduction" openFullTable={() => setFullTableOpened(true)}/>
+        <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}}/>
         <PathogenInactivation id="pathogen-inactivation"/>
         <Dichlorination id="dichlorination"/>
-        <FullTable content={<TableView data={data.PathogenReduction.tableView.tableData} />} />
+        {fullTableOpened && <FullTable content={<TableView data={data.PathogenReduction.tableView.tableData} />} onClose={() => setFullTableOpened(false)} />}
       </div>
     </div>
   </div>  

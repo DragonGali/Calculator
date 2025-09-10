@@ -1,7 +1,7 @@
 import React, { useState , useEffect, useRef} from 'react';
 import '../Styles/FullTable.css';
 
-const FullTable = ({content}) => {
+const FullTable = ({content, onClose}) => {
   const [position, setPosition] = useState({ x: 100, y: 100 });
   const [dragging, setDragging] = useState(false);
   const offsetRef = useRef({ x: 0, y: 0 });
@@ -36,7 +36,7 @@ const FullTable = ({content}) => {
       <div className="draggable-header" onMouseDown={handleMouseDown}>
         <p>Pathogen Specific Log Inactivation [mJ/cm2] - Full Data Table</p>
         <div className='icons'>
-            <img className='icon' src="/Close Icon.svg"/>
+            <img className='icon' src="/Close Icon.svg" onClick={onClose}/>
             <img className='icon' src="/Expand Icon.svg"/>
         </div>
       </div>
