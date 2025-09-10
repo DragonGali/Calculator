@@ -12,9 +12,11 @@
 }
 
 .DraggableWindow.large {
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   transform: none;
+  top: 0;
+  left: 0;
 }
 
 
@@ -59,8 +61,8 @@
 
 .DraggableWindow .draggable-header .icons {
     position: absolute;
-    right: 0.5em;
-    top: 0.3em;
+    right: 0.5vw;
+    top: 0.7vh;
     display: flex;
     flex-flow: row-reverse;
     gap: 0.5vw;
@@ -68,7 +70,6 @@
 
 .DraggableWindow .draggable-header .icon{
     width: 1.5vw;
-    height: 3vh;
     cursor: pointer;
 }
 

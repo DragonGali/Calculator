@@ -39,7 +39,10 @@ const DraggableWindow = ({content, onClose, title, height, width}) => {
         <p>{title}</p>
         <div className='icons'>
             <img className='icon' src="/Close Icon.svg" onClick={onClose}/>
-            <img className='icon' src="/Expand Icon.svg" onClick={() => {setIsSmall(!isSmall)}}/>
+            <img className='icon' src="/Expand Icon.svg"  onClick={(e) => {e.stopPropagation();if (isSmall) {setPosition({ x: 0, y: 0 });//Set position to top-left
+    }
+    setIsSmall(!isSmall);
+  }}/>
         </div>
       </div>
       <div className="draggable-content">
