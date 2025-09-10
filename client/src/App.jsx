@@ -11,6 +11,9 @@ import Dichlorination from './Components/Dichlorination.jsx'
 import './App.css'
 import FullTable from './Components/FullTable.jsx'
 
+import data from "./data.js"
+import TableView from './Components/TableView.jsx'
+
 // const URL = 'https://dummyjson.com/test';
 
 function App() {
@@ -46,7 +49,7 @@ function App() {
         <PathogenReduction id="Pathogens-reduction" openFullTable={() => setFullTableOpened(true)}/>
         <PathogenInactivation id="pathogen-inactivation"/>
         <Dichlorination id="dichlorination"/>
-        <FullTable isOpen={fullTableOpened} onClose={() => setFullTableOpened(false)} children={<p>Full Table Content</p>}/>
+        <FullTable content={<TableView data={data.PathogenReduction.tableView.tableData} />} />
       </div>
     </div>
   </div>  

@@ -1,0 +1,55 @@
+.FullTable {
+  position: fixed;
+  width: 45vw;   /* responsive width */
+  height: 60vh;  /* responsive height */
+  background: #ffffff;
+  border: 0.3em solid var(--text);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: default;
+  transform: translate(50%, 50%);
+  z-index: 9999999;
+}
+
+.FullTable .draggable-header {
+  background: var(--highlight);
+  color: var(--white);
+  font-size: var9(--font-regular);
+  font-weight: bold;
+  cursor: grab;
+  user-select: none;
+}
+
+.FullTable .draggable-header .icons {
+    position: absolute;
+    right: 0.5em;
+    top: 0.3em;
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 0.5vw;
+}
+
+.FullTable .draggable-header .icon{
+    width: 1.5vw;
+    height: 3vh;
+    cursor: pointer;
+}
+
+.FullTable .draggable-header .icon:hover {
+    filter: brightness(0.8);
+}
+
+.FullTable .draggable-header p {
+  padding: 0.3em;
+  text-align: left;
+}
+
+.FullTable .draggable-header:active {
+  cursor: grabbing;
+}
+
+.FullTable .draggable-content {
+  height: calc(100% - 32px); /* subtract header height */
+  box-sizing: border-box;
+}
