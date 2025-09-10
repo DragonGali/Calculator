@@ -4,7 +4,6 @@ import data from "../data";
 
 import TreeView from "../Components/TreeView.jsx"
 import TableView from "../Components/TableView.jsx"
-import FullTable from './FullTable.jsx';
 
 const PathogenReduction = ({openFullTable}) => {
 

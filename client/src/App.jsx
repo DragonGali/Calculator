@@ -9,14 +9,29 @@ import PathogenReduction from './Components/PathogenReduction.jsx'
 import PathogenInactivation from './Components/PathogenInactivation.jsx'
 import Dichlorination from './Components/Dichlorination.jsx'
 import './App.css'
-import FullTable from './Components/FullTable.jsx'
+import FullTable from './Components/DraggableWindow.jsx'
 
 import data from "./data.js"
 import TableView from './Components/TableView.jsx'
+import DraggableWindow from './Components/DraggableWindow.jsx'
 
 // const URL = 'https://dummyjson.com/test';
 
-function App() {
+const App = () =>  {
+
+  const [size, setSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 //Code ill later on use to fetch the RESTAPI
 
@@ -49,11 +64,36 @@ function App() {
         <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}}/>
         <PathogenInactivation id="pathogen-inactivation"/>
         <Dichlorination id="dichlorination"/>
-        {fullTableOpened && <FullTable content={<TableView data={data.PathogenReduction.tableView.tableData} />} onClose={() => setFullTableOpened(false)} />}
-      </div>
+        {fullTableOpened && (
+          <DraggableWindow
+            height={size.height * 0.6}
+            width={size.width * 0.6}
+            content={
+              <div>
+                <div
+                  className="view-header"
+                  style={{
+                    gridTemplateColumns: `3fr repeat(10, 1fr) 0.6fr` // pathogen + 10 logs + last column
+                  }}
+                >
+                  <div className="pathogen-type-header">Pathogen Type</div>
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <div key={i} className="log-header">
+                      {`${1 + i * 0.5}-Log`}
+                    </div>
+                  ))}
+                </div>
+
+                <TableView data={data.PathogenReduction.FullTable.tableData} />
+              </div>
+            }
+            title={data.PathogenReduction.FullTable.title}
+            onClose={() => setFullTableOpened(false)}
+          />
+      )}
     </div>
-  </div>  
-  )
-}
+  </div>
+  </div>
+)}
 
 export default App

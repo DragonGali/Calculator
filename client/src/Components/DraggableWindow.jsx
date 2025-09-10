@@ -1,9 +1,10 @@
 import React, { useState , useEffect, useRef} from 'react';
-import '../Styles/FullTable.css';
+import '../Styles/DraggableWindow.css';
 
-const FullTable = ({content, onClose}) => {
+const DraggableWindow = ({content, onClose, title, height, width}) => {
   const [position, setPosition] = useState({ x: 100, y: 100 });
   const [dragging, setDragging] = useState(false);
+  const [isSmall, setIsSmall] = useState(true);
   const offsetRef = useRef({ x: 0, y: 0 });
 
   const handleMouseDown = (e) => {
@@ -26,18 +27,19 @@ const FullTable = ({content, onClose}) => {
     setDragging(false);
   };
 
+
   return (
     <div
-      className="FullTable"
-      style={{ top: position.y, left: position.x }}
+      className={`DraggableWindow ${isSmall ? '' : 'large'}`}
+      style={{ top: position.y, left: position.x, height: height, width: width}}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
       <div className="draggable-header" onMouseDown={handleMouseDown}>
-        <p>Pathogen Specific Log Inactivation [mJ/cm2] - Full Data Table</p>
+        <p>{title}</p>
         <div className='icons'>
             <img className='icon' src="/Close Icon.svg" onClick={onClose}/>
-            <img className='icon' src="/Expand Icon.svg"/>
+            <img className='icon' src="/Expand Icon.svg" onClick={() => {setIsSmall(!isSmall)}}/>
         </div>
       </div>
       <div className="draggable-content">
@@ -48,4 +50,4 @@ const FullTable = ({content, onClose}) => {
 };
 
 
-export default FullTable;
+export default DraggableWindow;

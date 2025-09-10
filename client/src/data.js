@@ -1,4 +1,4 @@
-import FullTable from "./Components/FullTable";
+import FullTable from "./Components/DraggableWindow";
 import PathogenInactivation from "./Components/PathogenInactivation";
 import PathogenReduction from "./Components/PathogenReduction";
 import PlotFigures from "./Components/PlotFigures";
@@ -58,7 +58,7 @@ const data = {
         treeView: {
 
             labels: [
-                "Pathogen Type" , "1-Log Dose [mJ/cm2]"
+                "Pathogen Type" , "1-Log Dose [mJ/cm²]"
             ],
             
             treeData : [
@@ -98,7 +98,7 @@ const data = {
         tableView: {
 
             labels: [
-                "Pathogen Type" , "1-Log Dose [mJ/cm2]"
+                "Pathogen Type" , "1-Log Dose [mJ/cm²]"
             ],
             
             tableData : [
@@ -120,7 +120,11 @@ const data = {
             ]
         },
 
+        buttons : ["Display Tree View", "Display Table View", "Full Table"],
+
         FullTable: {
+            title: "Pathogen Specific Log Inactivation [mJ/cm²] - Full Data Table",
+
             labels: [
                 "Pathogen Type" , "1-Log", "1.5-Log", "2-Log", "2.5-Log", "3-Log", "3.5-Log", "4-Log", "4.5-Log", "5-Log", "5.5-Log"
             ],
@@ -135,12 +139,15 @@ const data = {
                 { name: 'Clostridium Perfringens', oneLog: 3.0, onePointFiveLog: 4.5, twoLog: 6.0, twoPointFiveLog: 7.5, threeLog: 9.0, threePointFiveLog: 10.5, fourLog: 12.0, fourPointFiveLog: 13.5, fiveLog: 15.0, fivePointFiveLog: 16.5 },
                 { name: 'E. Coli', oneLog: 3.0, onePointFiveLog: 4.5, twoLog: 6.0, twoPointFiveLog: 7.5, threeLog: 9.0, threePointFiveLog: 10.5, fourLog: 12.0, fourPointFiveLog: 13.5, fiveLog: 15.0, fivePointFiveLog: 16.5 },
                 { name: 'Enterococcus Faecalis', oneLog: 4.6, onePointFiveLog: 6.9, twoLog: 9.2, twoPointFiveLog: 11.5, threeLog: 13.8, threePointFiveLog: 16.1, fourLog: 18.4, fourPointFiveLog: 20.7, fiveLog: 23.0, fivePointFiveLog: 25.3 },
+                { name: 'Legionella Pneumophila', oneLog: 0.9, onePointFiveLog: 1.35, twoLog: 1.8, twoPointFiveLog: 2.25, threeLog: 2.7, threePointFiveLog: 3.15, fourLog: 3.6, fourPointFiveLog: 4.05, fiveLog: 4.5, fivePointFiveLog: 4.95 },
+                { name: 'Clostridium Perfringens', oneLog: 3.0, onePointFiveLog: 4.5, twoLog: 6.0, twoPointFiveLog: 7.5, threeLog: 9.0, threePointFiveLog: 10.5, fourLog: 12.0, fourPointFiveLog: 13.5, fiveLog: 15.0, fivePointFiveLog: 16.5 },
+                { name: 'E. Coli', oneLog: 3.0, onePointFiveLog: 4.5, twoLog: 6.0, twoPointFiveLog: 7.5, threeLog: 9.0, threePointFiveLog: 10.5, fourLog: 12.0, fourPointFiveLog: 13.5, fiveLog: 15.0, fivePointFiveLog: 16.5 },
+                { name: 'Enterococcus Faecalis', oneLog: 4.6, onePointFiveLog: 6.9, twoLog: 9.2, twoPointFiveLog: 11.5, threeLog: 13.8, threePointFiveLog: 16.1, fourLog: 18.4, fourPointFiveLog: 20.7, fiveLog: 23.0, fivePointFiveLog: 25.3 },
                 { name: 'Legionella Pneumophila', oneLog: 0.9, onePointFiveLog: 1.35, twoLog: 1.8, twoPointFiveLog: 2.25, threeLog: 2.7, threePointFiveLog: 3.15, fourLog: 3.6, fourPointFiveLog: 4.05, fiveLog: 4.5, fivePointFiveLog: 4.95 }
             ]
 
         }
 
-        buttons : ["Display Tree View", "Display Table View", "Full Table"]
     },
 
     PathogenInactivation : {

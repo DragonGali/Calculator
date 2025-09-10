@@ -48,5 +48,39 @@
 }
 
 
+/* Dynamic header styles */
+.App .view-header {
+    display: grid;
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    font-size: var(--font-regular);
+    margin-left: 0.7vw;
+    width: 97.76%;
+    height: 3vh;
+    border-right: 0.25em solid var(--primary);
+}
+
+.App .pathogen-type-header {
+    text-align: left;
+    border-right: 0.15em solid var(--primary);
+}
+
+.App .dose-header, .log-header {
+    text-align: center;
+}
+
+.App .log-header {
+    width: 4.5vw;
+}
+
+.App .dose-header {
+    width: 11vw;
+}
+
+.App .log-header:not(:last-child) {
+    border-right: 0.15em solid var(--primary);
+}
+
+
 
 
