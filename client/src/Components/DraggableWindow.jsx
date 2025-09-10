@@ -31,7 +31,7 @@ const DraggableWindow = ({content, onClose, title, height, width}) => {
   return (
     <div
       className={`DraggableWindow ${isSmall ? '' : 'large'}`}
-      style={{ top: position.y, left: position.x, height: height, width: width}}
+      style={{ top: position.y, left: position.x, height: isSmall ? height : undefined, width: isSmall ? width : undefined}}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >

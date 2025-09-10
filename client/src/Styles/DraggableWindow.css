@@ -11,9 +11,10 @@
   padding-right: 0.5vw;
 }
 
-.DraggableWindow .large {
+.DraggableWindow.large {
   width: 100vw;
   height: 100vh;
+  transform: none;
 }
 
 
