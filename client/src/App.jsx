@@ -67,18 +67,18 @@ const App = () =>  {
         {fullTableOpened && (
           <DraggableWindow
             height={size.height * 0.6}
-            width={size.width * 0.6}
+            width={size.width * 0.65}
             content={
               <div>
                 <div
-                  className="view-header"
+                  className="app-view-header"
                   style={{
-                    gridTemplateColumns: `3fr repeat(10, 1fr) 0.6fr` // pathogen + 10 logs + last column
+                    gridTemplateColumns: `1.5fr repeat(10, 1fr) ` // pathogen + 10 logs + last column
                   }}
                 >
-                  <div className="pathogen-type-header">Pathogen Type</div>
+                  <div className="app-pathogen-type-header">Pathogen Type</div>
                   {Array.from({ length: 10 }, (_, i) => (
-                    <div key={i} className="log-header">
+                    <div key={i} className="app-log-header">
                       {`${1 + i * 0.5}-Log`}
                     </div>
                   ))}

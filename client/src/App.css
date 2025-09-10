@@ -49,35 +49,32 @@
 
 
 /* Dynamic header styles */
-.App .view-header {
+.app-view-header {
     display: grid;
     font-weight: bold;
     font-family: 'Inter-Medium';
     font-size: var(--font-regular);
     margin-left: 0.7vw;
-    width: 97.76%;
+    margin-right: 0.65vw;
     height: 3vh;
     border-right: 0.25em solid var(--primary);
 }
 
-.App .pathogen-type-header {
+
+.app-pathogen-type-header {
     text-align: left;
     border-right: 0.15em solid var(--primary);
+    width: 9vw;
 }
 
-.App .dose-header, .log-header {
+
+
+.app-log-header {
+    width: 4.5vw;
     text-align: center;
 }
 
-.App .log-header {
-    width: 4.5vw;
-}
-
-.App .dose-header {
-    width: 11vw;
-}
-
-.App .log-header:not(:last-child) {
+.app-log-header:not(:last-child) {
     border-right: 0.15em solid var(--primary);
 }
 
