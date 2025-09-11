@@ -19,6 +19,9 @@ import DraggableWindow from './Components/DraggableWindow.jsx'
 
 const App = () =>  {
 
+  //This function updates the width and height variable that I use based on the screen sizes
+  //I send it to all the components that use other component that need to figure out theyre
+  //height and width.
   const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight
@@ -56,13 +59,13 @@ const App = () =>  {
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
       <div className="systems-container">
         <ChooseApplication id="choose-application"/>
-        <HODSystem id="hod-system"/>
+        <HODSystem id="hod-system" width={size.width} height={size.height}/>
         <CalculatrVersion id="calculator-version"/>
         <PlotFigures id="plot-figures"/>
-        <Specifications id="specifications"/>
-        <Results id="results"/>
-        <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}}/>
-        <PathogenInactivation id="pathogen-inactivation"/>
+        <Specifications id="specifications" width={size.width} height={size.height}/>
+        <Results id="results" width={size.width} height={size.height}/>
+        <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height}/>
+        <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
         <Dichlorination id="dichlorination"/>
         {fullTableOpened && (
           <DraggableWindow

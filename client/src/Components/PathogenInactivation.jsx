@@ -2,9 +2,13 @@ import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PathogenInactivation.css';
 import data from "../data";
 
-function PathogenInactivation () {
+import InputField from './InputField';
+import ProgressBar from './ProgressBar.jsx'
+
+function PathogenInactivation ({width, height}) {
 
   const [pressedButton, setPressedButton] = useState(null);
+  const [expectedLI, setExepectedLI] = useState(3);
 
     const handleClick = (button) => {
     setPressedButton(button);
@@ -16,18 +20,46 @@ function PathogenInactivation () {
             <p>Pathogen-Specific Log-Inactivation</p>
     </div>
     <div className="wrapper">
-      <div className="vertical-container">
-        <div className="horizontal-container">
-          <div className='type-box'>
-              <p>Selected</p>
+        <div className="vertical-container">
+          
+          <div className="horizontal-container">
+            <div className='type-box'>
+                <p>Selected</p>
+            </div>
+            <div className='value-box' style={{width: width * 0.115}}>
+              <p>Manul Input</p>
+            </div>
           </div>
-          <div className='value-box'>
-            <p>Manul Input</p>
+
+          <div className="horizontal-container">
+            <div className='type-box'>
+                <p>D-1LOG UV-</p>
+            </div>
+
+            <InputField placeholder='' value="3" height={height * 0.05} width={width * 0.07}/>
+
+            <div className='type-box' style={{width: width * 0.04}}>
+                <p>[mJ]</p>
+            </div>
           </div>
-        </div>
+
+          <div className='horizontal-container'>
+              <div className='type-box'>
+                  <p>Expected LI</p>
+              </div>
+              <div className='value-box' style={{width: width * 0.07}}>
+                <p>{expectedLI}</p>
+              </div>
+              <ProgressBar width={width * 0.04} height={height * 0.045} progress={expectedLI} maxProgress={5}/>
+          </div>
       </div>
-    </div>
-    
+      <div className='vertical-container'>
+        <div className='reset-button'>
+          <p>Reset</p>
+        </div>
+        <p className='expected-li-text'>{`${expectedLI} out of 5LOG`}</p>
+      </div>
+      </div>
     </div>
   
   )}

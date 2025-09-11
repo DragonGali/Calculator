@@ -4,23 +4,7 @@ import data from "../data";
 
 import DropDown from '../Components/DropDown.jsx';
 
-function Results () {
-
-  //This function updates the width and height variable that I use based on the screen sizes
-    const [size, setSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-   
+const Results = ({width, height}) => {
 
   return ( <div className="Results">
     <div className="title-box">
@@ -45,8 +29,8 @@ function Results () {
               <DropDown
                 className="drop-down"
                 options={[...field.options]}
-                height={size.height * 0.056} 
-                width={size.width * 0.07}
+                height={height * 0.056} 
+                width={width * 0.07}
                 placeholder={field.options[0].value}
               />
             ) : (
