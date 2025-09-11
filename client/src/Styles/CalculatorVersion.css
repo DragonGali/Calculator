@@ -1,10 +1,4 @@
 
-
-.CalculatorVersion {
-    width: 22vw;
-}
-
-
 .CalculatorVersion .horizontal-container {
     display: flex;
     flex-flow: row;

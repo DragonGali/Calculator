@@ -1,6 +1,4 @@
-.PathogenReduction {
-    width: 26.5vw;
-}
+
 
 .PathogenReduction .title-box {
     width: 20vw;
@@ -16,18 +14,17 @@
 
 /* Outer box - keeps a consistent border you can color reliably */
 .PathogenReduction .container {
-  width: 25vw;
-  height: 30vh;
   border: solid 0.1em var(--primary);
   border-radius: 1em;
   box-sizing: border-box;
   background: var(--white);
   overflow: hidden;
   position: relative;
+  padding-right: 0.2vw;
 }
 
 .PathogenReduction .scroll-container{
-    width: 24.5vw;
+    width: 26vw;
     height: 30vh;
     overflow: overlay;
 }

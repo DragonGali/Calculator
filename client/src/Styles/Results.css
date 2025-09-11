@@ -1,10 +1,7 @@
-.Results {
-    width: 28vw;
-    height: 36vh;
-}
-
 .Results .wrapper {
     overflow: visible;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
 }
 
 

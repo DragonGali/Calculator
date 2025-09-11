@@ -4,9 +4,11 @@
     margin-top: 2vh;
 }
 
-.ChooseApplication {
-    width: 22vw;
+.ChooseApplication .wrapper {
+    padding-left: 0.5vw;
 }
+
+
 
 
 
