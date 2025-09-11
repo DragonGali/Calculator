@@ -1,0 +1,93 @@
+.DraggableWindow {
+  position: fixed;
+  background: #ffffff;
+  border: 0.3em solid var(--text);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: default;
+  transform: translate(25%, 15%);
+  z-index: 9999999;
+  padding-right: 0.5vw;
+}
+
+.DraggableWindow.large {
+  width: 99vw;
+  height: 100vh;
+  transform: none;
+  top: 0;
+  left: 0;
+}
+
+
+/* WebKit browsers (Chrome/Edge/Safari) */
+.draggable-content::-webkit-scrollbar {
+  width: 1.3vw;
+  height: 2vh;
+  position: absolute;
+}
+
+.draggable-content::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 100vw;
+  margin: 1vh;
+}
+
+.draggable-content::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 100vw; /* Increased from 8px for rounder edges */
+
+  /* Make a visible "thumb outline" — using transparent border + background-clip
+     lets the track-border remain visible while thumb keeps separation. */
+  border: 2px solid var(--primary);
+  background-clip: padding-box;
+}
+
+.draggable-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tree-select);
+  cursor: grab;
+}
+
+
+.DraggableWindow .draggable-header {
+  background: var(--highlight);
+  color: var(--white);
+  font-size: 1.2vw;
+  font-weight: bold;
+  cursor: grab;
+  user-select: none;
+  width: 105%;
+}
+
+.DraggableWindow .draggable-header .icons {
+    position: absolute;
+    right: 0.5vw;
+    top: 0.7vh;
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 0.5vw;
+}
+
+.DraggableWindow .draggable-header .icon{
+    width: 1.5vw;
+    cursor: pointer;
+}
+
+.DraggableWindow .draggable-header .icon:hover {
+    filter: brightness(0.8);
+}
+
+.DraggableWindow .draggable-header p {
+  padding: 0.3em;
+  text-align: left;
+}
+
+.DraggableWindow .draggable-header:active {
+  cursor: grabbing;
+}
+
+.DraggableWindow .draggable-content {
+  height: calc(100% - 32px); /* subtract header height */
+  box-sizing: border-box;
+  overflow: overlay;
+}

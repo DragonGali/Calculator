@@ -5,14 +5,15 @@ import data from "../data";
 import TreeView from "../Components/TreeView.jsx"
 import TableView from "../Components/TableView.jsx"
 
-function PathogenReduction () {
+const PathogenReduction = ({openFullTable}) => {
 
   const buttons = data.PathogenReduction.buttons;
 
+  
   const [pressedButton, setPressedButton] = useState(null);
   const [viewMode, setViewMode] = useState(buttons[0]); // 'tree', 'table', or 'fullTable'
 
-    const handleClick = (button) => {
+  const handleClick = (button) => {
     setPressedButton(button);
   }
 
@@ -57,16 +58,26 @@ function PathogenReduction () {
               {viewMode === buttons[0] && (
                 <TreeView data={data.PathogenReduction.treeView.treeData} />
               )}
-              {viewMode === buttons[1] && (
+              {(viewMode === buttons[1] || viewMode === buttons[2]) && (
                 <TableView data={data.PathogenReduction.tableView.tableData}/>
               )}
             </div>
           </div>
           <div className='buttons'>
           {data.PathogenReduction.buttons.map((button, index) => (
-              <div className={`button ${pressedButton === button ? 'IsPressed' : 'NotPressed'}`} onClick={() => {handleClick(button); setViewMode(button);}}>
-                    <p>{button}</p>
-              </div>
+              <div 
+                key={index} 
+                className={`button ${pressedButton === button ? 'IsPressed' : 'NotPressed'}`} 
+                onClick={() => {
+                    setPressedButton(button);
+                    setViewMode(button);
+                    if (button === buttons[2]) {
+                    openFullTable();
+                    }
+                }}
+              >
+              <p>{button}</p>
+               </div>
           ))}
       </div>
       </div>

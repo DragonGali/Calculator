@@ -18,7 +18,7 @@ function PlotFigures () {
     <div className="wrapper">
         <div className='vertical-container'>
                 {data.PlotFiguresButtons.map((button, index) => (
-                    <div className='button' onClick={() => handleClick(button)}>
+                    <div className='button' key={index} onClick={() => handleClick(button)}>
                             <p>{button}</p>
                     </div>
                 ))}

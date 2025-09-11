@@ -9,10 +9,29 @@ import PathogenReduction from './Components/PathogenReduction.jsx'
 import PathogenInactivation from './Components/PathogenInactivation.jsx'
 import Dichlorination from './Components/Dichlorination.jsx'
 import './App.css'
+import FullTable from './Components/DraggableWindow.jsx'
+
+import data from "./data.js"
+import TableView from './Components/TableView.jsx'
+import DraggableWindow from './Components/DraggableWindow.jsx'
 
 // const URL = 'https://dummyjson.com/test';
 
-function App() {
+const App = () =>  {
+
+  const [size, setSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 //Code ill later on use to fetch the RESTAPI
 
@@ -30,6 +49,8 @@ function App() {
       
   // }, [])
 
+  const [fullTableOpened, setFullTableOpened] = useState(false);
+
   return ( <div className="App">
     <div id="flex-container">
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
@@ -40,13 +61,39 @@ function App() {
         <PlotFigures id="plot-figures"/>
         <Specifications id="specifications"/>
         <Results id="results"/>
-        <PathogenReduction id="Pathogens-reduction"/>
+        <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}}/>
         <PathogenInactivation id="pathogen-inactivation"/>
         <Dichlorination id="dichlorination"/>
-      </div>
+        {fullTableOpened && (
+          <DraggableWindow
+            height={size.height * 0.6}
+            width={size.width * 0.65}
+            content={
+              <div>
+                <div
+                  className="app-view-header"
+                  style={{
+                    gridTemplateColumns: `1.5fr repeat(10, 1fr) ` // pathogen + 10 logs + last column
+                  }}
+                >
+                  <div className="app-pathogen-type-header">Pathogen Type</div>
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <div key={i} className="app-log-header">
+                      {`${1 + i * 0.5}-Log`}
+                    </div>
+                  ))}
+                </div>
+
+                <TableView data={data.PathogenReduction.FullTable.tableData} />
+              </div>
+            }
+            title={data.PathogenReduction.FullTable.title}
+            onClose={() => setFullTableOpened(false)}
+          />
+      )}
     </div>
   </div>
-  )
-}
+  </div>
+)}
 
 export default App

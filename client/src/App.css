@@ -48,5 +48,36 @@
 }
 
 
+/* Dynamic header styles */
+.app-view-header {
+    display: grid;
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    font-size: var(--font-regular);
+    margin-left: 0.7vw;
+    margin-right: 0.65vw;
+    height: 3vh;
+    border-right: 0.25em solid var(--primary);
+}
+
+
+.app-pathogen-type-header {
+    text-align: left;
+    border-right: 0.15em solid var(--primary);
+    width: 9vw;
+}
+
+
+
+.app-log-header {
+    width: 4.5vw;
+    text-align: center;
+}
+
+.app-log-header:not(:last-child) {
+    border-right: 0.15em solid var(--primary);
+}
+
+
 
 
