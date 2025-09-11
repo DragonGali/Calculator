@@ -6,13 +6,7 @@ import InputField from '../Components/InputField';
 import '../Styles/HODSystem.css';
 import data from "../data";
 
-function HODSystem () {
-    //This function updates the width and height variable that I use based on the screen sizes
-    const [size, setSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
-
+function HODSystem ({width, height}) {
   const [pressedButton, setPressedButton] = useState(null);
 
   //Changes which button is currently pressed
@@ -22,15 +16,8 @@ function HODSystem () {
 
 
   useEffect(() => {
-    const handleResize = () => {
-      setSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-
     //Sets the first button as clicked from the start
     handleClick(data.HODButtons[0]);
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
      return ( <div className="HODSystem">
@@ -45,7 +32,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.modules]}
-                    height={size.height * 0.047} width={size.width * 0.136}//setting size of the component
+                    height={height * 0.047} width={width * 0.136}//setting size of the component
                     placeholder={data.modules[0].label}
                     />
                 </div>
@@ -55,7 +42,7 @@ function HODSystem () {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.model]}
-                    height={size.height * 0.047} width={size.width * 0.08}
+                    height={height * 0.047} width={width * 0.08}
                     placeholder={data.model[0].label}
                     />
                     <Checkbox items={[{ id: 1, text: 'Vertical', disabled: false }]} className="checkbox" />
@@ -64,7 +51,7 @@ function HODSystem () {
                     <div className="type-box">
                         <p>Branch:</p>
                     </div>
-                   <InputField placeholder='' value={1} height={size.height* 0.05} width={size.width * 0.08}/>
+                   <InputField placeholder='' value={1} height={height* 0.05} width={width * 0.08}/>
                    <div className="type-box">
                         <p>[Units]</p>
                     </div>

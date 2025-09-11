@@ -16,6 +16,8 @@
   box-sizing: border-box;
   text-align: center;
   background-color: transparent;
+  margin: 0 auto;
+  display: block;
 }
 
 .txtbx__field:focus {
@@ -39,7 +41,6 @@
 .txtbx__field--batman {
   color: var(--text);
   font-size: 0.9vw;
-  padding-left: 1vw;
   padding-top: 1.2vh;
 }
 
@@ -49,8 +50,12 @@
 }
 
 .txtbx__label--batman {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text);
   font-size: var(--font-regular);
+  text-align: center;
 }
 
 .txtbx__label--batman::before {
