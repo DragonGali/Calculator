@@ -163,5 +163,11 @@ p{
   -ms-user-select: text !important; 
 }
 
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  color: var(--grey-blue);
+}
+
 
 

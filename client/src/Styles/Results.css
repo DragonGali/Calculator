@@ -1,10 +1,7 @@
-.Results {
-    width: 28vw;
-    height: 36vh;
-}
-
 .Results .wrapper {
     overflow: visible;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
 }
 
 
@@ -16,7 +13,6 @@
 }
 
 .Results .type-box {
-    height: 6.5vh;
     width: 14.5vw;
 }
 
@@ -44,7 +40,7 @@
     border-color: var(--primary);
     border-width: 0.1em;
     width: 4vw;
-    height: 6.5vh;
+    height: 5.5vh;
     font-size: var(--font-regular);
 }
 

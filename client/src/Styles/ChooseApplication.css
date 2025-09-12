@@ -1,12 +1,14 @@
 .radio-buttons {
     margin-right: 3vw;
     overflow: hidden;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
-.ChooseApplication {
-    width: 22vw;
+.ChooseApplication .wrapper {
+    padding-left: 0.5vw;
 }
+
+
 
 
 

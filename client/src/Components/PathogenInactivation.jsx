@@ -23,7 +23,7 @@ function PathogenInactivation ({width, height}) {
         <div className="vertical-container">
           
           <div className="horizontal-container">
-            <div className='type-box'>
+            <div className='type-box' >
                 <p>Selected</p>
             </div>
             <div className='value-box' style={{width: width * 0.115}}>

@@ -17,24 +17,18 @@
   display: flex;
   flex-flow: column wrap;
   gap: 3vh;
-  height: 100%;
-  width: 80%;
+  height: 80%;
+  width: 35%;
+  align-items: stretch;
+}
+
+.systems-container > * {
+  flex: 1 1 0;
 }
 
 
 /* When the screen isnt wide enough, the container takes all of the screen */
 @media screen and (max-width: 800px), screen and (max-height: 600px) {
-  #flex-container {
-    width: 100%;
-    margin-left: 0;
-  }
-  
-  .systems-container {
-    width: 100%;
-    margin-left: 0;
-  }
-  
-
   #flex-container {
     width: 100%;
     margin-left: 0;
