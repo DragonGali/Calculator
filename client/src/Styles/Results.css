@@ -13,7 +13,6 @@
 }
 
 .Results .type-box {
-    height: 6.5vh;
     width: 14.5vw;
 }
 
@@ -41,7 +40,7 @@
     border-color: var(--primary);
     border-width: 0.1em;
     width: 4vw;
-    height: 6.5vh;
+    height: 5.5vh;
     font-size: var(--font-regular);
 }
 

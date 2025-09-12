@@ -29,7 +29,7 @@ const Results = ({width, height}) => {
               <DropDown
                 className="drop-down"
                 options={[...field.options]}
-                height={height * 0.056} 
+                height={height * 0.0485} 
                 width={width * 0.07}
                 placeholder={field.options[0].value}
               />

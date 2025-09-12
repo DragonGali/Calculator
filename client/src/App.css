@@ -16,9 +16,14 @@
 .systems-container {
   display: flex;
   flex-flow: column wrap;
-  gap: 2vh;
-  height: 100%;
-  width: 36%;
+  gap: 3vh;
+  height: 80%;
+  width: 35%;
+  align-items: stretch;
+}
+
+.systems-container > * {
+  flex: 1 1 0;
 }
 
 
@@ -30,12 +35,6 @@
   }
   
   .systems-container {
-    width: 100%;
-    margin-left: 0;
-  }
-  
-
-  #flex-container {
     width: 100%;
     margin-left: 0;
   }

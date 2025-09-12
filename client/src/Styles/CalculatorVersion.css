@@ -3,15 +3,15 @@
     display: flex;
     flex-flow: row;
     gap: 1vw;
-    margin-top: 2vh;
     text-align: center;
+    margin-top: 2vh;
 }
 
 .CalculatorVersion .button {
     background-color: var(--white);
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
-    padding: 2vh 2vw 2vh 2vw;
+    padding: 1.5vh 2vw 1.5vh 2vw;
     font-size: var(--font-regular);
     font-weight: bold;
     font-family: 'Inter-Medium';

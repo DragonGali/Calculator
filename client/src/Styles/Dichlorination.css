@@ -1,6 +1,3 @@
-.Dichlorination {
-    height: 16vh;
-}
 
 .Dichlorination .title-box {
     width: 20vw;
@@ -10,6 +7,7 @@
     display: flex;
     flex-flow: column;
     gap: 1vh;
+    margin-top: 1vh;
 }
 
 .Dichlorination .horizontal-container {
