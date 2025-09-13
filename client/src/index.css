@@ -81,7 +81,7 @@
 .ChooseApplication form {
   display: flex;
   flex-wrap: wrap;
-  gap: 1vh;
+  gap: 0.3em;
   flex-direction: column;
   overflow: hidden;
 }

@@ -42,7 +42,7 @@ function HODSystem ({width, height}) {
                     </div>
                     <Dropdown className="drop-down" 
                     options={[...data.model]}
-                    height={height * 0.047} width={width * 0.08}
+                    height={height * 0.05} width={width * 0.08}
                     placeholder={data.model[0].label}
                     />
                     <Checkbox items={[{ id: 1, text: 'Vertical', disabled: false }]} className="checkbox" />

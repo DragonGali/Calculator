@@ -6,6 +6,8 @@
   gap: 1vh;
   margin-left: 10vw;
   margin-top: 1vh;
+  min-height: 600px;
+  min-width: 700px;
 }
 
 
@@ -40,23 +42,6 @@
 }
 
 
-
-
-
-
-/* When the screen isnt wide enough, the container takes all of the screen */
-@media screen and (max-width: 900px){
-  #flex-container {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  
-
-}
-
-
-
 /* Dynamic header styles */
 .app-view-header {
     display: grid;
@@ -85,6 +70,13 @@
 
 .app-log-header:not(:last-child) {
     border-right: 0.15em solid var(--primary);
+}
+.creator-name {
+  position: fixed;
+  bottom: 0.5%;
+  left: 0.2%;
+  font-size: var(--font-regular);
+  font-weight: bold;
 }
 
 

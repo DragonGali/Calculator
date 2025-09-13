@@ -138,6 +138,7 @@ const App = () =>  {
       )}
     </div>
   </div>
+  <p className='creator-name'>Gali Kertser</p>
   </div>
 )}
 
