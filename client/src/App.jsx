@@ -58,20 +58,26 @@ const App = () =>  {
     <div id="flex-container">
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
       <div className="systems-container">
-        <div className='column column-one' style={{flex: 0.5}}>
-          <ChooseApplication id="choose-application"/>
-          <HODSystem id="hod-system" width={size.width} height={size.height}/>
-          <CalculatrVersion id="calculator-version"/>
-          <PlotFigures id="plot-figures"/>
+
+        <div className='row-container'>
+          <div className='bundle column-1' id="resize-bundle">
+            <ChooseApplication id="choose-application"/>
+            <HODSystem id="hod-system" width={size.width} height={size.height}/>
+          </div>
+          <Specifications id="specifications" width={size.width} height={size.height} className="column-2"/>
+          <PathogenReduction id="Pathogen-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height} className="column-3"/>
         </div>
-        <div className='column column-two' style={{flex: 0.6}}>
-          <Specifications id="specifications" width={size.width} height={size.height} style={{flex: 1}}/>
-          <Results id="results" width={size.width} height={size.height} style={{flex: 0.5}}/>
-        </div>
-        <div className='column column-three' >
-          <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height}/>
-          <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
-          <Dichlorination id="dichlorination"/>
+
+        <div className='row-container'>
+            <div className='bundle column-1'>
+              <CalculatrVersion id="calculator-version"/>
+              <PlotFigures id="plot-figures"/>
+            </div>
+            <Results id="results" width={size.width} height={size.height} className="column-2"/>
+            <div className='bundle column-3'>
+              <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
+              <Dichlorination id="dichlorination"/>
+            </div>
         </div>
         {fullTableOpened && (
           <DraggableWindow

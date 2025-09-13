@@ -7,7 +7,7 @@
     display: flex;
     flex-flow: column;
     gap: 1vh;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .Dichlorination .horizontal-container {
@@ -17,7 +17,7 @@
 }
 
 .Dichlorination .type-box {
-    width: 7vw;
+    width: 6vw;
 }
 
 .Dichlorination .value-box {
