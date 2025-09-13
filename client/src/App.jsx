@@ -59,26 +59,56 @@ const App = () =>  {
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
       <div className="systems-container">
 
-        <div className='row-container'>
-          <div className='bundle column-1' id="resize-bundle">
-            <ChooseApplication id="choose-application"/>
-            <HODSystem id="hod-system" width={size.width} height={size.height}/>
+          {/* Row 1, Column 1 */}
+          <div className="bundle column-1" style={{ gridRow: "1", gridColumn: "1" }}>
+            <ChooseApplication id="choose-application" />
+            <HODSystem id="hod-system" width={size.width} height={size.height} />
           </div>
-          <Specifications id="specifications" width={size.width} height={size.height} className="column-2"/>
-          <PathogenReduction id="Pathogen-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height} className="column-3"/>
-        </div>
 
-        <div className='row-container'>
-            <div className='bundle column-1'>
-              <CalculatrVersion id="calculator-version"/>
-              <PlotFigures id="plot-figures"/>
-            </div>
-            <Results id="results" width={size.width} height={size.height} className="column-2"/>
-            <div className='bundle column-3'>
-              <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
-              <Dichlorination id="dichlorination"/>
-            </div>
-        </div>
+          {/* Row 1, Column 2 */}
+          <Specifications
+            id="specifications"
+            width={size.width}
+            height={size.height}
+            className="column-2"
+            style={{ gridRow: "1", gridColumn: "2" }}
+          />
+
+          {/* Row 1, Column 3 */}
+          <PathogenReduction
+            id="Pathogen-reduction"
+            openFullTable={() => setFullTableOpened(true)}
+            width={size.width}
+            height={size.height}
+            className="column-3"
+            style={{ gridRow: "1", gridColumn: "3" }}
+          />
+
+          {/* Row 2, Column 1 */}
+          <div className="bundle column-1" style={{ gridRow: "2", gridColumn: "1" }}>
+            <CalculatrVersion id="calculator-version" />
+            <PlotFigures id="plot-figures" />
+          </div>
+
+          {/* Row 2, Column 2 */}
+          <Results
+            id="results"
+            width={size.width}
+            height={size.height}
+            className="column-2"
+            style={{ gridRow: "2", gridColumn: "2" }}
+          />
+
+          {/* Row 2, Column 3 */}
+          <div className="bundle column-3" style={{ gridRow: "2", gridColumn: "3" }}>
+            <PathogenInactivation
+              id="pathogen-inactivation"
+              width={size.width}
+              height={size.height}
+            />
+            <Dichlorination id="dichlorination" />
+          </div>
+
         {fullTableOpened && (
           <DraggableWindow
             height={size.height * 0.6}

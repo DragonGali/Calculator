@@ -14,52 +14,29 @@
 }
 
 .systems-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 0.6r 1fr 1.2fr;   /* custom column widths */
+  gap: 3vh 1vw;                             /* row gap / column gap */
+  width: 100%;
+  height: 80%;
+}
+
+.systems-container > * {
   width: 100%;
   height: 100%;
 }
 
-.row-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1vw;
-  width: 100%;
-  align-items: stretch; /* ensures children stretch vertically */
-}
-
-
-/* Column widths */
-.column-1 {
-  flex: 0.85; /* first column narrower */
-}
-
-/*Doesnt work without this*/
-#resize-bundle {
-  width: 26%;
-}
-
-.column-2 {
-  flex: 1;   /* middle column */
-}
-
-.column-3 {
-  flex: 1.2; /* third column wider */
-}
-
-/* Bundles inside columns stretch fully */
 .bundle {
   display: flex;
   flex-direction: column;
   gap: 3vh;
-  align-items: stretch;
   height: 100%;
 }
 
 .bundle > * {
+  flex: 1; /* evenly divide height inside the bundle */
   width: 100%;
-  height: 100%;
 }
 
 
@@ -68,13 +45,15 @@
 
 
 /* When the screen isnt wide enough, the container takes all of the screen */
-/* @media screen and (max-width: 800px), screen and (max-height: 600px) {
+@media screen and (max-width: 900px){
   #flex-container {
     width: 100%;
     margin-left: 0;
   }
+
   
-} */
+
+}
 
 
 
