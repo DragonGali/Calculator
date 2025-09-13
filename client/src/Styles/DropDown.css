@@ -21,6 +21,11 @@
   z-index: 9999;
 }
 
+.dropdown.active .dropdown-list {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* Dropdown label/button */
 .dropdown-label {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -39,7 +44,6 @@
   transition: transform 300ms;
   backface-visibility: hidden;
   user-select: none;
-  min-height: 25px;
 
 }
 
@@ -52,13 +56,11 @@
 .dropdown-arrow {
   position: absolute;
   right: 0px;
-  width: 2.3vw;
+  width: 1vw;
   text-align: center;
   font-size: 1.5vh;
-  padding: 0.5vh;
-  height: 70%;
-  line-height: 24px;
-  border-left: 1px solid #ddd;
+  height: 100%;
+  border-left: 0.05em solid #ddd;
 }
 
 /* Dropdown list */
@@ -69,6 +71,13 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
+  /*Hidden by default*/
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+
+  
 }
 
 /* Dropdown items */

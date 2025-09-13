@@ -58,15 +58,21 @@ const App = () =>  {
     <div id="flex-container">
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
       <div className="systems-container">
-        <ChooseApplication id="choose-application"/>
-        <HODSystem id="hod-system" width={size.width} height={size.height}/>
-        <CalculatrVersion id="calculator-version"/>
-        <PlotFigures id="plot-figures"/>
-        <Specifications id="specifications" width={size.width} height={size.height}/>
-        <Results id="results" width={size.width} height={size.height}/>
-        <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height}/>
-        <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
-        <Dichlorination id="dichlorination"/>
+        <div className='column column-one' style={{flex: 0.5}}>
+          <ChooseApplication id="choose-application"/>
+          <HODSystem id="hod-system" width={size.width} height={size.height}/>
+          <CalculatrVersion id="calculator-version"/>
+          <PlotFigures id="plot-figures"/>
+        </div>
+        <div className='column column-two' style={{flex: 0.6}}>
+          <Specifications id="specifications" width={size.width} height={size.height} style={{flex: 1}}/>
+          <Results id="results" width={size.width} height={size.height} style={{flex: 0.5}}/>
+        </div>
+        <div className='column column-three' >
+          <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height}/>
+          <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
+          <Dichlorination id="dichlorination"/>
+        </div>
         {fullTableOpened && (
           <DraggableWindow
             height={size.height * 0.6}

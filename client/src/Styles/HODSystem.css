@@ -1,3 +1,4 @@
+
 .HODSystem .wrapper {
     overflow: visible;
 }
@@ -7,7 +8,6 @@
     display: flex;
     flex-flow: row;
     gap: 0.5vw;
-    max-height: 4.5vh;
 }
 
 .HODSystem .vertical-container {
@@ -58,19 +58,4 @@
     filter: brightness(1.1);
 }
 
-
-@media screen and (max-height: 320px) {
-
-    .HODSystem .wrapper {
-        min-height: 55vh;
-    }
-
-    .HODSystem .vertical-container {
-        margin-top: 0vh;
-        gap: 0.1vw;
-    }
-
-
-    
-}
 
