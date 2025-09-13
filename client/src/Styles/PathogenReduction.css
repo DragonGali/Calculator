@@ -1,3 +1,7 @@
+.PathogenReduction {
+    width: 100%;
+}
+
 .PathogenReduction .title-box {
     width: 20vw;
 }
@@ -63,7 +67,8 @@
     font-family: 'Inter-Medium';
     font-size: var(--font-regular);
     margin-left: 0.7vw;
-    height: 3vh;
+    margin-bottom: 0.2vw;
+
 }
 
 .PathogenReduction .pathogen-type-header {

@@ -29,11 +29,13 @@
   align-items: stretch; /* ensures children stretch vertically */
 }
 
+
 /* Column widths */
 .column-1 {
   flex: 0.85; /* first column narrower */
 }
 
+/*Doesnt work without this*/
 #resize-bundle {
   width: 26%;
 }
@@ -70,15 +72,6 @@
   #flex-container {
     width: 100%;
     margin-left: 0;
-  }
-  
-  .systems-container {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .column-three {
-    flex: 0.5
   }
   
 } */
