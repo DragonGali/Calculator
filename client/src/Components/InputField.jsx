@@ -9,7 +9,8 @@ const InputField = ({
   name,
   id,
   width = 115,
-  height = 30
+  height = 30,
+  isSmall = false
 }) => {
   const [inputValue, setInputValue] = useState(value || '');
   const [focused, setFocused] = useState(false);
@@ -28,7 +29,7 @@ const InputField = ({
         type={type}
         name={name}
         id={id}
-        className="txtbx__field txtbx__field--batman"
+        className={`txtbx__field txtbx__field--batman ${isSmall ? 'small-padding' : ''}`}
         value={inputValue}
         onChange={handleChange}
         onFocus={() => setFocused(true)}

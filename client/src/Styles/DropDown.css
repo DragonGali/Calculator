@@ -40,7 +40,7 @@
   display: block;
 
   /* clamp padding for responsive layout */
-  padding: clamp(2px, 0.2vw, 8px) clamp(5px, 0.5vw, 16px);
+  padding-left: clamp(5px, 0.5vw, 16px);
 
   position: relative;
   z-index: 10;

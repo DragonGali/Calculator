@@ -17,7 +17,7 @@
 }
 
 .HODSystem .type-box {
-  width: clamp(40px, 5vw, 120px);
+  width: clamp(55px, 5vw, 120px);
 }
 
 .HODSystem .buttons {
@@ -40,7 +40,7 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: clamp(60px, 6vw, 160px);
+  width: clamp(65px, 6vw, 160px);
   height: clamp(28px, 4vh, 64px);
 }
 

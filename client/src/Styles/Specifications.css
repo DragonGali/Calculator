@@ -1,34 +1,33 @@
-
-
 .Specifications .wrapper {
     overflow: visible;
-    padding-left: 0.5vw;
-    padding-right: 0.5vw;
+    padding-left: clamp(4px, 0.5vw, 12px);
+    padding-right: clamp(4px, 0.5vw, 12px);
 }
-
 
 .Specifications .vertical-container {
     display: flex;
     flex-flow: column;
-    gap: 1vh;
-    margin-top: 2vh;
+    gap: clamp(4px, 1.5vh, 16px);
+    margin-top: clamp(8px, 2vh, 24px);
+
 }
 
 .Specifications .type-box {
-    width: 10vw;
+    width: clamp(80px, 10vw, 160px);
 }
 
 .Specifications .horizontal-container {
     display: flex;
     flex-flow: row;
-    gap: 0.5vw;
+    gap: clamp(4px, 0.5vw, 16px);
+    height: clamp(30px, 5.5vh, 100px);
 }
 
 .Specifications .line {
      border: none;
-     border-top: 0.4vh solid var(--primary);
-     margin-top: 1vh;
-     margin-bottom: 1vh;
+     border-top: clamp(2px, 0.4vh, 6px) solid var(--primary);
+     margin-top: clamp(4px, 0.3vh, 16px);
+     margin-bottom: clamp(4px, 0.3vh, 16px);
      width: 100%;
 }
 
@@ -36,12 +35,18 @@
     background-color: var(--white);
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
-    padding: 1vh 1.8vw 1vh 1.8vw;
+    text-align: center;
+    width: clamp(112px, 12.8vw, 300px);
+    height: clamp(25px, 5.5vh, 50px);
     font-size: var(--font-regular);
     font-weight: bold;
     font-family: 'Inter-Medium';
     cursor: pointer;
-    margin-top: 1vh;
+    margin-top: clamp(4px, 1vh, 12px);
+}
+
+.Specifications .button p {
+    padding-top: clamp(7px, 0.5vh, 20px);
 }
 
 .Specifications .button:hover {

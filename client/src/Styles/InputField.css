@@ -41,6 +41,11 @@
   padding-top: clamp(6px, 1.2vh, 14px);
 }
 
+/* For that one Input box thats shorter than the rest */
+.small-padding {
+  padding-top: 3px;
+}
+
 .txtbx__field--batman:focus + .txtbx__label--batman .txtbx__label-content--batman,
 .txtbx--batman.filled .txtbx__label-content--batman {
   transform: scale(0);

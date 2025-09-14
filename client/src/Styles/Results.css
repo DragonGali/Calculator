@@ -1,31 +1,30 @@
-
-
 .Results .wrapper {
     overflow: visible;
-    padding-left: 0.5vw;
-    padding-right: 0.5vw;
+    padding-left: clamp(4px, 0.5vw, 12px);
+    padding-right: clamp(4px, 0.5vw, 12px);
 }
-
 
 .Results .vertical-container {
     display: flex;
     flex-flow: column;
-    gap: 0.5vh;
-    margin-top: 2vh;
+    gap: clamp(4px, 0.5vh, 12px);
+    margin-top: clamp(8px, 2vh, 24px);
 }
 
 .Results .type-box {
-    width: 14.5vw;
+    width: clamp(120px, 14.5vw, 240px);
+    font-size: clamp(7px, 0.85vw, 22px);
 }
 
 .Results .small {
-    width: 7vw;
+    width: clamp(60px, 7vw, 140px);
 }
 
 .Results .horizontal-container {
     display: flex;
     flex-flow: row;
-    gap: 0.5vw;
+    gap: clamp(4px, 0.5vw, 16px);
+    height: clamp(36px, 6vh, 100px);
 }
 
 .Results .value-box {
@@ -41,15 +40,15 @@
     border-radius: 0.5em;
     border-color: var(--primary);
     border-width: 0.1em;
-    width: 4vw;
-    height: 5.5vh;
-    font-size: var(--font-regular);
+
+    width: clamp(40px, 4vw, 100px);
+    font-size: clamp(12px, var(--font-regular), 22px);
 }
 
 .Results .line {
-     border: none;
-     border-top: 0.4vh solid var(--primary);
-     margin-top: 1vh;
-     margin-bottom: 1vh;
-     width: 100%;
+    border: none;
+    border-top: clamp(2px, 0.4vh, 6px) solid var(--primary);
+    margin-top: clamp(4px, 1vh, 16px);
+    margin-bottom: clamp(4px, 1vh, 16px);
+    width: 100%;
 }

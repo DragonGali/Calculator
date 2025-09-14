@@ -36,7 +36,7 @@ function HODSystem ({width, height}) {
               className="drop-down"
               options={[...data.modules]}
               height={Math.max(28, Math.min(height * 0.047, 64))}  // clamp height
-              width={Math.max(100, Math.min(width * 0.136, 280))}  // clamp width
+              width={Math.max(140, Math.min(width * 0.136, 280))}  // clamp width
               placeholder={data.modules[0].label}
             />
           </div>
@@ -50,7 +50,7 @@ function HODSystem ({width, height}) {
               className="drop-down"
               options={[...data.model]}
               height={Math.max(28, Math.min(height * 0.05, 64))}
-              width={Math.max(80, Math.min(width * 0.08, 180))}
+              width={Math.max(80, Math.min(width * 0.08, 280))}
               placeholder={data.model[0].label}
             />
             <Checkbox
@@ -68,7 +68,7 @@ function HODSystem ({width, height}) {
               placeholder=''
               value={1}
               height={Math.max(28, Math.min(height * 0.05, 64))}
-              width={Math.max(60, Math.min(width * 0.08, 160))}
+              width={Math.max(80, Math.min(width * 0.08, 160))}
             />
             <div className="type-box">
               <p>[Units]</p>
