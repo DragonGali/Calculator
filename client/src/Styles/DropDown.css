@@ -30,12 +30,18 @@
 .dropdown-label {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   color: var(--text);
-  font-size: 0.9vw;
+
+  /* clamp font-size for responsiveness */
+  font-size: clamp(10px, 0.9vw, 16px);
+
   background: var(--white);
   border-style: solid;
   border-color: var(--primary);
   display: block;
-  padding: 0 0.2vw 0 0.5vw;
+
+  /* clamp padding for responsive layout */
+  padding: clamp(2px, 0.2vw, 8px) clamp(5px, 0.5vw, 16px);
+
   position: relative;
   z-index: 10;
   cursor: pointer;
@@ -44,7 +50,6 @@
   transition: transform 300ms;
   backface-visibility: hidden;
   user-select: none;
-
 }
 
 .dropdown.active .dropdown-label {
@@ -56,9 +61,10 @@
 .dropdown-arrow {
   position: absolute;
   right: 0px;
-  width: 1vw;
+  top: 0px;
+  width: clamp(12px, 1.2vw, 24px);
   text-align: center;
-  font-size: 1em;
+  font-size: clamp(7px, 1em, 18px);
   height: 100%;
   border-left: 0.05em solid #ddd;
 }
@@ -72,12 +78,10 @@
   margin: 0;
   padding: 0;
 
-  /*Hidden by default*/
+  /* Hidden by default */
   opacity: 0;
   pointer-events: none;
   transition: opacity 300ms;
-
-  
 }
 
 /* Dropdown items */
@@ -95,7 +99,7 @@
 }
 
 .dropdown-item:hover {
-  filter:brightness(1.2)
+  filter: brightness(1.2);
 }
 
 .dropdown-item span {
@@ -103,13 +107,14 @@
   backface-visibility: hidden;
   user-select: none;
   width: 100%;
-  font-size: 0.9vw;
-  padding: 0 0.5vw;
+
+  font-size: clamp(12px, 0.9vw, 18px);
+  padding: clamp(4px, 0.2vw, 8px) clamp(8px, 0.5vw, 16px);
+
   display: block;
   color: var(--white);
-  letter-spacing: 0.1vw;
+  letter-spacing: clamp(1px, 0.1vw, 2px);
 }
-
 
 html {
   line-height: 1.2;
@@ -117,11 +122,6 @@ html {
 
 @media screen and (max-height: 400px){
   .dropdown-arrow {
-    font-size: 0.7vw;
+    font-size: clamp(8px, 0.7vw, 14px);
   }
 }
-
-
-
-
-

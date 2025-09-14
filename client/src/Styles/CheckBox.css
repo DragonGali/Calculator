@@ -9,50 +9,44 @@
 }
 
 .check-box {
-  font-size: 3vw;
+  font-size: clamp(16px, 3vw, 32px); /* scales but never too small or too big */
 }
-
-
 
 .check-box label {
   cursor: pointer;
   color: var(--primary);
   display: block;
-  margin-top: 1.8vh;
+  margin-top: clamp(10px, 1.8vh, 24px);
 }
 
 .check-box .label-text {
-    color: var(--text);
-    font-size: 1.1vw;
+  color: var(--text);
+  font-size: clamp(12px, 1.1vw, 18px);
 }
 
-
 .check-box .label-text:before {
-    display: none;
+  display: none;
 }
 
 .check-box [type="checkbox"] + .label-text:before {
   content: "\f096";
   font-family: "FontAwesome";
   font-style: normal;
-  font-size: 1.6vw;
+  font-size: clamp(16px, 1.6vw, 28px);
   font-variant: normal;
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   width: 0em;
   display: inline-block;
-  margin-right: 1.6vw;
+  margin-right: clamp(15px, 1.6vw, 20px);
   color: var(--primary);
 }
 
-
 input[type="checkbox"]:checked + .label-text:before {
   content: "\f14a";
-  color: var(--heightlight);
+  color: var(--highlight);
   animation: tick 150ms ease-in;
 }
-
-
 
 input[type="checkbox"]:disabled + .label-text:before {
   content: "\f0c8";
@@ -69,10 +63,3 @@ input[type="checkbox"]:disabled + .label-text:before {
     transform: scale(1);
   }
 }
-
-@media (max-height: 1000px) {
-  .input[type="checkbox"] + .label-text:before {
-    font-size: 4vh;
-  }
-}
-

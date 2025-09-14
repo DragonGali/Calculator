@@ -3,14 +3,14 @@
   display: inline-block;
   position: relative;
   background-color: var(--white);
-  font-size: 0.9rem;
+  font-size: clamp(14px, 0.9rem, 18px);
 }
 
 .txtbx__field {
   border: none;
-  width: 7vw;
+  width: clamp(80px, 7vw, 200px);  /* scales but stops shrinking too much */
   font-size: var(--font-regular);
-  padding-top: 1vh;
+  padding-top: clamp(4px, 1vh, 12px);
   box-sizing: border-box;
   text-align: center;
   background-color: transparent;
@@ -34,12 +34,11 @@
   text-align: center;
 }
 
-
 /* Batman styles */
 .txtbx__field--batman {
   color: var(--text);
-  font-size: 0.9vw;
-  padding-top: 1.2vh;
+  font-size: clamp(12px, 0.9vw, 18px);
+  padding-top: clamp(6px, 1.2vh, 14px);
 }
 
 .txtbx__field--batman:focus + .txtbx__label--batman .txtbx__label-content--batman,

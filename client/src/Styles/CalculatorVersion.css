@@ -1,6 +1,5 @@
 
 
-
 .CalculatorVersion .horizontal-container {
     display: flex;
     flex-flow: row;
@@ -13,7 +12,8 @@
     background-color: var(--white);
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
-    padding: 1.5vh 2vw 1.5vh 2vw;
+    padding: clamp(10px, 1.5vh, 30px) clamp(30px, 2vw, 40px);
+
 
     font-size: var(--font-regular);
     font-weight: bold;
