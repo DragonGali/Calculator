@@ -1,68 +1,65 @@
-
 .PathogenInactivation .wrapper {
-    display: flex;
-    flex-flow: row;
-    gap: 0.5vw;
-    padding-top: 2vh;
+  display: flex;
+  flex-flow: row;
+  gap: 0.5vw;
+  padding-top: 2vh;
 }
 
-
-.PathogenInactivation .title-box{
-    width: 20vw;
+.PathogenInactivation .title-box {
+  width: clamp(140px, 20vw, 260px);
 }
-
 
 .PathogenInactivation .horizontal-container {
-    display: flex;
-    flex-flow: row;
-    gap: 0.5vw;
+  display: flex;
+  flex-flow: row;
+  gap: 0.5vw;
 }
 
 .PathogenInactivation .vertical-container {
-    display: flex;
-    flex-flow: column;
-    gap: 1vh;
+  display: flex;
+  flex-flow: column;
+  gap: 1vh;
 }
 
-
 .PathogenInactivation .type-box {
-    padding: 0 1vw 0 1vw;
-    width: 7.5vw;
+  width: clamp(60px, 7.5vw, 140px);
 }
 
 .PathogenInactivation .value-box {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--text);
-    font-family: 'Inter-Medium';
-    font-weight: 600;
-    border-style: solid;
-    border-color: var(--primary);
-    border-width: 0.2em;
-    width: 8vw;
-
-    font-size: var(--font-regular);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text);
+  font-family: 'Inter-Medium';
+  font-weight: 600;
+  border: 0.2em solid var(--primary);
+  width: clamp(150px, 8vw, 160px);
+  height: clamp(20px, 3.5vh, 56px);
+  font-size: var(--font-regular);
+  border-radius: 0.5em;
 }
 
 .PathogenInactivation .reset-button {
-    border: 0.15em solid var(--primary);
-    padding: 3.5vh 1vw 3.5vh 1vw;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-regular);
-    background-color: var(--grey-blue);
+  border: 0.15em solid var(--primary);
+  padding: clamp(7px, 3.5vh, 28px) clamp(10px, 0.8vw, 20px);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-regular);
+  background-color: var(--grey-blue);
+  border-radius: 0.5em;
+  transition: filter 0.3s;
 }
 
 .PathogenInactivation .reset-button:hover {
-    cursor: pointer;
-    filter: brightness(0.9);
+  cursor: pointer;
+  filter: brightness(0.9);
 }
 
 .PathogenInactivation .expected-li-text {
-    font-size: var(--font-regular);
-    color: var(--text);
+  font-size: var(--font-regular);
+  color: var(--text);
 }

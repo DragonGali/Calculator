@@ -1,13 +1,12 @@
-
 .Dichlorination .title-box {
-    width: 20vw;
+    width: clamp(150px, 20vw, 300px); /* min 150px, preferred 20vw, max 300px */
 }
 
 .Dichlorination .vertical-container {
     display: flex;
     flex-flow: column;
     gap: 1vh;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .Dichlorination .horizontal-container {
@@ -17,7 +16,7 @@
 }
 
 .Dichlorination .type-box {
-    width: 7vw;
+    width: clamp(40px, 6vw, 120px);
 }
 
 .Dichlorination .value-box {
@@ -32,6 +31,6 @@
     border-style: solid;
     border-color: var(--primary);
     border-width: 0.2em;
-    width: 5vw;
-    font-size: var(--font-regular);
+    width: clamp(40px, 5vw, 150px);
+    font-size: clamp(12px, var(--font-regular), 18px);
 }

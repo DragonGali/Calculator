@@ -1,14 +1,9 @@
 .radio-buttons {
-    margin-right: 3vw;
-    overflow: hidden;
-    margin-top: 1vh;
+  margin-right: clamp(16px, 3em, 48px);  /* won’t shrink below 16px */
+  margin-top: clamp(6px, 1vh, 20px);     /* same for top margin */
+  overflow: hidden;
 }
 
 .ChooseApplication .wrapper {
-    padding-left: 0.5vw;
+  padding-left: clamp(4px, 0.5vw, 12px); /* stops scaling too far */
 }
-
-
-
-
-

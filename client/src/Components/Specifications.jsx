@@ -29,7 +29,7 @@ function Specifications ({width, height}) {
                     <div className="type-box">
                         <p>{field[0]}</p>
                     </div>
-                    <Slider width={width * 0.05} height={height * 0.05} min={field[1]} max={field[2]}></Slider>
+                    <Slider width={Math.max(60, Math.min(width * 0.05, 160))} height={Math.max(28, Math.min(height * 0.05, 64))}  min={field[1]} max={field[2]}></Slider>
                     <div className="type-box">
                         <p>{field[3]}</p>
                     </div>
@@ -41,9 +41,9 @@ function Specifications ({width, height}) {
                     <div className='type-box'>
                       <p>{bottomData.fieldName}</p>
                     </div>
-                    <Slider width={width * 0.05} height={height * 0.05} min={bottomData.ranges[0].min} max={bottomData.ranges[0].max}></Slider>
+                    <Slider width={Math.max(60, Math.min(width * 0.05, 160))} height={Math.max(28, Math.min(height * 0.05, 64))} min={bottomData.ranges[0].min} max={bottomData.ranges[0].max}></Slider>
                     <DropDown options={[...bottomData.options]}
-                    width={width * 0.1} height={height * 0.055}
+                    width={Math.max(80, Math.min(width * 0.1, 240))} height={Math.max(30, Math.min(height * 0.055, 64))} 
                     placeholder={bottomData.options[0].value}></DropDown>
                 </div>
                 <div className='horizontal-container'>

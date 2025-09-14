@@ -1,76 +1,54 @@
 .HODSystem .wrapper {
-    overflow: visible;
+  overflow: visible;
 }
 
-
 .HODSystem .horizontal-container {
-    display: flex;
-    flex-flow: row;
-    gap: 0.5vw;
-    max-height: 4.5vh;
+  display: flex;
+  flex-flow: row;
+  gap: clamp(4px, 0.5vw, 12px);
+  height: clamp(28px, 5vh, 60px);
 }
 
 .HODSystem .vertical-container {
-    display: flex;
-    flex-flow: column;
-    gap: 1vh;
-    margin-top: 2vh;
+  display: flex;
+  flex-flow: column;
+  gap: clamp(6px, 1vh, 20px);
+  margin-top: clamp(10px, 1vh, 32px);
 }
 
 .HODSystem .type-box {
-    width: 5vw;
-}
-
-.HODSystem .checkbox {
-    padding-top: 5vh;
+  width: clamp(55px, 5vw, 120px);
 }
 
 .HODSystem .buttons {
-    display: flex;
-    flex-flow: row;
-    gap: 1vw;
+  display: flex;
+  flex-flow: row;
+  gap: clamp(6px, 1vw, 20px);
 }
 
-.HODSystem .button  {
-    background-color: var(--background);
-    font-size: var(--font-regular);
-    font-weight: bold;
-    font-family: 'Inter-Medium';
-    border: 3px solid var(--primary);
-    color: var(--blue-text);
-    border-radius: 0.7em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 6vw;
-    height: 4vh;
+.HODSystem .button {
+  background-color: var(--background);
+  font-size: var(--font-regular);
+  font-weight: bold;
+  font-family: 'Inter-Medium';
+  border: 3px solid var(--primary);
+  color: var(--blue-text);
+  border-radius: 0.7em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: clamp(65px, 6vw, 160px);
+  height: clamp(28px, 4vh, 64px);
 }
 
 .HODSystem .button.IsPressed {
-    background-color: var(--highlight);
-    color: var(--white);
+  background-color: var(--highlight);
+  color: var(--white);
 }
 
 .HODSystem .button.NotPressed:hover {
-    filter: brightness(1.1);
+  filter: brightness(1.1);
 }
-
-
-@media screen and (max-height: 320px) {
-
-    .HODSystem .wrapper {
-        min-height: 55vh;
-    }
-
-    .HODSystem .vertical-container {
-        margin-top: 0vh;
-        gap: 0.1vw;
-    }
-
-
-    
-}
-

@@ -58,15 +58,57 @@ const App = () =>  {
     <div id="flex-container">
       <img id="atlantium-img" src="/AtlantiumLogo_Long.png"/>
       <div className="systems-container">
-        <ChooseApplication id="choose-application"/>
-        <HODSystem id="hod-system" width={size.width} height={size.height}/>
-        <CalculatrVersion id="calculator-version"/>
-        <PlotFigures id="plot-figures"/>
-        <Specifications id="specifications" width={size.width} height={size.height}/>
-        <Results id="results" width={size.width} height={size.height}/>
-        <PathogenReduction id="Pathogens-reduction" openFullTable={() => {setFullTableOpened(true)}} width={size.width} height={size.height}/>
-        <PathogenInactivation id="pathogen-inactivation" width={size.width} height={size.height}/>
-        <Dichlorination id="dichlorination"/>
+
+          {/* Row 1, Column 1 */}
+          <div className="bundle column-1" style={{ gridRow: "1", gridColumn: "1" }}>
+            <ChooseApplication id="choose-application" />
+            <HODSystem id="hod-system" width={size.width} height={size.height} />
+          </div>
+
+          {/* Row 1, Column 2 */}
+          <Specifications
+            id="specifications"
+            width={size.width}
+            height={size.height}
+            className="column-2"
+            style={{ gridRow: "1", gridColumn: "2" }}
+          />
+
+          {/* Row 1, Column 3 */}
+          <PathogenReduction
+            id="Pathogen-reduction"
+            openFullTable={() => setFullTableOpened(true)}
+            width={size.width}
+            height={size.height}
+            className="column-3"
+            style={{ gridRow: "1", gridColumn: "3" }}
+          />
+
+          {/* Row 2, Column 1 */}
+          <div className="bundle column-1" style={{ gridRow: "2", gridColumn: "1" }}>
+            <CalculatrVersion id="calculator-version" />
+            <PlotFigures id="plot-figures" />
+          </div>
+
+          {/* Row 2, Column 2 */}
+          <Results
+            id="results"
+            width={size.width}
+            height={size.height}
+            className="column-2"
+            style={{ gridRow: "2", gridColumn: "2" }}
+          />
+
+          {/* Row 2, Column 3 */}
+          <div className="bundle column-3" style={{ gridRow: "2", gridColumn: "3" }}>
+            <PathogenInactivation
+              id="pathogen-inactivation"
+              width={size.width}
+              height={size.height}
+            />
+            <Dichlorination id="dichlorination" />
+          </div>
+
         {fullTableOpened && (
           <DraggableWindow
             height={size.height * 0.6}
@@ -96,6 +138,7 @@ const App = () =>  {
       )}
     </div>
   </div>
+  <p className='creator-name'>Gali Kertser</p>
   </div>
 )}
 
