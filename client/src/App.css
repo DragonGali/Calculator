@@ -17,7 +17,7 @@
 
 .systems-container {
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1.3fr 1fr;
   grid-template-columns: 0.6fr 1fr 1.2fr;   /* custom column widths */
   gap: 3vh 1vw;                             /* row gap / column gap */
   width: 100%;

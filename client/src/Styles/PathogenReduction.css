@@ -7,7 +7,7 @@
 }
 
 .PathogenReduction .vertical-container {
-  margin-top: 3vh;
+  margin-top: clamp(6px, 3vh, 10px);
   display: flex;
   flex-flow: column;
   justify-content: flex-start;

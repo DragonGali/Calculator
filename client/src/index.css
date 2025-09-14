@@ -61,12 +61,12 @@
   text-align: center;
   position: relative;
   background-color: var(--title-box);
-  padding: 1vh;
+  padding: clamp(3px, 0.6vh, 10px);
   margin-left: 50%;
   transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
   box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
-  margin-bottom: -2vh;
+  margin-bottom: clamp(-8px, -2vh, -50px);
 }
 
 .title-box p {

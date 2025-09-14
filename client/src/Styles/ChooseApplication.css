@@ -1,6 +1,6 @@
 .radio-buttons {
   margin-right: clamp(16px, 3em, 48px);  /* won’t shrink below 16px */
-  margin-top: clamp(8px, 1em, 20px);     /* same for top margin */
+  margin-top: clamp(6px, 1vh, 20px);     /* same for top margin */
   overflow: hidden;
 }
 
