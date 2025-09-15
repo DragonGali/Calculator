@@ -38,7 +38,7 @@
   -webkit-font-smoothing: antialiased;
   width: 0em;
   display: inline-block;
-  margin-right: clamp(15px, 1.6vw, 20px);
+  margin-right: clamp(15px, 1.6vw, 30px);
   color: var(--primary);
 }
 
