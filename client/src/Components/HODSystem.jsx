@@ -37,7 +37,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <Dropdown
               className="drop-down"
               options={[...data.modules]}
-              height={Math.max(28, Math.min(height * 0.047, 64))}
+              height={Math.max(20, Math.min(height * 0.04, 64))}
               width={Math.max(140, Math.min(width * 0.136, 280))}
               placeholder={data.modules[0].label}
               value={appState?.module} // controlled
@@ -53,7 +53,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <Dropdown
               className="drop-down"
               options={[...data.model]}
-              height={Math.max(28, Math.min(height * 0.05, 64))}
+              height={Math.max(20, Math.min(height * 0.04, 64))}
               width={Math.max(80, Math.min(width * 0.08, 280))}
               placeholder={data.model[0].label}
               value={appState?.model}
@@ -75,7 +75,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <InputField
               placeholder=''
               value={appState?.branch ?? 1}
-              height={Math.max(28, Math.min(height * 0.05, 64))}
+              height={Math.max(20, Math.min(height * 0.04, 64))}
               width={Math.max(80, Math.min(width * 0.08, 160))}
               onChange={(val) => { sendUpdate("HODSystem", "setBranch", { branch: val }) }}
               unlockAll={true}

@@ -1,8 +1,12 @@
+.PlotFigures .wrapper {
+    height: clamp(90px, 16vh, 17vh);
+}
+
 .PlotFigures .vertical-container {
     display: flex;
     flex-flow: column;
     gap: clamp(4px, 0.5vh, 12px); /* lock gap between buttons */
-    margin-top: clamp(12px, 2vh, 32px); /* lock top margin */
+    margin-top: clamp(5px, 0.5vh, 32px); /* lock top margin */
 }
 
 .PlotFigures .button {
@@ -11,7 +15,7 @@
     border-radius: 2em;
 
     /* Clamp padding so it scales but stops shrinking */
-    padding: clamp(4px, 0.5vh, 12px) clamp(55px, 5.5vw, 70px);
+    padding: clamp(3px, 0.4vh, 12px) clamp(55px, 5.5vw, 70px);
 
     font-size: var(--font-regular);
     font-weight: bold;

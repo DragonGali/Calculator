@@ -6,8 +6,6 @@
   gap: 1vh;
   margin-left: 10vw;
   margin-top: 1vh;
-  min-height: 600px;
-  min-width: 700px;
 }
 
 
@@ -17,28 +15,24 @@
 
 .systems-container {
   display: grid;
-  grid-template-rows: 1.3fr 1fr;
   grid-template-columns: 0.6fr 1fr 1.2fr;   /* custom column widths */
-  gap: 3vh 1vw;                             /* row gap / column gap */
+  gap: 1vh 1vw;                             /* row gap / column gap */
   width: 100%;
-  height: 80%;
+  height: 70%;
 }
 
 .systems-container > * {
   width: 100%;
-  height: 100%;
 }
 
 .bundle {
   display: flex;
   flex-direction: column;
-  gap: 3vh;
-  height: 100%;
+  gap: clamp(5px, 0.5vh, 30px);
   min-height: 0;
 }
 
 .bundle > * {
-  flex: 1; /* evenly divide height inside the bundle */
   width: 100%;
 }
 

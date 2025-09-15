@@ -1,4 +1,5 @@
 .HODSystem .wrapper {
+  height: clamp(113px, 23.5vh, 23.5vh);
   overflow: visible;
 }
 
@@ -6,14 +7,14 @@
   display: flex;
   flex-flow: row;
   gap: clamp(4px, 0.5vw, 12px);
-  height: clamp(28px, 5vh, 60px);
+  height: clamp(20px, 4vh, 60px);
 }
 
 .HODSystem .vertical-container {
   display: flex;
   flex-flow: column;
   gap: clamp(6px, 1vh, 20px);
-  margin-top: clamp(10px, 1vh, 32px);
+  margin-top: clamp(5px, 0.5vh, 32px);
 }
 
 .HODSystem .type-box {
@@ -41,7 +42,7 @@
   text-align: center;
   align-items: center;
   width: clamp(65px, 6vw, 160px);
-  height: clamp(28px, 4vh, 64px);
+  height: clamp(20px, 4vh, 64px);
 }
 
 .HODSystem .button.IsPressed {

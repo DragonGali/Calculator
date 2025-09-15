@@ -1,5 +1,5 @@
-.PathogenReduction {
-  width: 100%;
+.PathogenReduction .wrapper {
+  height: clamp(210px, 42.7vh, 42.7vh);
 }
 
 .PathogenReduction .title-box {
@@ -26,8 +26,8 @@
 }
 
 .PathogenReduction .scroll-container {
-  width: clamp(220px, 26vw, 480px);
-  height: clamp(180px, 34vh, 480px);
+  width: clamp(210px, 26vw, 480px);
+  height: clamp(150px, 30vh, 30vh);
   overflow: auto;
 }
 
@@ -107,7 +107,7 @@
   font-family: 'Inter-Medium';
   cursor: pointer;
   text-align: center;
-  padding: clamp(2px, 1.3vh, 8px) clamp(8px, 1vw, 18px);
+  padding: clamp(2px, 0.5vh, 8px) clamp(8px, 1vw, 18px);
   transition: background-color 0.3s;
 }
 
