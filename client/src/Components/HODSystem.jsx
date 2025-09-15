@@ -5,7 +5,7 @@ import InputField from '../Components/InputField';
 import '../Styles/HODSystem.css';
 import data from "../data";
 
-function HODSystem({ width, height, appState, sendUpdate }) {
+function HODSystem({ width, height, appState, sendUpdate}) {
 
   
   // When button is clicked, notify server + update state
@@ -78,6 +78,7 @@ function HODSystem({ width, height, appState, sendUpdate }) {
               height={Math.max(28, Math.min(height * 0.05, 64))}
               width={Math.max(80, Math.min(width * 0.08, 160))}
               onChange={(val) => { sendUpdate("HODSystem", "setBranch", { branch: val }) }}
+              unlockAll={true}
             />
             <div className="type-box">
               <p>[Units]</p>

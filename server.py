@@ -27,6 +27,9 @@ app_state = {
     "PathogenReduction": {
         "tableData": [],
     },
+    "password": {
+        "atlantium"
+    },
     # Add other sections for other components
 }
 

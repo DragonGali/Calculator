@@ -168,5 +168,10 @@ p{
   color: var(--grey-blue);
 }
 
+.locked {
+  filter: blur(0.35em); /*styling for all the locked features*/
+  pointer-events: none;
+}
+
 
 

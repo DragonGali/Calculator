@@ -26,6 +26,8 @@ const App = () =>  {
     width: window.innerWidth,
     height: window.innerHeight
   });
+
+  const [unlockAll, setUnlockAll] = useState(false)//For Developer mode
   
 
   useEffect(() => {
@@ -103,6 +105,7 @@ const App = () =>  {
             width={size.width}
             height={size.height}
             className="column-2"
+            unlockAll={unlockAll}
             style={{ gridRow: "1", gridColumn: "2" }}
           />
 
@@ -118,8 +121,8 @@ const App = () =>  {
 
           {/* Row 2, Column 1 */}
           <div className="bundle column-1" style={{ gridRow: "2", gridColumn: "1" }}>
-            <CalculatrVersion id="calculator-version" />
-            <PlotFigures id="plot-figures" />
+            <CalculatrVersion id="calculator-version" unlockAll={(e) => {setUnlockAll(e)}}/>
+            <PlotFigures id="plot-figures" unlockAll={unlockAll}/>
           </div>
 
           {/* Row 2, Column 2 */}
@@ -137,6 +140,7 @@ const App = () =>  {
               id="pathogen-inactivation"
               width={size.width}
               height={size.height}
+              unlockAll={unlockAll}
             />
             <Dichlorination id="dichlorination" />
           </div>

@@ -10,7 +10,8 @@ const InputField = ({
   id,
   width = 115,
   height = 30,
-  isSmall = false
+  isSmall = false,
+  unlockAll
 }) => {
   const [inputValue, setInputValue] = useState(value);
 
@@ -30,7 +31,7 @@ const InputField = ({
 
   return (
     <div
-      className={`txtbx txtbx--batman ${inputValue.length > 0 ? 'filled' : ''}`}
+      className={`txtbx txtbx--batman ${inputValue.length > 0 ? 'filled' : ''} ${unlockAll ? '' : 'locked'}`}
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <input
