@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/DropDown.css';
 
 const Dropdown = ({ 
@@ -8,40 +8,44 @@ const Dropdown = ({
   emptyText = "Empty",
   colors = ['var(--primary)', 'var(--title-box)'],
   width = 200,
-  height = 60
+  height = 60,
+  value,          // controlled value
+  onChange        // controlled callback
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
+  const [internalValue, setInternalValue] = useState('');
+
+  // If parent passes value, prefer it over internal state
+  const selectedValue = value ?? internalValue;
 
   const handleToggle = () => {
     setIsActive(!isActive);
   };
 
   const handleSelect = (option) => {
-    setSelectedValue(option.label);
+    if (onChange) {
+      onChange(option.value ?? option.label); // notify parent
+      console.log("check");
+    } else {
+      setInternalValue(option.label); // uncontrolled fallback
+    }
     setIsActive(false);
   };
 
-  const getColor = (index) => {
-    return colors[index % colors.length];
-  };
+  const getColor = (index) => colors[index % colors.length];
 
   const getTransform = (index, isActive) => {
-    if (!isActive) {
-      return `translateY(${3 * index}%)`;
-    }
+    if (!isActive) return `translateY(${3 * index}%)`;
     return `translateY(${100 * (index + 1)}%)`;
   };
 
   return (
     <div className="dropdown-wrapper">
-      {/* Dropdown Container */}
       <div 
         className={`dropdown ${isActive ? 'active' : ''}`}
         style={{ width: `${width}px` }}
       >
-        
-        {/* Dropdown Label/Button */}
+        {/* Label */}
         <span
           className="dropdown-label"
           onClick={handleToggle}
@@ -53,7 +57,7 @@ const Dropdown = ({
           </span>
         </span>
 
-        {/* Dropdown List */}
+        {/* Options */}
         <ul className="dropdown-list">
           {options.map((option, index) => (
             <li

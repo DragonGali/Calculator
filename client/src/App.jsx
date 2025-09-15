@@ -94,7 +94,7 @@ const App = () =>  {
           {/* Row 1, Column 1 */}
           <div className="bundle column-1" style={{ gridRow: "1", gridColumn: "1" }}>
             <ChooseApplication id="choose-application" appState={appState.ChooseApplication} sendUpdate={sendUpdate}/>
-            <HODSystem id="hod-system" width={size.width} height={size.height} appState={appState.ChooseApplication} sendUpdate={sendUpdate}/>
+            <HODSystem id="hod-system" width={size.width} height={size.height} appState={appState.HODSystem} sendUpdate={sendUpdate}/>
           </div>
 
           {/* Row 1, Column 2 */}

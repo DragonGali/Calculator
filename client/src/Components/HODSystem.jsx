@@ -6,6 +6,8 @@ import '../Styles/HODSystem.css';
 import data from "../data";
 
 function HODSystem({ width, height, appState, sendUpdate }) {
+
+  
   // When button is clicked, notify server + update state
   const handleClick = (button) => {
     sendUpdate("HODSystem", "setPressedButton", { pressedButton: button });
@@ -15,9 +17,9 @@ function HODSystem({ width, height, appState, sendUpdate }) {
   // On mount, select first button if none is chosen
   useEffect(() => {
     if (!appState?.pressedButton) {
-      () => handleClick(data.HODButtons[0]);
+      handleClick(data.HODButtons[0]);
     }
-  }, [appState]);
+  }, []);
 
   return (
     <div className="HODSystem">
@@ -39,7 +41,7 @@ function HODSystem({ width, height, appState, sendUpdate }) {
               width={Math.max(140, Math.min(width * 0.136, 280))}
               placeholder={data.modules[0].label}
               value={appState?.module} // controlled
-              //onChange={(option) => { sendUpdate("HODSystem", "setModule", { module: option }) }}
+              onChange={(option) => { sendUpdate("HODSystem", "setModule", { module: option }) }}
             />
           </div>
 
@@ -55,13 +57,13 @@ function HODSystem({ width, height, appState, sendUpdate }) {
               width={Math.max(80, Math.min(width * 0.08, 280))}
               placeholder={data.model[0].label}
               value={appState?.model}
-              //onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}
+              onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
               className="checkbox"
               checked={appState?.vertical}
-              //onChange={(checked) => { sendUpdate("HODSystem", "setVertical", { vertical: checked }) }}
+              onChange={(checked) => { sendUpdate("HODSystem", "setVertical", { vertical: checked }) }}
             />
           </div>
 
