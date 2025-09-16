@@ -1,7 +1,8 @@
 /* Range Slider Container */
 .range-slider-container {
   position: relative;
-  padding-top: clamp(5px, 4vh, 40px); /* Space for the display box */
+  padding-top: clamp(10px, 3vh, 40px); /* Space for the display box */
+  width: clamp(5px, 5vw, 100px);
 }
 
 /* Value Display Box */
@@ -13,11 +14,11 @@
   right: 0;
   width: 100%;
   color: var(--text);
-  line-height: clamp(20px, 4.5vh, 40px);
+  line-height: clamp(10px, 2.6vh, 40px);
   text-align: center;
   border-radius: clamp(4px, 0.3vw, 8px);
   background: var(--white);
-  padding: clamp(2px, 0.5vh, 8px) clamp(4px, 0.5vw, 8px);
+  padding: clamp(6px, 0.5vh, 8px) clamp(4px, 0.5vw, 8px);
   font-family: 'Inter-Light';
   font-size: var(--font-regular);
   font-weight: bold;
@@ -25,7 +26,6 @@
   border-style: solid;
   border-width: 0.1rem;
   z-index: 1;
-  min-height: 20px;
 }
 
 /* Range Slider Input */
@@ -100,8 +100,4 @@
   border: 0;
 }
 
-@media screen and (max-height:500px) {
-    .range-slider-container {
-        padding-top: clamp(10px, 2.7vh, 20px);
-    }
-}
+

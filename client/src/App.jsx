@@ -27,6 +27,9 @@ const App = () =>  {
     height: window.innerHeight
   });
 
+  const [unlockAll, setUnlockAll] = useState(false)//For Developer mode
+  
+
   useEffect(() => {
     const handleResize = () => {
       setSize({ width: window.innerWidth, height: window.innerHeight });
@@ -36,22 +39,53 @@ const App = () =>  {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-//Code ill later on use to fetch the RESTAPI
+  //state of the App
+  const [appState, setAppState] = useState({});
 
+  //Recieves the state of all changable items from server
+  const fetchState = async () => {
+        try {
+          const res = await fetch("http://127.0.0.1:8000/state");
+          const data = await res.json();
+          setAppState(data);
+          console.log(data);
+        } catch (err) {
+          console.error("Error fetching app state:", err);
+        }
+  };
 
-  // useEffect(()=>{
+  //Sends updated data to the server
+  const sendUpdate = async (section, action, payload) => {
+    // optimistic update
+    setAppState(prev => ({
+      ...prev,
+      [section]: { ...prev[section], ...payload }
+    }));
 
-  //   const fun  = async () => {
-  //     let data = await fetch(URL);
-  //     data.json().then((json) => {
-  //       console.log(json);
-  //     })
-  //   }
+    try {
+      const res = await fetch("http://127.0.0.1:8000/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section, action, payload })
+      });
 
-  //   fun();
-      
-  // }, [])
+      const data = await res.json();
+      console.log(data);
 
+      // only update local state if server sends changes
+      if (data.state) setAppState(data.state);
+    } catch (err) {
+      console.error("Error sending update:", err);
+      // optionally fetch state if error occurs
+      await fetchState();
+    }
+  };
+
+  useEffect(() => {
+    fetchState(); // initial fetch
+  }, []);
+
+  //Check wether the user wants to open the full table.
   const [fullTableOpened, setFullTableOpened] = useState(false);
 
   return ( <div className="App">
@@ -61,8 +95,8 @@ const App = () =>  {
 
           {/* Row 1, Column 1 */}
           <div className="bundle column-1" style={{ gridRow: "1", gridColumn: "1" }}>
-            <ChooseApplication id="choose-application" />
-            <HODSystem id="hod-system" width={size.width} height={size.height} />
+            <ChooseApplication id="choose-application" appState={appState.ChooseApplication} sendUpdate={sendUpdate}/>
+            <HODSystem id="hod-system" width={size.width} height={size.height} appState={appState.HODSystem} sendUpdate={sendUpdate}/>
           </div>
 
           {/* Row 1, Column 2 */}
@@ -71,6 +105,7 @@ const App = () =>  {
             width={size.width}
             height={size.height}
             className="column-2"
+            unlockAll={unlockAll}
             style={{ gridRow: "1", gridColumn: "2" }}
           />
 
@@ -86,8 +121,8 @@ const App = () =>  {
 
           {/* Row 2, Column 1 */}
           <div className="bundle column-1" style={{ gridRow: "2", gridColumn: "1" }}>
-            <CalculatrVersion id="calculator-version" />
-            <PlotFigures id="plot-figures" />
+            <CalculatrVersion id="calculator-version" unlockAll={(e) => {setUnlockAll(e)}}/>
+            <PlotFigures id="plot-figures" unlockAll={unlockAll}/>
           </div>
 
           {/* Row 2, Column 2 */}
@@ -105,6 +140,7 @@ const App = () =>  {
               id="pathogen-inactivation"
               width={size.width}
               height={size.height}
+              unlockAll={unlockAll}
             />
             <Dichlorination id="dichlorination" />
           </div>

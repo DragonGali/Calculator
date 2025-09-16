@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PlotFigures.css';
 import data from "../data";
 
-function PlotFigures () {
+function PlotFigures ({unlockAll}) {
 
   const [pressedButton, setPressedButton] = useState(null);
 
@@ -11,7 +11,7 @@ function PlotFigures () {
   }
    
 
-  return ( <div className="PlotFigures">
+  return ( <div className={`PlotFigures ${unlockAll ? '' : ''}`}>
     <div className="title-box">
             <p>Plot Figures</p>
     </div>

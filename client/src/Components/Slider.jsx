@@ -6,8 +6,6 @@ const Slider = ({
   max = 500, 
   step = 1, 
   initialValue = 100,
-  width = '300px',
-  height = '70px'
 }) => {
   const [value, setValue] = useState(initialValue);
 
@@ -16,7 +14,7 @@ const Slider = ({
   };
 
   return (
-    <div className="range-slider-container" style={{ width , height}}>
+    <div className="range-slider-container">
       {/* Value display on top */}
       <div className="range-value-display">
         {value}

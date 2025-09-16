@@ -1,40 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Styles/CheckBox.css';
 
-const Checkbox = ({//I ended up needing only one checkbox, but it can handle more
-  items = [
-    { id: 1, text: 'Item One', disabled: false },
-    { id: 2, text: 'Item Two', disabled: false },
-    { id: 3, text: 'Item Three', disabled: true }
-  ]
+const Checkbox = ({
+  text = "Vertical",
+  disabled = false,
+  checked = false,
+  onChange = () => {}
 }) => {
-  const [checkedItems, setCheckedItems] = useState({});
-
-  //function that updates all checked checkboxes when clicked
-  const handleCheckboxChange = (id) => {
-    setCheckedItems(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
   return (
     <div className="check-box">
-      {items.map((item, index) => (
-        <React.Fragment key={item.id}>
-          <label>
-            <input
-              type="checkbox"
-              name="check"
-              checked={checkedItems[item.id] || false}
-              disabled={item.disabled}
-              onChange={() => handleCheckboxChange(item.id)}
-            />
-            <span className="label-text">{item.text}</span>
-          </label>
-          {index < items.length - 1 && <br />}
-        </React.Fragment>
-      ))}
+      <label>
+        <input
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={(e) => onChange(e.target.checked)}
+        />
+        <span className="label-text">{text}</span>
+      </label>
     </div>
   );
 };

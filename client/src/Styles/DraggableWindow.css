@@ -9,6 +9,8 @@
   transform: translate(25%, 15%);
   z-index: 9999999;
   padding-right: 0.5vw;
+  display: flex;
+  flex-flow: column;
 }
 
 .DraggableWindow.large {
@@ -22,23 +24,20 @@
 
 /* WebKit browsers (Chrome/Edge/Safari) */
 .draggable-content::-webkit-scrollbar {
-  width: 1.3vw;
-  height: 2vh;
+  width: clamp(7px, 1.3vw, 1.3vw);
+  height: 100%;
   position: absolute;
 }
 
 .draggable-content::-webkit-scrollbar-track {
   background: var(--background);
   border-radius: 100vw;
-  margin: 1vh;
+  margin: clamp(2px, 1vh, 1vh);
 }
 
 .draggable-content::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-  border-radius: 100vw; /* Increased from 8px for rounder edges */
-
-  /* Make a visible "thumb outline" — using transparent border + background-clip
-     lets the track-border remain visible while thumb keeps separation. */
+  border-radius: 100em;
   border: 2px solid var(--primary);
   background-clip: padding-box;
 }
@@ -52,7 +51,7 @@
 .DraggableWindow .draggable-header {
   background: var(--highlight);
   color: var(--white);
-  font-size: 1.2vw;
+  font-size: clamp(10px, 1.2vw, 1.2vw);
   font-weight: bold;
   cursor: grab;
   user-select: none;
@@ -62,14 +61,14 @@
 .DraggableWindow .draggable-header .icons {
     position: absolute;
     right: 0.5vw;
-    top: 0.7vh;
+    top: clamp(3.5px, 0.7vh, 0.7vh);
     display: flex;
     flex-flow: row-reverse;
     gap: 0.5vw;
 }
 
 .DraggableWindow .draggable-header .icon{
-    width: 1.5vw;
+    width: clamp(10px, 1.5vw, 1.5vw);
     cursor: pointer;
 }
 
@@ -87,7 +86,7 @@
 }
 
 .DraggableWindow .draggable-content {
-  height: calc(100% - 32px); /* subtract header height */
+  flex: 1 1 auto;
   box-sizing: border-box;
   overflow: overlay;
 }

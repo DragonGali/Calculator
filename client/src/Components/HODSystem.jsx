@@ -1,22 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react';
 import Dropdown from '../Components/DropDown';
 import Checkbox from '../Components/CheckBox';
 import InputField from '../Components/InputField';
-
 import '../Styles/HODSystem.css';
 import data from "../data";
 
-function HODSystem ({width, height}) {
-  const [pressedButton, setPressedButton] = useState(null);
+function HODSystem({ width, height, appState, sendUpdate}) {
 
-  // Changes which button is currently pressed
+  
+  // When button is clicked, notify server + update state
   const handleClick = (button) => {
-    setPressedButton(button);
+    sendUpdate("HODSystem", "setPressedButton", { pressedButton: button });
   };
+  
 
+  // On mount, select first button if none is chosen
   useEffect(() => {
-    // Sets the first button as clicked from the start
-    handleClick(data.HODButtons[0]);
+    if (!appState?.pressedButton) {
+      handleClick(data.HODButtons[0]);
+    }
   }, []);
 
   return (
@@ -35,9 +37,11 @@ function HODSystem ({width, height}) {
             <Dropdown
               className="drop-down"
               options={[...data.modules]}
-              height={Math.max(28, Math.min(height * 0.047, 64))}  // clamp height
-              width={Math.max(140, Math.min(width * 0.136, 280))}  // clamp width
+              height={Math.max(20, Math.min(height * 0.04, 64))}
+              width={Math.max(120, Math.min(width * 0.136, 280))}
               placeholder={data.modules[0].label}
+              value={appState?.module} // controlled
+              onChange={(option) => { sendUpdate("HODSystem", "setModule", { module: option }) }}
             />
           </div>
 
@@ -49,13 +53,17 @@ function HODSystem ({width, height}) {
             <Dropdown
               className="drop-down"
               options={[...data.model]}
-              height={Math.max(28, Math.min(height * 0.05, 64))}
-              width={Math.max(80, Math.min(width * 0.08, 280))}
+              height={Math.max(20, Math.min(height * 0.04, 64))}
+              width={Math.max(70, Math.min(width * 0.08, 280))}
               placeholder={data.model[0].label}
+              value={appState?.model}
+              onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
               className="checkbox"
+              checked={appState?.vertical}
+              onChange={(checked) => { sendUpdate("HODSystem", "setVertical", { vertical: checked }) }}
             />
           </div>
 
@@ -66,9 +74,11 @@ function HODSystem ({width, height}) {
             </div>
             <InputField
               placeholder=''
-              value={1}
-              height={Math.max(28, Math.min(height * 0.05, 64))}
+              value={appState?.branch ?? 1}
+              height={Math.max(20, Math.min(height * 0.04, 64))}
               width={Math.max(80, Math.min(width * 0.08, 160))}
+              onChange={(val) => { sendUpdate("HODSystem", "setBranch", { branch: val }) }}
+              unlockAll={true}
             />
             <div className="type-box">
               <p>[Units]</p>
@@ -80,7 +90,7 @@ function HODSystem ({width, height}) {
             {data.HODButtons.map((button, index) => (
               <div className="buttons" key={index}>
                 <div
-                  className={`button ${pressedButton === button ? 'IsPressed' : 'NotPressed'}`}
+                  className={`button ${appState?.pressedButton === button ? 'IsPressed' : 'NotPressed'}`}
                   onClick={() => handleClick(button)}
                 >
                   <p>{button}</p>

@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/InputField.css';
 
 const InputField = ({ 
   type = "text", 
   placeholder = "Enter text", 
-  value, 
+  value = "", 
   onChange,
   name,
   id,
   width = 115,
   height = 30,
-  isSmall = false
+  isSmall = false,
+  unlockAll = true
 }) => {
-  const [inputValue, setInputValue] = useState(value || '');
-  const [focused, setFocused] = useState(false);
+  const [inputValue, setInputValue] = useState(value);
+
+  // keep local state in sync if parent changes `value`
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   const handleChange = (e) => {
     const newValue = e.target.value;
     setInputValue(newValue);
+
     if (onChange) {
-      onChange(e);
+      onChange(newValue); // 🔥 only send the string, not the event
     }
   };
 
   return (
-    <div className={`txtbx txtbx--batman ${inputValue.length > 0 ? 'filled' : ''}`} style={{ width: `${width}px`, height: `${height}px` }}>
+    <div
+      className={`txtbx txtbx--batman ${inputValue.length > 0 ? 'filled' : ''} ${unlockAll ? '' : 'locked'}`}
+      style={{ width: `${width}px`, height: `${height}px` }}
+    >
       <input
         type={type}
         name={name}
@@ -32,8 +41,6 @@ const InputField = ({
         className={`txtbx__field txtbx__field--batman ${isSmall ? 'small-padding' : ''}`}
         value={inputValue}
         onChange={handleChange}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
       />
       <label htmlFor={id} className="txtbx__label txtbx__label--batman">
         <span className="txtbx__label-content txtbx__label-content--batman">
