@@ -26,7 +26,7 @@ function PathogenInactivation ({width, height}) {
             <div className='type-box' >
                 <p>Selected</p>
             </div>
-            <div className='value-box' style={{width: Math.max(110, Math.min(width * 0.115, 200))}}>
+            <div className='value-box' style={{width: Math.max(100, Math.min(width * 0.115, 200))}}>
               <p>Manul Input</p>
             </div>
           </div>
@@ -36,7 +36,7 @@ function PathogenInactivation ({width, height}) {
                 <p>D-1LOG UV-</p>
             </div>
 
-            <InputField placeholder='' value="3" height={Math.max(20, Math.min(height * 0.035, 30))} isSmall={true} width={Math.max(81, Math.min(width * 0.07, 100))}/>
+            <InputField placeholder='' value="3" height={Math.max(19, Math.min(height * 0.03, 30))} isSmall={true} width={Math.max(70, Math.min(width * 0.07, 150))}/>
 
             <div className='type-box' style={{ width: Math.max(25, Math.min(width * 0.04, 200)) }}>
                 <p>[mJ]</p>
@@ -47,10 +47,10 @@ function PathogenInactivation ({width, height}) {
               <div className='type-box'>
                   <p>Expected LI</p>
               </div>
-              <div className='value-box' style={{ width: Math.max(80, Math.min(width * 0.07, 200)) }}>
+              <div className='value-box' style={{ width: Math.max(70, Math.min(width * 0.07, 200)) }}>
                 <p>{expectedLI}</p>
               </div>
-              <ProgressBar width={Math.max(26, Math.min(width * 0.04, 80))} height={Math.max(20, Math.min(height * 0.035, 25))} progress={expectedLI} maxProgress={5}/>
+              <ProgressBar width={Math.max(26, Math.min(width * 0.04, 80))} height={Math.max(19, Math.min(height * 0.03, 50))} progress={expectedLI} maxProgress={5}/>
           </div>
       </div>
       <div className='vertical-container'>

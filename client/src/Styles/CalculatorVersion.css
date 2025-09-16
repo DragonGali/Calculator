@@ -1,5 +1,5 @@
 .CalculatorVersion .wrapper {
-    height: clamp(60px, 10vh, 300px);
+    height: clamp(60px, 10vh, 10vh);
 }
 
 .CalculatorVersion .horizontal-container {
@@ -14,7 +14,7 @@
     background-color: var(--white);
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
-    padding: clamp(7px, 1.5vh, 30px) clamp(30px, 2vw, 40px);
+    padding: clamp(7px, 1.5vh, 30px) clamp(20px, 2vw, 40px);
 
 
     font-size: var(--font-regular);

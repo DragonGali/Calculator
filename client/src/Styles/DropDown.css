@@ -32,7 +32,7 @@
   color: var(--text);
 
   /* clamp font-size for responsiveness */
-  font-size: clamp(10px, 0.9vw, 16px);
+  font-size: clamp(5px, 0.9vw, 16px);
 
   background: var(--white);
   border-style: solid;
@@ -108,7 +108,7 @@
   user-select: none;
   width: 100%;
 
-  font-size: clamp(12px, 0.9vw, 18px);
+  font-size: clamp(5px, 0.9vw, 18px);
   padding: clamp(4px, 0.2vw, 8px) clamp(8px, 0.5vw, 16px);
 
   display: block;

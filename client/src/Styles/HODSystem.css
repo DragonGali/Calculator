@@ -1,24 +1,25 @@
 .HODSystem .wrapper {
-  height: clamp(113px, 23.5vh, 23.5vh);
+  height: clamp(122px, 23.5vh, 23.5vh);
   overflow: visible;
 }
 
 .HODSystem .horizontal-container {
   display: flex;
   flex-flow: row;
-  gap: clamp(4px, 0.5vw, 12px);
-  height: clamp(20px, 4vh, 60px);
+  gap: clamp(4px, 0.5vw, 0.5vw);
+  height: clamp(20px, 4vh, 4vh);
+  justify-content: center;
 }
 
 .HODSystem .vertical-container {
   display: flex;
   flex-flow: column;
-  gap: clamp(6px, 1vh, 20px);
-  margin-top: clamp(5px, 0.5vh, 32px);
+  gap: clamp(6px, 1vh, 1vh);
+  margin-top: clamp(5px, 0.5vh, 0.5vh);
 }
 
 .HODSystem .type-box {
-  width: clamp(55px, 5vw, 120px);
+  width: clamp(40px, 5vw, 5vw);
 }
 
 .HODSystem .buttons {
@@ -41,8 +42,8 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: clamp(65px, 6vw, 160px);
-  height: clamp(20px, 4vh, 64px);
+  width: clamp(53px, 6vw, 6vw);
+  height: clamp(20px, 4vh, 4vh);
 }
 
 .HODSystem .button.IsPressed {
@@ -53,3 +54,15 @@
 .HODSystem .button.NotPressed:hover {
   filter: brightness(1.1);
 }
+
+/* @media screen and (max-width: 1300px) {
+  .HODSystem .wrapper {
+    height: clamp(113px, 24.5vh, 24.5vh);
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .HODSystem .wrapper {
+    height: clamp(113px, 23.5vh, 23.5vh);
+  }
+} */

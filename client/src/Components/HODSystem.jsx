@@ -38,7 +38,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
               className="drop-down"
               options={[...data.modules]}
               height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(140, Math.min(width * 0.136, 280))}
+              width={Math.max(120, Math.min(width * 0.136, 280))}
               placeholder={data.modules[0].label}
               value={appState?.module} // controlled
               onChange={(option) => { sendUpdate("HODSystem", "setModule", { module: option }) }}
@@ -54,7 +54,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
               className="drop-down"
               options={[...data.model]}
               height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(80, Math.min(width * 0.08, 280))}
+              width={Math.max(70, Math.min(width * 0.08, 280))}
               placeholder={data.model[0].label}
               value={appState?.model}
               onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}

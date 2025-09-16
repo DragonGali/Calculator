@@ -1,9 +1,9 @@
 .PathogenReduction .wrapper {
-  height: clamp(210px, 42.7vh, 42.7vh);
+  height: clamp(232px, 42.7vh, 42.7vh);
 }
 
 .PathogenReduction .title-box {
-  width: clamp(120px, 20vw, 400px);
+  width: clamp(180px, 20vw, 20vw);
 }
 
 .PathogenReduction .vertical-container {
@@ -26,8 +26,8 @@
 }
 
 .PathogenReduction .scroll-container {
-  width: clamp(210px, 26vw, 480px);
-  height: clamp(150px, 30vh, 30vh);
+  width: clamp(240px, 27vw, 27vw);
+  height: clamp(160px, 30vh, 30vh);
   overflow: auto;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .PathogenReduction .log-header {
-  width: clamp(40px, 4.5vw, 80px);
+  width: clamp(40px, 4.5vw, 4.5vw);
 }
 
 .PathogenReduction .dose-header {

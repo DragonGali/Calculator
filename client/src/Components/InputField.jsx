@@ -11,7 +11,7 @@ const InputField = ({
   width = 115,
   height = 30,
   isSmall = false,
-  unlockAll
+  unlockAll = true
 }) => {
   const [inputValue, setInputValue] = useState(value);
 

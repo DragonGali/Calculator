@@ -37,8 +37,8 @@
 /* Batman styles */
 .txtbx__field--batman {
   color: var(--text);
-  font-size: clamp(12px, 0.9vw, 18px);
-  padding-top: clamp(6px, 1.2vh, 14px);
+  font-size: clamp(11px, 0.9vw, 18px);
+  padding-top: clamp(0px, 0.8vh, 14px);
 }
 
 /* For that one Input box thats shorter than the rest */

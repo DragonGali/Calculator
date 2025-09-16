@@ -1,12 +1,12 @@
 .PlotFigures .wrapper {
-    height: clamp(90px, 16vh, 17vh);
+    height: clamp(90px, 16vh, 16vh);
 }
 
 .PlotFigures .vertical-container {
     display: flex;
     flex-flow: column;
-    gap: clamp(4px, 0.5vh, 12px); /* lock gap between buttons */
-    margin-top: clamp(5px, 0.5vh, 32px); /* lock top margin */
+    gap: clamp(4px, 0.5vh, 0.5vh); /* lock gap between buttons */
+    margin-top: clamp(5px, 0.5vh, 0.5vh); /* lock top margin */
 }
 
 .PlotFigures .button {
@@ -15,13 +15,14 @@
     border-radius: 2em;
 
     /* Clamp padding so it scales but stops shrinking */
-    padding: clamp(3px, 0.4vh, 12px) clamp(55px, 5.5vw, 70px);
+    padding: clamp(2px, 0.4vh, 12px) clamp(40px, 5vw, 70px);
 
-    font-size: var(--font-regular);
+    font-size: clamp(8px, 0.9vw, 0.85vw);
     font-weight: bold;
     font-family: 'Inter-Medium';
     cursor: pointer;
     text-align: center;
+    white-space: nowrap;
 }
 
 .PlotFigures .button:hover {

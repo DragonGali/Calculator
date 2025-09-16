@@ -1,3 +1,7 @@
+.Dichlorination .wrapper {
+    height: clamp(60px, 11.4vh, 11.4vh);
+}
+
 .Dichlorination .title-box {
     width: clamp(150px, 20vw, 300px); /* min 150px, preferred 20vw, max 300px */
 }
@@ -12,11 +16,11 @@
 .Dichlorination .horizontal-container {
     display: flex;
     flex-flow: row;
-    gap: 0.5vw;
+    gap: clamp(5px, 0.5vw, 30px);
 }
 
 .Dichlorination .type-box {
-    width: clamp(40px, 6vw, 120px);
+    width: clamp(40px, 8.5vw, 8.5vw);
 }
 
 .Dichlorination .value-box {

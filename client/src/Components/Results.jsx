@@ -29,8 +29,8 @@ const Results = ({width, height}) => {
               <DropDown
                 className="drop-down"
                 options={[...field.options]}
-                height={Math.max(36, Math.min(height * 0.0485, 64))}
-                width={Math.max(60, Math.min(width * 0.07, 200))}
+                height={Math.max(30, Math.min(height * 0.0485, 64))}
+                width={Math.max(53, Math.min(width * 0.055, 200))}
                 placeholder={field.options[0].value}
               />
             ) : (

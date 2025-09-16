@@ -43,7 +43,7 @@ function Specifications ({width, height}) {
                     </div>
                     <Slider width={Math.max(60, Math.min(width * 0.05, 160))} min={bottomData.ranges[0].min} max={bottomData.ranges[0].max}></Slider>
                     <DropDown options={[...bottomData.options]}
-                    width={Math.max(80, Math.min(width * 0.1, 240))} height={Math.max(25, Math.min(height * 0.045, 64))} 
+                    width={Math.max(90, Math.min(width * 0.09, 240))} height={Math.max(25, Math.min(height * 0.045, 64))} 
                     placeholder={bottomData.options[0].value}></DropDown>
                 </div>
                 <div className='horizontal-container'>

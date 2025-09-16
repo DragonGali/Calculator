@@ -1,6 +1,6 @@
 .Specifications .wrapper {
     overflow: visible;
-    height: clamp(210px, 42.7vh, 42.7vh);
+    height: clamp(232px, 42.7vh, 42.7vh);
 }
 
 .Specifications .vertical-container {
@@ -12,7 +12,7 @@
 }
 
 .Specifications .type-box {
-    width: clamp(80px, 10vw, 160px);
+    width: clamp(90px, 9.2vw, 9.2vw);
 }
 
 .Specifications .horizontal-container {
@@ -20,6 +20,7 @@
     flex-flow: row;
     gap: clamp(4px, 0.5vw, 16px);
     height: clamp(25px, 4.5vh, 100px);
+    justify-content: center;
 }
 
 .Specifications .line {
@@ -30,12 +31,13 @@
      width: 100%;
 }
 
+
 .Specifications .button {
     background-color: var(--white);
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
     text-align: center;
-    width: clamp(112px, 12.8vw, 300px);
+    width: clamp(100px, 12vw, 300px);
     height: clamp(25px, 5vh, 50px);
     font-size: var(--font-regular);
     font-weight: bold;
@@ -44,7 +46,7 @@
 }
 
 .Specifications .button p {
-    padding-top: clamp(5px, 0.4vh, 20px);
+    padding-top: clamp(7px, 0.4vh, 20px);
 }
 
 .Specifications .button:hover {

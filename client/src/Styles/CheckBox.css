@@ -9,7 +9,7 @@
 }
 
 .check-box {
-  font-size: clamp(16px, 3vw, 32px); /* scales but never too small or too big */
+  font-size: clamp(10px, 3vw, 32px); /* scales but never too small or too big */
 }
 
 .check-box label {
@@ -21,7 +21,7 @@
 
 .check-box .label-text {
   color: var(--text);
-  font-size: clamp(12px, 1.1vw, 18px);
+  font-size: clamp(10px, 1.1vw, 18px);
 }
 
 .check-box .label-text:before {
