@@ -5,7 +5,7 @@
   width: clamp(5px, 5vw, 100px);
 }
 
-/* Value Display Box */
+/* Value Display Box - Now editable input */
 .range-value-display {
   display: block;
   position: absolute;
@@ -26,6 +26,8 @@
   border-style: solid;
   border-width: 0.1rem;
   z-index: 1;
+  box-sizing: border-box;
+  outline: none;
 }
 
 /* Range Slider Input */
@@ -53,7 +55,6 @@
   border-radius: 50%;
   background: var(--highlight);
   cursor: pointer;
-  transition: background 0.15s ease-in-out;
   position: relative;
   z-index: 3;
 }
@@ -71,7 +72,6 @@
   border-radius: 50%;
   background: var(--highlight);
   cursor: pointer;
-  transition: background 0.15s ease-in-out;
   position: relative;
   z-index: 3;
 }
@@ -99,5 +99,3 @@
 .range-slider::-moz-focus-outer {
   border: 0;
 }
-
-

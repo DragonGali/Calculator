@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Dropdown from '../Components/DropDown';
 import Checkbox from '../Components/CheckBox';
-import InputField from '../Components/InputField';
 import '../Styles/HODSystem.css';
 import data from "../data";
 
@@ -54,7 +53,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
               className="drop-down"
               options={[...data.model]}
               height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(70, Math.min(width * 0.08, 280))}
+              width={Math.max(65, Math.min(width * 0.07, 280))}
               placeholder={data.model[0].label}
               value={appState?.model}
               onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}
@@ -72,13 +71,11 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <div className="type-box">
               <p>Branch:</p>
             </div>
-            <InputField
-              placeholder=''
+            <input
+              type="text"
+              className="simple-input"
               value={appState?.branch ?? 1}
-              height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(80, Math.min(width * 0.08, 160))}
-              onChange={(val) => { sendUpdate("HODSystem", "setBranch", { branch: val }) }}
-              unlockAll={true}
+              onChange={(e) => { sendUpdate("HODSystem", "setBranch", { branch: e.target.value }) }}
             />
             <div className="type-box">
               <p>[Units]</p>

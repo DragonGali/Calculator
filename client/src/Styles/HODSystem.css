@@ -14,12 +14,18 @@
   height: 100%;
 }
 
+/* Simple input field styling */
+.HODSystem .simple-input {
+  height: clamp(20px, 4vh, 64px);
+  width: clamp(70px, 8vw, 160px);
+}
+
 .HODSystem .horizontal-container {
   display: flex;
   flex-flow: row;
   gap: clamp(4px, 0.5vw, 0.5vw);
   height: clamp(20px, 4vh, 4vh);
-  justify-content: center;
+  align-items: center; /* This ensures vertical alignment within each row */
 }
 
 .HODSystem .vertical-container {
@@ -30,7 +36,16 @@
 }
 
 .HODSystem .type-box {
-  width: clamp(40px, 5vw, 5vw);
+  width: clamp(40px, 5vw, 120px); /* Made wider and more responsive */
+  height: 100%;
+  flex-shrink: 0; /* Prevents shrinking */
+  text-align: left; /* Consistent text alignment */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+}
+
+.HODSystem .type-box p {
+  margin: 0; /* Remove default paragraph margins */
 }
 
 .HODSystem .buttons {
@@ -55,6 +70,11 @@
   align-items: center;
   width: clamp(53px, 6vw, 6vw);
   height: clamp(20px, 4vh, 4vh);
+  flex-shrink: 0; /* Prevents buttons from shrinking */
+}
+
+.HODSystem .button p {
+  margin: 0; /* Remove default paragraph margins */
 }
 
 .HODSystem .button.IsPressed {
@@ -66,38 +86,7 @@
   filter: brightness(1.1);
 }
 
-/* @media screen and (max-width: 1300px) {
-  .HODSystem .wrapper {
-    height: clamp(122px, 24.4vh, 24.4vh);
-  }
+/* Specific styling for the checkbox container to align properly */
+.HODSystem .checkbox {
+  flex-shrink: 0; /* Prevents checkbox from shrinking */
 }
-
-@media screen and (max-height: 584px) {
-  .HODSystem .wrapper {
-    height: clamp(125px, 23.9vh, 23.9vh);
-  }
-}
-
-@media screen and (max-height: 582px) {
-  .HODSystem .wrapper {
-    height: clamp(125px, 23.8vh, 23.8vh);
-  }
-}
-
-@media screen and (max-height: 580px) {
-  .HODSystem .wrapper {
-    height: clamp(125px, 23.7vh, 23.7vh);
-  }
-}
-
-@media screen and (max-height: 578px) {
-  .HODSystem .wrapper {
-    height: clamp(125px, 23.6vh, 23.6vh);
-  }
-}
-
-@media screen and (max-height: 576px) {
-  .HODSystem .wrapper {
-    height: clamp(125px, 23.5vh, 23.5vh);
-  }
-} */

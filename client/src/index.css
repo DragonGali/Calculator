@@ -161,6 +161,22 @@ p{
   -ms-user-select: text !important; 
 }
 
+/* Simple input field styling */
+.simple-input {
+  height: clamp(20px, 4vh, 64px);
+  width: clamp(70px, 8vw, 160px);
+  border: 3px solid var(--primary);
+  border-radius: 0px;
+  padding: 4px 8px;
+  font-size: clamp(11px, 0.9vw, 18px);
+  text-align: center;
+  background-color: var(--white);
+  color: var(--text);
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+}
+
 .disabled {
   opacity: 0.3;
   pointer-events: none;

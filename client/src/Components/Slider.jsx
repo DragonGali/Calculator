@@ -8,17 +8,75 @@ const Slider = ({
   initialValue = 100,
 }) => {
   const [value, setValue] = useState(initialValue);
+  const [inputValue, setInputValue] = useState(initialValue.toString());
+  const [isEditing, setIsEditing] = useState(false);
 
-  const handleChange = (e) => {
-    setValue(Number(e.target.value));
+  const handleSliderChange = (e) => {
+    const newValue = Number(e.target.value);
+    setValue(newValue);
+    setInputValue(newValue.toString());
+  };
+
+  const handleInputKeyPress = (e) => {
+    // Only allow digits
+    if (!/[\d]/.test(e.key) && 
+        !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key)) {
+      e.preventDefault();
+    }
+    
+    if (e.key === 'Enter') {
+      e.target.blur();
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const inputVal = e.target.value;
+    
+    // Only allow digits or empty string
+    if (/^\d*$/.test(inputVal)) {
+      setInputValue(inputVal);
+    }
+  };
+
+  const handleInputFocus = () => {
+    setIsEditing(true);
+    setInputValue(''); // Clear the input when starting to type
+  };
+
+  const handleInputBlur = () => {
+    setIsEditing(false);
+    
+    // If empty, use current value
+    if (inputValue === '') {
+      setInputValue(value.toString());
+      return;
+    }
+    
+    let numericValue = Number(inputValue);
+    
+    // Clamp to min/max
+    if (numericValue > max) {
+      numericValue = max;
+    } else if (numericValue < min) {
+      numericValue = min;
+    }
+    
+    setValue(numericValue);
+    setInputValue(numericValue.toString());
   };
 
   return (
     <div className="range-slider-container">
-      {/* Value display on top */}
-      <div className="range-value-display">
-        {value}
-      </div>
+      {/* Editable value display on top */}
+      <input
+        type="text"
+        value={isEditing ? inputValue : value}
+        onChange={handleInputChange}
+        onKeyPress={handleInputKeyPress}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        className="range-value-display"
+      />
       
       {/* Range input */}
       <input
@@ -27,11 +85,11 @@ const Slider = ({
         max={max}
         step={step}
         value={value}
-        onChange={handleChange}
+        onChange={handleSliderChange}
         className="range-slider"
       />
     </div>
   );
 };
 
-export default Slider
+export default Slider;

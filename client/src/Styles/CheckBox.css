@@ -22,6 +22,7 @@
 .check-box .label-text {
   color: var(--text);
   font-size: clamp(10px, 1.1vw, 18px);
+  white-space: nowrap;
 }
 
 .check-box .label-text:before {
