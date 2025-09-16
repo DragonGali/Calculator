@@ -36,7 +36,11 @@ function PathogenInactivation ({width, height}) {
                 <p>D-1LOG UV-</p>
             </div>
 
-            <InputField placeholder='' value="3" height={Math.max(19, Math.min(height * 0.03, 30))} isSmall={true} width={Math.max(70, Math.min(width * 0.07, 150))}/>
+            <input
+             type="text"
+             className='simple-input'
+             placeholder='' value="3"
+             />
 
             <div className='type-box' style={{ width: Math.max(25, Math.min(width * 0.04, 200)) }}>
                 <p>[mJ]</p>

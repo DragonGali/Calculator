@@ -27,6 +27,12 @@
   width: clamp(60px, 7.5vw, 10vw);
 }
 
+/* Simple input field styling */
+.PathogenInactivation .simple-input {
+  height: clamp(19px, 3vh, 30px);
+  width: clamp(70px, 7vw, 150px);
+}
+
 .PathogenInactivation .value-box {
   background-color: white;
   display: flex;
