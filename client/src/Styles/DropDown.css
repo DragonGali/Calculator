@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* Wrapper styles */
+.dropdown-wrapper {
+  font-family: "Inter-Light";
+}
+
+.selected-item p span {
+  font-weight: bold;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  perspective: 800px;
+  z-index: 1;
+}
+
+/* Active dropdown gets higher z-index */
+.dropdown.active {
+  z-index: 9999;
+}
+
+.dropdown.active .dropdown-list {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Dropdown label/button */
+.dropdown-label {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: var(--text);
+
+  /* clamp font-size for responsiveness */
+  font-size: clamp(5px, 0.9vw, 16px);
+
+  background: var(--white);
+  border-style: solid;
+  border-color: var(--primary);
+  display: block;
+
+  /* clamp padding for responsive layout */
+  padding-left: clamp(5px, 0.5vw, 16px);
+
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%;
+  transition: transform 300ms;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+.dropdown.active .dropdown-label {
+  transform: rotateX(30deg);
+  z-index: 9999;
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: clamp(12px, 1.2vw, 24px);
+  text-align: center;
+  font-size: clamp(7px, 1em, 18px);
+  height: 100%;
+  border-left: 0.05em solid #ddd;
+}
+
+/* Dropdown list */
+.dropdown-list {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: block;
+  list-style: none;
+  left: 0;
+  opacity: 1;
+  transition: transform 300ms ease;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.dropdown-item:hover {
+  filter: brightness(1.2);
+}
+
+.dropdown-item span {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+  user-select: none;
+  width: 100%;
+
+  font-size: clamp(5px, 0.9vw, 18px);
+  padding: clamp(4px, 0.2vw, 8px) clamp(8px, 0.5vw, 16px);
+
+  display: block;
+  color: var(--white);
+  letter-spacing: clamp(1px, 0.1vw, 2px);
+}
+
+html {
+  line-height: 1.2;
+}
+
+@media screen and (max-height: 400px){
+  .dropdown-arrow {
+    font-size: clamp(8px, 0.7vw, 14px);
+  }
+}
