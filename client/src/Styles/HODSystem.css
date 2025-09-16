@@ -1,5 +1,5 @@
 .HODSystem .wrapper {
-  height: clamp(122px, 23.5vh, 23.5vh);
+  height: clamp(125px, 23.5vh, 23.5vh);
   overflow: visible;
 }
 
@@ -57,12 +57,36 @@
 
 /* @media screen and (max-width: 1300px) {
   .HODSystem .wrapper {
-    height: clamp(113px, 24.5vh, 24.5vh);
+    height: clamp(122px, 24.4vh, 24.4vh);
   }
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 584px) {
   .HODSystem .wrapper {
-    height: clamp(113px, 23.5vh, 23.5vh);
+    height: clamp(125px, 23.9vh, 23.9vh);
+  }
+}
+
+@media screen and (max-height: 582px) {
+  .HODSystem .wrapper {
+    height: clamp(125px, 23.8vh, 23.8vh);
+  }
+}
+
+@media screen and (max-height: 580px) {
+  .HODSystem .wrapper {
+    height: clamp(125px, 23.7vh, 23.7vh);
+  }
+}
+
+@media screen and (max-height: 578px) {
+  .HODSystem .wrapper {
+    height: clamp(125px, 23.6vh, 23.6vh);
+  }
+}
+
+@media screen and (max-height: 576px) {
+  .HODSystem .wrapper {
+    height: clamp(125px, 23.5vh, 23.5vh);
   }
 } */

@@ -1,5 +1,5 @@
 .CalculatorVersion .wrapper {
-    height: clamp(60px, 10vh, 10vh);
+    height: clamp(55px, 9.6vh, 9.6vh);
 }
 
 .CalculatorVersion .horizontal-container {
