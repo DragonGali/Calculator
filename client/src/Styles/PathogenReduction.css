@@ -1,0 +1,121 @@
+.PathogenReduction .wrapper {
+  height: clamp(232px, 42.7vh, 42.7vh);
+}
+
+.PathogenReduction .title-box {
+  width: clamp(180px, 20vw, 20vw);
+}
+
+.PathogenReduction .vertical-container {
+  margin-top: clamp(6px, 3vh, 10px);
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Outer box */
+.PathogenReduction .container {
+  border: solid 0.1em var(--primary);
+  border-radius: 1em;
+  box-sizing: border-box;
+  background: var(--white);
+  overflow: hidden;
+  position: relative;
+  padding-right: 0.2vw;
+}
+
+.PathogenReduction .scroll-container {
+  width: clamp(240px, 27vw, 27vw);
+  height: clamp(160px, 30vh, 30vh);
+  overflow: auto;
+}
+
+/* Scrollbars (scoped to component) */
+.PathogenReduction .scroll-container::-webkit-scrollbar {
+  width: clamp(6px, 1vw, 14px);
+  height: clamp(8px, 2vh, 14px);
+}
+
+.PathogenReduction .scroll-container::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 100vw;
+  margin: 1vh;
+}
+
+.PathogenReduction .scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 100vw;
+  border: 2px solid var(--primary);
+  background-clip: padding-box;
+}
+
+.PathogenReduction .scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tree-select);
+  cursor: grab;
+}
+
+/* Dynamic header styles */
+.PathogenReduction .view-header {
+  display: grid;
+  font-weight: bold;
+  font-family: 'Inter-Medium';
+  font-size: var(--font-regular);
+  margin-left: clamp(12px, 0.7vw, 20px);
+  margin-bottom: 0.2vw;
+}
+
+.PathogenReduction .pathogen-type-header {
+  text-align: left;
+  border-right: 0.15em solid var(--primary);
+}
+
+.PathogenReduction .dose-header,
+.PathogenReduction .log-header {
+  text-align: center;
+}
+
+.PathogenReduction .log-header {
+  width: clamp(40px, 4.5vw, 4.5vw);
+}
+
+.PathogenReduction .dose-header {
+  width: clamp(90px, 11vw, 180px);
+}
+
+.PathogenReduction .log-header:not(:last-child) {
+  border-right: 0.15em solid var(--primary);
+}
+
+/* Buttons */
+.PathogenReduction .buttons {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+  gap: clamp(0px, 0.5vw, 20px);
+}
+
+.PathogenReduction .button {
+  background-color: var(--background);
+  border: 3px solid var(--primary);
+  color: var(--blue-text);
+  border-radius: 1em;
+  font-size: clamp(7.2px, 0.85vw, 20px);
+  font-weight: bold;
+  font-family: 'Inter-Medium';
+  cursor: pointer;
+  text-align: center;
+  padding: clamp(2px, 0.5vh, 8px) clamp(8px, 1vw, 18px);
+  transition: background-color 0.3s;
+}
+
+.PathogenReduction .button.IsPressed {
+  background-color: var(--highlight);
+  color: var(--white);
+}
+
+.PathogenReduction .button:hover {
+  filter: brightness(1.1);
+}

@@ -1,0 +1,54 @@
+.Specifications .wrapper {
+    overflow: visible;
+    height: clamp(232px, 42.7vh, 42.7vh);
+}
+
+.Specifications .vertical-container {
+    display: flex;
+    flex-flow: column;
+    gap: clamp(4px, 1.5vh, 16px);
+    margin-top: clamp(6px, 2vh, 20px);
+
+}
+
+.Specifications .type-box {
+    width: clamp(90px, 9.2vw, 9.2vw);
+}
+
+.Specifications .horizontal-container {
+    display: flex;
+    flex-flow: row;
+    gap: clamp(4px, 0.5vw, 16px);
+    height: clamp(25px, 4.5vh, 100px);
+    justify-content: center;
+}
+
+.Specifications .line {
+     border: none;
+     border-top: clamp(2px, 0.4vh, 6px) solid var(--primary);
+     margin-top: clamp(4px, 0.3vh, 16px);
+     margin-bottom: clamp(4px, 0.3vh, 16px);
+     width: 100%;
+}
+
+
+.Specifications .button {
+    background-color: var(--white);
+    border: solid var(--primary) 0.2em;
+    border-radius: 0.5em;
+    text-align: center;
+    width: clamp(100px, 12vw, 300px);
+    height: clamp(25px, 5vh, 50px);
+    font-size: var(--font-regular);
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    cursor: pointer;
+}
+
+.Specifications .button p {
+    padding-top: clamp(7px, 0.4vh, 20px);
+}
+
+.Specifications .button:hover {
+    filter: brightness(1.3);
+}

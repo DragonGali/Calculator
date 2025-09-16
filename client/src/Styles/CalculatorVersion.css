@@ -1,0 +1,28 @@
+.CalculatorVersion .wrapper {
+    height: clamp(55px, 9.6vh, 9.6vh);
+}
+
+.CalculatorVersion .horizontal-container {
+    display: flex;
+    flex-flow: row;
+    gap: 1vw;
+    text-align: center;
+    margin-top: clamp(5px, 1vh, 30px);
+}
+
+.CalculatorVersion .button {
+    background-color: var(--white);
+    border: solid var(--primary) 0.2em;
+    border-radius: 0.5em;
+    padding: clamp(7px, 1.5vh, 30px) clamp(20px, 2vw, 40px);
+
+
+    font-size: var(--font-regular);
+    font-weight: bold;
+    font-family: 'Inter-Medium';
+    cursor: pointer;
+}
+
+.CalculatorVersion .button:hover {
+    filter: brightness(1.3);
+}

@@ -1,0 +1,68 @@
+.PathogenInactivation .wrapper {
+  display: flex;
+  flex-flow: row;
+  gap: clamp(5px, 1vw, 30px);
+  padding-top: clamp(5px, 1vh, 30px);
+  height: clamp(85px, 14.5vh, 300px);
+}
+
+.PathogenInactivation .title-box {
+  width: clamp(140px, 20vw, 20vw);
+}
+
+.PathogenInactivation .horizontal-container {
+  display: flex;
+  flex-flow: row;
+  gap: clamp(5px, 0.5vw, 30px);
+  height: clamp(19px, 3vh, 56px);;
+}
+
+.PathogenInactivation .vertical-container {
+  display: flex;
+  flex-flow: column;
+  gap: clamp(5px, 1vh, 30px);
+}
+
+.PathogenInactivation .type-box {
+  width: clamp(60px, 7.5vw, 10vw);
+}
+
+.PathogenInactivation .value-box {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text);
+  font-family: 'Inter-Medium';
+  font-weight: 600;
+  border: 0.2em solid var(--primary);
+  width: clamp(150px, 10vw, 10vw);
+  font-size: var(--font-regular);
+  border-radius: 0.5em;
+}
+
+.PathogenInactivation .reset-button {
+  border: 0.15em solid var(--primary);
+  padding: clamp(15px, 3vh, 3vh) clamp(7px, 0.7vw, 0.7vw);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-regular);
+  background-color: var(--grey-blue);
+  border-radius: 0.5em;
+  transition: filter 0.3s;
+}
+
+.PathogenInactivation .reset-button:hover {
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+
+.PathogenInactivation .expected-li-text {
+  font-size: clamp(5px, 0.8vw, 30px);
+  font-weight: bold;
+  color: var(--text);
+  margin-top: -0.5vh;
+}
