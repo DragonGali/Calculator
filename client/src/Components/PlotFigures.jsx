@@ -11,7 +11,7 @@ function PlotFigures ({unlockAll}) {
   }
    
 
-  return ( <div className={`PlotFigures ${unlockAll ? '' : 'locked'}`}>
+  return ( <div className={`PlotFigures ${unlockAll ? '' : ''}`}>
     <div className="title-box">
             <p>Plot Figures</p>
     </div>

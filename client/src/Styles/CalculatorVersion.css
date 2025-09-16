@@ -1,18 +1,20 @@
-
+.CalculatorVersion .wrapper {
+    height: clamp(55px, 9.6vh, 9.6vh);
+}
 
 .CalculatorVersion .horizontal-container {
     display: flex;
     flex-flow: row;
     gap: 1vw;
     text-align: center;
-    margin-top: 2vh;
+    margin-top: clamp(5px, 1vh, 30px);
 }
 
 .CalculatorVersion .button {
     background-color: var(--white);
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
-    padding: clamp(10px, 1.5vh, 30px) clamp(30px, 2vw, 40px);
+    padding: clamp(7px, 1.5vh, 30px) clamp(20px, 2vw, 40px);
 
 
     font-size: var(--font-regular);

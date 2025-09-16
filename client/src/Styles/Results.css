@@ -1,30 +1,31 @@
 .Results .wrapper {
     overflow: visible;
-    padding-left: clamp(4px, 0.5vw, 12px);
-    padding-right: clamp(4px, 0.5vw, 12px);
+    height: clamp(162px, 29vh, 29vh);
 }
 
 .Results .vertical-container {
     display: flex;
     flex-flow: column;
-    gap: clamp(4px, 0.5vh, 12px);
-    margin-top: clamp(8px, 2vh, 24px);
+    gap: clamp(4px, 0.5vh, 0.5vh);
+    margin-top: clamp(5px, 1vh, 1vh);
 }
 
 .Results .type-box {
-    width: clamp(120px, 14.5vw, 240px);
-    font-size: clamp(7px, 0.85vw, 22px);
+    width: clamp(120px, 14.5vw, 14.5vw);
+    font-size: clamp(6px, 0.8vw, 0.8vw);
 }
 
 .Results .small {
-    width: clamp(60px, 7vw, 140px);
+    width: clamp(60px, 5.5vw, 140px);
 }
 
 .Results .horizontal-container {
     display: flex;
     flex-flow: row;
     gap: clamp(4px, 0.5vw, 16px);
-    height: clamp(36px, 6vh, 100px);
+    height: clamp(30px, 5vh, 5vh);
+    width: clamp(200px, 26vw, 500px);
+    justify-content: center;
 }
 
 .Results .value-box {
@@ -50,5 +51,6 @@
     border-top: clamp(2px, 0.4vh, 6px) solid var(--primary);
     margin-top: clamp(4px, 1vh, 16px);
     margin-bottom: clamp(4px, 1vh, 16px);
-    width: 100%;
+    width: 96%;
+    margin-left: clamp(2px, 0.5vw, 30px);
 }
