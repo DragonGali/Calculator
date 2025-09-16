@@ -1,5 +1,15 @@
+.PlotFigures {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.PlotFigures .title-box {
+  flex: 0 0 1;
+}
+
 .PlotFigures .wrapper {
-    height: clamp(90px, 16vh, 16vh);
+    height: 100%;
 }
 
 .PlotFigures .vertical-container {

@@ -1,16 +1,24 @@
-.Dichlorination .wrapper {
-    height: clamp(60px, 11.4vh, 11.4vh);
+.Dichlorination {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 }
 
 .Dichlorination .title-box {
-    width: clamp(150px, 20vw, 300px); /* min 150px, preferred 20vw, max 300px */
+    flex: 0 0 1;
+    width: clamp(150px, 20vw, 20vw);
 }
+
+.Dichlorination .wrapper {
+    height: 100%;
+}
+
 
 .Dichlorination .vertical-container {
     display: flex;
     flex-flow: column;
     gap: 1vh;
-    margin-top: 2vh;
+    margin-top: clamp(5px, 1vh, 1vh);
 }
 
 .Dichlorination .horizontal-container {

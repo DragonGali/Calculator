@@ -27,17 +27,14 @@
   height: fit-content; /* allow the grid's row height to propagate */
   box-sizing: border-box;
   min-width: 0;
-  background-color: blue;
 }
 
 .systems-container > .bundle {
   display: flex;
   flex-direction: column;
   gap: clamp(5px, 1vh, 1vh);
-  align-items: stretch;
-  height: fit-content;   /* IMPORTANT: fill the grid row */
+  height: 100%;   /* IMPORTANT: fill the grid row */
   box-sizing: border-box;
-  background-color: red;
 }
 
 .bundle > * {
@@ -51,24 +48,24 @@
     display: grid;
     font-weight: bold;
     font-family: 'Inter-Medium';
-    font-size: var(--font-regular);
-    margin-left: 0.7vw;
-    margin-right: 0.65vw;
-    height: 3vh;
-    border-right: 0.25em solid var(--primary);
+    font-size: clamp(6px, 0.9vw, 0.9vw);
+    margin-left: clamp(1px, 0.7vw, 0.7vw);
+    margin-right: clamp(2px, 1%, 15px);
+    height: clamp(10px, 3vh, 3vh);
+    border-right: clamp(3.2px, 0.29vw, 3.5px) solid var(--primary);
 }
 
 
 .app-pathogen-type-header {
     text-align: left;
     border-right: 0.15em solid var(--primary);
-    width: 9vw;
 }
 
 
 
 .app-log-header {
-    width: 4.5vw;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 

@@ -1,6 +1,17 @@
+.HODSystem {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.HODSystem .title-box {
+  flex: 0 0 1;
+}
+
 .HODSystem .wrapper {
-  height: clamp(125px, 23.5vh, 23.5vh);
+  /* height: clamp(125px, 23.5vh, 23.5vh); */
   overflow: visible;
+  height: 100%;
 }
 
 .HODSystem .horizontal-container {
