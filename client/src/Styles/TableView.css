@@ -58,7 +58,7 @@
 
 .TableView .pathogen-name {
     font-size: var(--font-regular);
-    width: 8vw;
+    width: clamp(100px, 11vw, 11vw);
     padding-left: 0.2vw;
 }
 

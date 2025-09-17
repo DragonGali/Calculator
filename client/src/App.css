@@ -59,6 +59,7 @@
 .app-pathogen-type-header {
     text-align: left;
     border-right: 0.15em solid var(--primary);
+    width: clamp(20px, 11vw, 11vw);
 }
 
 
