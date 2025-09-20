@@ -5,7 +5,7 @@ import data from "../data";
 import Slider from '../Components/Slider.jsx'
 import DropDown from '../Components/DropDown.jsx'
 
-const Specifications = ({width, height}) => {
+function Specifications ({width, height}) {
 
   //All the texts that are used in the buttons and dropdowns.
   const topData = data.Specifications.top;
@@ -13,25 +13,10 @@ const Specifications = ({width, height}) => {
 
   const [pressedButton, setPressedButton] = useState(null);
 
-  const handleClick = (button) => {
+    const handleClick = (button) => {
     setPressedButton(button);
   }
-
-  // Check if we're in a narrow aspect ratio
-  const isNarrowScreen = width / height < 8 / 5;
-
-  // Adjust sizing calculations for narrow screens
-  
-  const getDropDownWidth = () => {
-    return Math.max(90, Math.min(width * 0.09, 240));
-  };
-
-  const getDropDownHeight = () => {
-    if (isNarrowScreen) {
-      return 25;
-    }
-    return Math.max(25, Math.min(height * 0.045, 64));
-  };
+   
 
   return ( <div className="Specifications">
     <div className="title-box">
@@ -44,13 +29,11 @@ const Specifications = ({width, height}) => {
                     <div className="type-box">
                         <p>{field[0]}</p>
                     </div>
-                    <Slider 
-                      min={field[1]} 
-                      max={field[2]} 
-                    />
+                    <Slider width={Math.max(60, Math.min(width * 0.05, 160))} height={Math.max(28, Math.min(height * 0.05, 64))}  min={field[1]} max={field[2]}></Slider>
                     <div className="type-box">
                         <p>{field[3]}</p>
                     </div>
+                    
                 </div>
                 ))}
                 <hr className='line'></hr>
@@ -58,16 +41,10 @@ const Specifications = ({width, height}) => {
                     <div className='type-box'>
                       <p>{bottomData.fieldName}</p>
                     </div>
-                    <Slider 
-                      min={bottomData.ranges[0].min} 
-                      max={bottomData.ranges[0].max} 
-                    />
-                    <DropDown 
-                      options={[...bottomData.options]}
-                      width={getDropDownWidth()} 
-                      height={getDropDownHeight()} 
-                      placeholder={bottomData.options[0].value} 
-                    />
+                    <Slider width={Math.max(60, Math.min(width * 0.05, 160))} min={bottomData.ranges[0].min} max={bottomData.ranges[0].max}></Slider>
+                    <DropDown options={[...bottomData.options]}
+                    width={Math.max(90, Math.min(width * 0.09, 240))} height={Math.max(25, Math.min(height * 0.045, 64))} 
+                    placeholder={bottomData.options[0].value}></DropDown>
                 </div>
                 <div className='horizontal-container'>
                   {bottomData.buttons.map((button, index) => (
@@ -76,9 +53,11 @@ const Specifications = ({width, height}) => {
                     </div>
                 ))}
                 </div>
-        </div>
+        <div/>
     </div>
     </div>
-  )
-}
+    </div>
+  
+  )}
+
 export default Specifications;
