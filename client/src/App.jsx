@@ -147,8 +147,8 @@ const App = () =>  {
 
         {fullTableOpened && (
           <DraggableWindow
-            height={size.height * 0.6}
-            width={size.width * 0.65}
+            height={Math.max(200, Math.min(600, size.height * 0.6))}
+            width={Math.max(500, Math.min(1000, size.width * 0.66))}
             content={
               <div>
                 <div

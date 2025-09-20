@@ -28,7 +28,7 @@
 }
 
 .Dichlorination .type-box {
-    width: clamp(40px, 8.5vw, 8.5vw);
+    width: clamp(65px, 8.5vw, 8.5vw);
 }
 
 .Dichlorination .value-box {
@@ -43,6 +43,6 @@
     border-style: solid;
     border-color: var(--primary);
     border-width: 0.2em;
-    width: clamp(40px, 5vw, 150px);
+    width: clamp(50px, 5vw, 150px);
     font-size: clamp(12px, var(--font-regular), 18px);
 }

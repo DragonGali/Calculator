@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column;
   width: clamp(700px, 80%, 80%);
-  height: 100%;
   gap: 1vh;
   margin-left: 10vw;
   margin-top: 1vh;
@@ -33,7 +32,7 @@
   display: flex;
   flex-direction: column;
   gap: clamp(5px, 1vh, 1vh);
-  height: 100%;   /* IMPORTANT: fill the grid row */
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -59,12 +58,10 @@
 .app-pathogen-type-header {
     text-align: left;
     border-right: 0.15em solid var(--primary);
-    width: clamp(20px, 11vw, 11vw);
+    width: clamp(100px, 12vw, 12.5vw);
 }
 
 .app-log-header {
-    margin: 0;
-    padding: 0;
     text-align: center;
 }
 

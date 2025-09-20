@@ -25,7 +25,7 @@ const TableView = ({ data, isFullTable = false}) => {
   }
 
   return (
-    <div className="TableView">
+    <div className={`TableView ${isFullTable ? "columns-10" : "columns-4"}`}>
       <table className="fixed_headers">
         <tbody>
           {data.map((pathogen, index) => (
