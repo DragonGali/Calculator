@@ -16,7 +16,7 @@ function Dichlorination () {
             <p>Dichlorination and Ozone decomposition</p>
     </div>
     <div className="wrapper">
-        <div className="vertical-container">
+        {/* <div className="vertical-container">
           <div className='horizontal-container'>
               <div className='type-box'>
                 <p>Ozone-In</p>
@@ -51,7 +51,7 @@ function Dichlorination () {
                   <p>0.0</p>
               </div>
           </div>
-        </div>
+        </div> */}
         </div>
         
     </div>

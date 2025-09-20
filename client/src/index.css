@@ -50,6 +50,8 @@
     box-shadow: clamp(-2px, -0.2vw, -6px) clamp(px, 0.2vw, 6px) 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
     width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -73,6 +75,7 @@
     color: var(--white);
     font-size: var(--font-regular);
     margin: 0;
+    white-space: nowrap;
 }
 
 /* Forms */

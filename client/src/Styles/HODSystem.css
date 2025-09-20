@@ -2,19 +2,34 @@
   display: flex;
   flex-flow: column;
   height: 100%;
+  aspect-ratio: auto;
+}
+
+
+.HODSystem .wrapper {
+  /* height: clamp(125px, 23.5vh, 23.5vh);  */
+  overflow: visible;
+  aspect-ratio: auto;
+  height: 100%;
 }
 
 .HODSystem .title-box {
   flex: 0 0 1;
 }
 
+/*
+
+.HODSystem .title-box {
+  flex: 0 0 1;
+}
+
 .HODSystem .wrapper {
-  /* height: clamp(125px, 23.5vh, 23.5vh); */
+  /* height: clamp(125px, 23.5vh, 23.5vh); 
   overflow: visible;
   height: 100%;
 }
 
-/* Simple input field styling */
+/* Simple input field styling 
 .HODSystem .simple-input {
   height: clamp(20px, 4vh, 64px);
   width: clamp(70px, 8vw, 160px);
@@ -25,7 +40,7 @@
   flex-flow: row;
   gap: clamp(4px, 0.5vw, 0.5vw);
   height: clamp(20px, 4vh, 4vh);
-  align-items: center; /* This ensures vertical alignment within each row */
+  align-items: center; /* This ensures vertical alignment within each row 
 }
 
 .HODSystem .vertical-container {
@@ -36,16 +51,16 @@
 }
 
 .HODSystem .type-box {
-  width: clamp(40px, 5vw, 120px); /* Made wider and more responsive */
+  width: clamp(40px, 5vw, 120px); /* Made wider and more responsive 
   height: 100%;
-  flex-shrink: 0; /* Prevents shrinking */
-  text-align: left; /* Consistent text alignment */
+  flex-shrink: 0; /* Prevents shrinking 
+  text-align: left; /* Consistent text alignment 
   display: flex;
-  align-items: center; /* Vertically center the text */
+  align-items: center; /* Vertically center the text 
 }
 
 .HODSystem .type-box p {
-  margin: 0; /* Remove default paragraph margins */
+  margin: 0; /* Remove default paragraph margins 
 }
 
 .HODSystem .buttons {
@@ -70,11 +85,11 @@
   align-items: center;
   width: clamp(53px, 6vw, 6vw);
   height: clamp(20px, 4vh, 4vh);
-  flex-shrink: 0; /* Prevents buttons from shrinking */
+  flex-shrink: 0; /* Prevents buttons from shrinking 
 }
 
 .HODSystem .button p {
-  margin: 0; /* Remove default paragraph margins */
+  margin: 0; /* Remove default paragraph margins 
 }
 
 .HODSystem .button.IsPressed {
@@ -86,7 +101,7 @@
   filter: brightness(1.1);
 }
 
-/* Specific styling for the checkbox container to align properly */
+/* Specific styling for the checkbox container to align properly 
 .HODSystem .checkbox {
-  flex-shrink: 0; /* Prevents checkbox from shrinking */
-}
+  flex-shrink: 0; /* Prevents checkbox from shrinking 
+} */

@@ -24,7 +24,7 @@ function Specifications ({width, height}) {
     </div>
     <div className="wrapper">
         <div className="vertical-container">
-                {topData.map((field,index) => (
+                {/* {topData.map((field,index) => (
                   <div className="horizontal-container" key={index}>
                     <div className="type-box">
                         <p>{field[0]}</p>
@@ -53,7 +53,7 @@ function Specifications ({width, height}) {
                     </div>
                 ))}
                 </div>
-        <div/>
+        <div/> */}
     </div>
     </div>
     </div>

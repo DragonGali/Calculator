@@ -2,6 +2,7 @@
     display: flex;
     flex-flow: column;
     height: 100%;
+    aspect-ratio: auto;
 }
 
 .PlotFigures .title-box {
@@ -10,13 +11,14 @@
 
 .PlotFigures .wrapper {
     height: 100%;
+    aspect-ratio: auto;
 }
 
-.PlotFigures .vertical-container {
+/* .PlotFigures .vertical-container {
     display: flex;
     flex-flow: column;
-    gap: clamp(4px, 0.5vh, 0.5vh); /* lock gap between buttons */
-    margin-top: clamp(5px, 0.5vh, 0.5vh); /* lock top margin */
+    gap: clamp(4px, 0.5vh, 0.5vh); /* lock gap between buttons 
+    margin-top: clamp(5px, 0.5vh, 0.5vh); /* lock top margin 
 }
 
 .PlotFigures .button {
@@ -24,7 +26,7 @@
     border: solid var(--primary) 0.2em;
     border-radius: 2em;
 
-    /* Clamp padding so it scales but stops shrinking */
+    /* Clamp padding so it scales but stops shrinking 
     padding: clamp(2px, 0.4vh, 12px) clamp(40px, 5vw, 70px);
 
     font-size: clamp(8px, 0.9vw, 0.85vw);
@@ -37,4 +39,4 @@
 
 .PlotFigures .button:hover {
     filter: brightness(1.3);
-}
+} */

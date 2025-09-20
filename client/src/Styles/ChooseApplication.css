@@ -1,13 +1,18 @@
 .ChooseApplication .wrapper {
-  height: clamp(95px, 16vh, 17vh);
+  /* height: clamp(95px, 16vh, 17vh); */
+  aspect-ratio: 8 / 2.5;
 }
 
+/*
+
 .radio-buttons {
-  margin-right: clamp(16px, 3em, 48px);  /* won’t shrink below 16px */
-  margin-top: clamp(6px, 1vh, 1vh);     /* same for top margin */
+  margin-right: clamp(16px, 3em, 48px);  /* won’t shrink below 16px
+  margin-top: clamp(6px, 1vh, 1vh);     /* same for top margin
   overflow: hidden;
 }
 
 .ChooseApplication .wrapper {
-  padding-left: clamp(4px, 0.5vw, 0.5vw); /* stops scaling too far */
+  padding-left: clamp(4px, 0.5vw, 0.5vw); /* stops scaling too far
 }
+
+*/

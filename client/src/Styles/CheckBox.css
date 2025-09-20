@@ -1,4 +1,4 @@
-/* I must use this font for the checkbox to look right */
+/* I must use this font for the checkbox to look right
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 
@@ -9,7 +9,7 @@
 }
 
 .check-box {
-  font-size: clamp(10px, 3vw, 32px); /* scales but never too small or too big */
+  font-size: clamp(10px, 3vw, 32px); scales but never too small or too big 
 }
 
 .check-box label {
@@ -51,7 +51,8 @@ input[type="checkbox"]:checked + .label-text:before {
 
 input[type="checkbox"]:disabled + .label-text:before {
   content: "\f0c8";
-}
+} 
+
 
 @keyframes tick {
   0% {
@@ -64,3 +65,5 @@ input[type="checkbox"]:disabled + .label-text:before {
     transform: scale(1);
   }
 }
+
+*/
