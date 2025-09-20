@@ -1,5 +1,5 @@
 .PathogenReduction .wrapper {
-  height: clamp(232px, 42.7vh, 42.7vh);
+  height: clamp(232px, 42.7vh, 60vh);
 }
 
 .PathogenReduction .title-box {
@@ -118,4 +118,23 @@
 
 .PathogenReduction .button:hover {
   filter: brightness(1.1);
+}
+
+@media screen and (max-aspect-ratio: 8 / 5) { /* portrait-like screens */
+  .PathogenReduction .wrapper {
+    height: 210px;
+  }
+  
+  .PathogenReduction .scroll-container {
+    height: 150px; /* Adjusted to match wrapper constraint */
+  }
+  
+  .PathogenReduction .buttons {
+    margin-top: 5px;
+  }
+  
+  .PathogenReduction .button {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
 }

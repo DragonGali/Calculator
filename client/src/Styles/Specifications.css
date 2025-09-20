@@ -37,7 +37,7 @@
     border: solid var(--primary) 0.2em;
     border-radius: 0.5em;
     text-align: center;
-    width: clamp(100px, 12vw, 300px);
+    width: clamp(110px, 12vw, 300px);
     height: clamp(25px, 5vh, 50px);
     font-size: var(--font-regular);
     font-weight: bold;
@@ -51,4 +51,34 @@
 
 .Specifications .button:hover {
     filter: brightness(1.3);
+}
+
+@media screen and (max-aspect-ratio: 8 / 5) { /* portrait-like screens */
+  .Specifications .wrapper {
+    height: 210px;
+  }
+  
+  .Specifications .vertical-container {
+    gap: 4px;
+    margin-top: 10px;
+  }
+  
+  .Specifications .horizontal-container {
+    height: 25px;
+  }
+  
+  .Specifications .line {
+    border-top: 3px solid var(--primary);
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .Specifications .button {
+    margin-top: 2px;
+    height: 20px;
+  }
+  
+  .Specifications .button p {
+    padding-top: 5px;
+  }
 }

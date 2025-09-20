@@ -90,3 +90,18 @@
 .HODSystem .checkbox {
   flex-shrink: 0; /* Prevents checkbox from shrinking */
 }
+
+@media screen and (max-aspect-ratio: 8 / 5) { /* portrait-like screens */
+  .HODSystem .wrapper {
+    height: 125px;
+  }
+  
+  .HODSystem .vertical-container {
+    gap: 3px;
+    margin-top: 10px;
+  }
+  
+  .HODSystem .horizontal-container {
+    height: 20px;
+  }
+}
