@@ -2,41 +2,42 @@
   display: flex;
   flex-flow: column;
   height: 100%;
+  aspect-ratio: auto;
+}
+
+
+.HODSystem .wrapper {
+  overflow: visible;
+  aspect-ratio: auto;
+  height: 100%;
 }
 
 .HODSystem .title-box {
   flex: 0 0 1;
-}
-
-.HODSystem .wrapper {
-  /* height: clamp(125px, 23.5vh, 23.5vh); */
-  overflow: visible;
-  height: 100%;
-}
-
-/* Simple input field styling */
-.HODSystem .simple-input {
-  height: clamp(20px, 4vh, 64px);
-  width: clamp(70px, 8vw, 160px);
+  width: 60%;
 }
 
 .HODSystem .horizontal-container {
   display: flex;
   flex-flow: row;
-  gap: clamp(4px, 0.5vw, 0.5vw);
-  height: clamp(20px, 4vh, 4vh);
-  align-items: center; /* This ensures vertical alignment within each row */
+  gap: 0.5em;
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  aspect-ratio: 10 / 1;
 }
 
 .HODSystem .vertical-container {
   display: flex;
   flex-flow: column;
-  gap: clamp(6px, 1vh, 1vh);
-  margin-top: clamp(5px, 0.5vh, 0.5vh);
+  margin-top: 0.7em;
+  gap: 5%;
+  height: 90%;
+  width: 100%;
 }
 
 .HODSystem .type-box {
-  width: clamp(40px, 5vw, 120px); /* Made wider and more responsive */
+  width: 32%;
   height: 100%;
   flex-shrink: 0; /* Prevents shrinking */
   text-align: left; /* Consistent text alignment */
@@ -44,14 +45,16 @@
   align-items: center; /* Vertically center the text */
 }
 
-.HODSystem .type-box p {
-  margin: 0; /* Remove default paragraph margins */
+.HODSystem .type-box.small {
+  width: 29%;
+
 }
 
 .HODSystem .buttons {
   display: flex;
   flex-flow: row;
-  gap: clamp(6px, 1vw, 20px);
+  gap: 1em;
+  width: 100%;
 }
 
 .HODSystem .button {
@@ -68,8 +71,8 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: clamp(53px, 6vw, 6vw);
-  height: clamp(20px, 4vh, 4vh);
+  width: 100%;
+  height: auto;
   flex-shrink: 0; /* Prevents buttons from shrinking */
 }
 

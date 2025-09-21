@@ -1,9 +1,10 @@
 .Results .wrapper {
     overflow: visible;
-    height: clamp(162px, 29vh, 29vh);
+    /* height: clamp(162px, 29vh, 29vh); */
+    aspect-ratio: 8 / 4.5;
 }
 
-.Results .vertical-container {
+/* .Results .vertical-container {
     display: flex;
     flex-flow: column;
     gap: clamp(4px, 0.5vh, 0.5vh);
@@ -53,4 +54,4 @@
     margin-bottom: clamp(4px, 1vh, 16px);
     width: 96%;
     margin-left: clamp(2px, 0.5vw, 30px);
-}
+} */

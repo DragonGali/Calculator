@@ -36,8 +36,6 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <Dropdown
               className="drop-down"
               options={[...data.modules]}
-              height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(120, Math.min(width * 0.136, 280))}
               placeholder={data.modules[0].label}
               value={appState?.module} // controlled
               onChange={(option) => { sendUpdate("HODSystem", "setModule", { module: option }) }}
@@ -52,8 +50,6 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <Dropdown
               className="drop-down"
               options={[...data.model]}
-              height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(65, Math.min(width * 0.07, 280))}
               placeholder={data.model[0].label}
               value={appState?.model}
               onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}
@@ -77,7 +73,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
               value={appState?.branch ?? 1}
               onChange={(e) => { sendUpdate("HODSystem", "setBranch", { branch: e.target.value }) }}
             />
-            <div className="type-box">
+            <div className="type-box small">
               <p>[Units]</p>
             </div>
           </div>

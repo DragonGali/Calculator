@@ -7,8 +7,6 @@ const Dropdown = ({
   label = "You Selected",
   emptyText = "Empty",
   colors = ['var(--primary)', 'var(--title-box)'],
-  width = 200,
-  height = 60,
   value,          // controlled value
   onChange        // controlled callback
 }) => {
@@ -43,13 +41,11 @@ const Dropdown = ({
     <div className="dropdown-wrapper">
       <div 
         className={`dropdown ${isActive ? 'active' : ''}`}
-        style={{ width: `${width}px` }}
       >
         {/* Label */}
         <span
           className="dropdown-label"
           onClick={handleToggle}
-          style={{ height: `${height}px`, lineHeight: `${height}px`}}
         >
           {selectedValue || placeholder}
           <span className="dropdown-arrow">
@@ -70,7 +66,7 @@ const Dropdown = ({
                 transform: getTransform(index, isActive)
               }}
             >
-              <span style={{ lineHeight: `${height}px` }}>
+              <span>
                 {option.label}
               </span>
             </li>

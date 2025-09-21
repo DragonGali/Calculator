@@ -80,7 +80,7 @@ const PathogenReduction = ({openFullTable}) => {
                </div>
           ))}
       </div>
-      </div>
+    </div>
     </div>
     </div>
   

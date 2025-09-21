@@ -44,10 +44,7 @@ const Specifications = ({width, height}) => {
                     <div className="type-box">
                         <p>{field[0]}</p>
                     </div>
-                    <Slider 
-                      min={field[1]} 
-                      max={field[2]} 
-                    />
+                    <Slider  min={field[1]} max={field[2]}></Slider>
                     <div className="type-box">
                         <p>{field[3]}</p>
                     </div>
@@ -58,16 +55,10 @@ const Specifications = ({width, height}) => {
                     <div className='type-box'>
                       <p>{bottomData.fieldName}</p>
                     </div>
-                    <Slider 
-                      min={bottomData.ranges[0].min} 
-                      max={bottomData.ranges[0].max} 
-                    />
-                    <DropDown 
-                      options={[...bottomData.options]}
-                      width={getDropDownWidth()} 
-                      height={getDropDownHeight()} 
-                      placeholder={bottomData.options[0].value} 
-                    />
+                    <Slider className="slider"/>
+                    <DropDown options={[...bottomData.options]}
+                    placeholder={bottomData.options[0].value}>
+                    </DropDown>
                 </div>
                 <div className='horizontal-container'>
                   {bottomData.buttons.map((button, index) => (

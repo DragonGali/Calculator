@@ -1,7 +1,8 @@
-.Dichlorination {
+ .Dichlorination {
   display: flex;
   flex-flow: column;
   height: 100%;
+  aspect-ratio: auto;
 }
 
 .Dichlorination .title-box {
@@ -11,9 +12,10 @@
 
 .Dichlorination .wrapper {
     height: 100%;
+    aspect-ratio: auto;
 }
 
-
+/*
 .Dichlorination .vertical-container {
     display: flex;
     flex-flow: column;
@@ -45,4 +47,4 @@
     border-width: 0.2em;
     width: clamp(50px, 5vw, 150px);
     font-size: clamp(12px, var(--font-regular), 18px);
-}
+} */
