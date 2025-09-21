@@ -17,7 +17,7 @@ function ChooseApplication({ appState, sendUpdate }) {
         <p>Choose Application</p>
       </div>
       <div className="wrapper">
-        {/* <div className="radio-buttons">
+        <div className="radio-buttons">
           <form>
             {data.options.map((option, index) => (
               <Fragment key={index}>
@@ -35,7 +35,7 @@ function ChooseApplication({ appState, sendUpdate }) {
               </Fragment>
             ))}
           </form>
-        </div> */}
+        </div>
       </div>
     </div>
   );
