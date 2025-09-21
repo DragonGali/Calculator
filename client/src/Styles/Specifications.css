@@ -4,6 +4,10 @@
     aspect-ratio: 8 / 5.3;
 }
 
+.Specifications .title-box {
+    width: 50%;
+}
+
 /*
 
 .Specifications .vertical-container {
