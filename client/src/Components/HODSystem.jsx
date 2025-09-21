@@ -50,8 +50,6 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <Dropdown
               className="drop-down"
               options={[...data.model]}
-              height={Math.max(20, Math.min(height * 0.04, 64))}
-              width={Math.max(65, Math.min(width * 0.07, 280))}
               placeholder={data.model[0].label}
               value={appState?.model}
               onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}

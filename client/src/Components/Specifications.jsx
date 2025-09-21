@@ -24,7 +24,7 @@ function Specifications ({width, height}) {
     </div>
     <div className="wrapper">
         <div className="vertical-container">
-                {/* {topData.map((field,index) => (
+                {topData.map((field,index) => (
                   <div className="horizontal-container" key={index}>
                     <div className="type-box">
                         <p>{field[0]}</p>
@@ -41,9 +41,8 @@ function Specifications ({width, height}) {
                     <div className='type-box'>
                       <p>{bottomData.fieldName}</p>
                     </div>
-                    <Slider width={Math.max(60, Math.min(width * 0.05, 160))} min={bottomData.ranges[0].min} max={bottomData.ranges[0].max}></Slider>
+                    <Slider/>
                     <DropDown options={[...bottomData.options]}
-                    width={Math.max(90, Math.min(width * 0.09, 240))} height={Math.max(25, Math.min(height * 0.045, 64))} 
                     placeholder={bottomData.options[0].value}></DropDown>
                 </div>
                 <div className='horizontal-container'>
@@ -53,7 +52,7 @@ function Specifications ({width, height}) {
                     </div>
                 ))}
                 </div>
-        <div/> */}
+        <div/>
     </div>
     </div>
     </div>
