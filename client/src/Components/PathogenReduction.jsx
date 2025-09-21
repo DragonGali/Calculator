@@ -50,7 +50,37 @@ const PathogenReduction = ({openFullTable}) => {
             <p>Pathogens - Log Reduction Dosage [mJ/cm²]</p>
     </div>
     <div className="wrapper">
-   
+      <div className='vertical-container'>
+        {getHeaderText()}
+          <div className='container'>
+            <div className='scroll-container'>
+              {/* Conditional component rendering */}
+              {viewMode === buttons[0] && (
+                <TreeView data={data.PathogenReduction.treeView.treeData} />
+              )}
+              {(viewMode === buttons[1] || viewMode === buttons[2]) && (
+                <TableView data={data.PathogenReduction.tableView.tableData}/>
+              )}
+            </div>
+          </div>
+          <div className='buttons'>
+          {data.PathogenReduction.buttons.map((button, index) => (
+              <div 
+                key={index} 
+                className={`button ${pressedButton === button ? 'IsPressed' : 'NotPressed'}`} 
+                onClick={() => {
+                    setPressedButton(button);
+                    setViewMode(button);
+                    if (button === buttons[2]) {
+                    openFullTable();
+                    }
+                }}
+              >
+              <p>{button}</p>
+               </div>
+          ))}
+      </div>
+    </div>
     </div>
     </div>
   

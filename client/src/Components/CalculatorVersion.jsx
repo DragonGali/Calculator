@@ -33,13 +33,13 @@ const CalculatorVersion = ({unlockAll}) => {
             <p>Calculator Version</p>
     </div>
     <div className="wrapper">
-        {/* <div className='horizontal-container'>
+        <div className='horizontal-container'>
                 {data.CalculatorVersionButtons.map((button, index) => (
                     <div className='button' key={index} onClick={() => {handleClick(button)}}>
                             <p>{button}</p>
                     </div>
                 ))}
-            </div> */}
+            </div>
     </div>
     {openPasswordBox && <PasswordBox onClose={() => {setOpenPasswordBox(false); setPressedButton(null)}} onPasswordCorrect={() =>{unlockAll(true)}}></PasswordBox>}
     

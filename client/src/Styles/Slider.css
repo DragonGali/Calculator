@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  aspect-ratio: 2.25 / 1;
 }
 
 
@@ -26,6 +27,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 /* Range Slider Input */
 .range-slider {
