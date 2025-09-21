@@ -1,12 +1,13 @@
 .PathogenInactivation .wrapper {
   display: flex;
   flex-flow: row;
-  gap: clamp(5px, 1vw, 30px);
+  /* gap: clamp(5px, 1vw, 30px);
   padding-top: clamp(5px, 1vh, 30px);
-  height: clamp(85px, 14.5vh, 300px);
+  height: clamp(85px, 14.5vh, 300px); */
+  aspect-ratio: 8 / 2;
 }
 
-.PathogenInactivation .title-box {
+/* .PathogenInactivation .title-box {
   width: clamp(140px, 20vw, 20vw);
 }
 
@@ -27,7 +28,7 @@
   width: clamp(60px, 7.5vw, 10vw);
 }
 
-/* Simple input field styling */
+/* Simple input field styling 
 .PathogenInactivation .simple-input {
   height: clamp(19px, 3vh, 30px);
   width: clamp(70px, 7vw, 150px);
@@ -71,4 +72,4 @@
   font-weight: bold;
   color: var(--text);
   margin-top: -0.5vh;
-}
+} */

@@ -1,46 +1,44 @@
 /* Range Slider Container */
 .range-slider-container {
   position: relative;
-  padding-top: clamp(10px, 3vh, 40px); /* Space for the display box */
-  width: clamp(40px, 5vw, 100px);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 2.25 / 1;
 }
+
 
 /* Value Display Box - Now editable input */
 .range-value-display {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   width: 100%;
+  height: 100%;
   color: var(--text);
-  line-height: clamp(10px, 2.6vh, 40px);
   text-align: center;
-  border-radius: clamp(4px, 0.3vw, 8px);
+  border-radius: 0.3em;
   background: var(--white);
-  padding: clamp(6px, 0.5vh, 8px) clamp(4px, 0.5vw, 8px);
   font-family: 'Inter-Light';
   font-size: var(--font-regular);
   font-weight: bold;
-  border-color: var(--primary);
-  border-style: solid;
-  border-width: 0.1rem;
-  z-index: 1;
+  border: solid var(--primary) 0.1rem;
   box-sizing: border-box;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 /* Range Slider Input */
 .range-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: clamp(5px, 1vh, 10px);
-  border-radius: clamp(4px, 0.5vw, 10px);
+  height: 17%;
+  margin-top: -3%;
+  border-radius: 0.5em;
   background: var(--grey-blue);
   outline: none;
-  padding: 0;
-  margin: 0;
   cursor: pointer;
   position: relative;
   z-index: 2;
@@ -50,8 +48,8 @@
 .range-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: clamp(5px, 0.7vw, 24px);
-  height: clamp(5px, 1.5vh, 36px);
+  width: 0.6em;
+  height: 0.6em;
   border-radius: 50%;
   background: var(--highlight);
   cursor: pointer;
@@ -66,8 +64,8 @@
 
 /* Firefox */
 .range-slider::-moz-range-thumb {
-  width: clamp(12px, 0.7vw, 24px);
-  height: clamp(24px, 1.5vh, 36px);
+  width: 0.6em;
+  height: 0.6em;
   border: 0;
   border-radius: 50%;
   background: var(--highlight);

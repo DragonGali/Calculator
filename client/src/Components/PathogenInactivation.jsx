@@ -20,7 +20,7 @@ function PathogenInactivation ({width, height}) {
             <p>Pathogen-Specific Log-Inactivation</p>
     </div>
     <div className="wrapper">
-        <div className="vertical-container">
+        {/* <div className="vertical-container">
           
           <div className="horizontal-container">
             <div className='type-box' >
@@ -62,7 +62,7 @@ function PathogenInactivation ({width, height}) {
           <p>Reset</p>
         </div>
         <p className='expected-li-text'>{`${expectedLI} out of 5LOG`}</p>
-      </div>
+      </div> */}
       </div>
     </div>
   

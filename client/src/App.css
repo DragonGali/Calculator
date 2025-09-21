@@ -4,8 +4,8 @@
   width: clamp(700px, 80%, 80%);
   height: 100%;
   gap: 1vh;
-  margin-left: 10vw;
   margin-top: 1vh;
+  transform: translate(10%);
 }
 
 
@@ -18,29 +18,22 @@
   grid-template-columns: 0.8fr 1.1fr 1.2fr; /* or change fractions to taste */
   gap: clamp(5px, 0.5vh, 0.5vh) clamp(5px, 1vw, 1vw);
   width: 100%;
-  grid-auto-rows: min-content;
-  align-items: stretch; /* ensure children stretch to fill row height */
 }
 
 .systems-container > * {
   width: 100%;
-  height: fit-content; /* allow the grid's row height to propagate */
   box-sizing: border-box;
   min-width: 0;
+  height: fit-content;
 }
 
 .systems-container > .bundle {
   display: flex;
   flex-direction: column;
   gap: clamp(5px, 1vh, 1vh);
-  height: 100%;   /* IMPORTANT: fill the grid row */
   box-sizing: border-box;
+  height: 100%;
 }
-
-.bundle > * {
-  width: 100%;
-}
-
 
 
 /* Dynamic header styles */

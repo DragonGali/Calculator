@@ -9,19 +9,12 @@
 }
 
 .check-box {
-  font-size: clamp(10px, 3vw, 32px); /* scales but never too small or too big */
-}
-
-.check-box label {
-  cursor: pointer;
-  color: var(--primary);
-  display: block;
-  margin-top: clamp(0px, 0.6vh, 24px);
+  font-size: clamp(10px, 3vw, 32px); /* scales but never too small or too big */ 
 }
 
 .check-box .label-text {
   color: var(--text);
-  font-size: clamp(10px, 1.1vw, 18px);
+  font-size: clamp(10px, 1.05vw, 18px);
   white-space: nowrap;
 }
 
@@ -29,18 +22,25 @@
   display: none;
 }
 
+.check-box label {
+  cursor: pointer;
+  color: var(--primary);
+  display: flex; /* Change from block to flex */
+  align-items: center; /* Center align items */
+}
+
 .check-box [type="checkbox"] + .label-text:before {
   content: "\f096";
   font-family: "FontAwesome";
   font-style: normal;
-  font-size: clamp(16px, 1.6vw, 28px);
+  font-size: clamp(16px, 1.7vw, 28px);
   font-variant: normal;
   text-transform: none;
   -webkit-font-smoothing: antialiased;
-  width: 0em;
   display: inline-block;
-  margin-right: clamp(15px, 1.6vw, 30px);
+  margin-right: 0.2em;
   color: var(--primary);
+  line-height: 1; /* Add this to prevent extra spacing */
 }
 
 input[type="checkbox"]:checked + .label-text:before {
@@ -51,7 +51,8 @@ input[type="checkbox"]:checked + .label-text:before {
 
 input[type="checkbox"]:disabled + .label-text:before {
   content: "\f0c8";
-}
+} 
+
 
 @keyframes tick {
   0% {
@@ -64,3 +65,4 @@ input[type="checkbox"]:disabled + .label-text:before {
     transform: scale(1);
   }
 }
+

@@ -50,6 +50,8 @@
     box-shadow: clamp(-2px, -0.2vw, -6px) clamp(px, 0.2vw, 6px) 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
     width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -60,7 +62,7 @@
   text-align: center;
   position: relative;
   background-color: var(--title-box);
-  padding: clamp(3px, 0.6vh, 10px);
+  padding: 0.6%;
   margin-left: 50%;
   transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
@@ -73,27 +75,9 @@
     color: var(--white);
     font-size: var(--font-regular);
     margin: 0;
+    white-space: nowrap;
 }
 
-/* Forms */
-
-.ChooseApplication form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3em;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-
-label {
-  display: flex;
-  cursor: pointer;
-  font-family: "Inter-Light";
-  position: relative;
-  font-size: var(--font-regular);
-  color: var(--text);
-}
 
 /* Hidden input */
 label input {
@@ -101,42 +85,6 @@ label input {
   visibility: hidden;
 }
 
-
-.ChooseApplication label input:checked + span:before {
-  box-shadow: inset 0 0 0 clamp(4px, 0.5vw, 8px) var(--highlight);
-}
-
-/* Radio button visual */
-.ChooseApplication label span {
-  display: flex;
-  align-items: center;
-  border-radius: 99vw;
-  white-space: nowrap;
-}
-
-label:hover {
-  border-radius: 10px;
-  background-color: var(--grey-blue);
-}
-
-.ChooseApplication label span:before {
-  display: flex;
-  gap: clamp(5px, 0.5vw + 1vh, 28px); /* ✅ already good */
-  width: clamp(16px, 1.7em, 32px);
-  height: clamp(16px, 1.7em, 32px);
-  margin-right: clamp(6px, 0.7em, 14px);
-  content: "";;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 0.2vw var(--primary);
-  transition: box-shadow 0.25s ease;
-}
-
-.ChooseApplication form hr {
-  border: none;
-  border-top: 0.4vh solid var(--primary);
-  margin: 0 1vw;
-  width: 100%;
-}
 
 .type-box {
   font-family: "Inter-Medium";
@@ -163,18 +111,16 @@ p{
 
 /* Simple input field styling */
 .simple-input {
-  height: clamp(20px, 4vh, 64px);
-  width: clamp(70px, 8vw, 160px);
+  height: 100%;
+  width: 100%;
   border: 3px solid var(--primary);
   border-radius: 0px;
-  padding: 4px 8px;
-  font-size: clamp(11px, 0.9vw, 18px);
+  font-size: var(--font-regular);
   text-align: center;
   background-color: var(--white);
   color: var(--text);
   box-sizing: border-box;
   outline: none;
-  font-family: inherit;
 }
 
 .disabled {
