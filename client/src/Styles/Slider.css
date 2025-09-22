@@ -97,37 +97,3 @@
 .range-slider::-moz-focus-outer {
   border: 0;
 }
-
-@media screen and (max-aspect-ratio: 8 / 5) { /* portrait-like screens */
-  .range-slider-container {
-    padding: 0;
-    height: 18px;
-  }
-
-  .range-value-display {
-    border-radius: 6px;
-    height: 25px;
-  }
-
-  .range-slider {
-    height: 5px;
-    border-radius: 8px;
-    margin-top: 20px;
-  }
-
-  .range-slider::-webkit-slider-thumb {
-    height: 5px;
-    width: 6px;
-  }
-
-  .range-slider::-moz-range-thumb {
-    height: 5px;
-    width: 6px;
-  }
-
-  .range-slider::-moz-range-track {
-    height: 5px;
-    width: 6px;
-    border-radius: 8px;
-  }
-}

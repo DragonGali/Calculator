@@ -45,9 +45,9 @@
     justify-content: center;
     position: relative;
     border-color: var(--primary);
-    border-style: solid;
+    border-style: solid; 
     border-radius: 1rem;
-    box-shadow: clamp(-2px, -0.2vw, -6px) clamp(px, 0.2vw, 6px) 0 rgba(89, 121, 145, 0.4);
+    box-shadow: -0.2% 0.2% 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
     width: 100%;
     max-width: 100%;
@@ -67,7 +67,7 @@
   transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
   box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
-  margin-bottom: clamp(-8px, -2vh, -50px);
+  margin-bottom: -3%;
 }
 
 .title-box p {
@@ -133,24 +133,5 @@ p{
   filter: blur(0.35em); /*styling for all the locked features*/
   pointer-events: none;
 }
-
-@media screen and (max-aspect-ratio: 8 / 5) { /* portrait-like screens */
-  
-  .title-box {
-
-    padding: clamp(2px, 1.2vh, 3px);
-  }
-
-  .simple-input {
-    height: clamp(30px, 6vh, 64px);
-    width: clamp(100px, 12vw, 160px);
-    font-size: clamp(14px, 1.5vw, 18px);
-  }
-
-  :root {
-    --font-regular: 8px;
-  }
-}
-
 
 

@@ -17,22 +17,6 @@ const Specifications = ({width, height}) => {
     setPressedButton(button);
   }
 
-  // Check if we're in a narrow aspect ratio
-  const isNarrowScreen = width / height < 8 / 5;
-
-  // Adjust sizing calculations for narrow screens
-  
-  const getDropDownWidth = () => {
-    return Math.max(90, Math.min(width * 0.09, 240));
-  };
-
-  const getDropDownHeight = () => {
-    if (isNarrowScreen) {
-      return 25;
-    }
-    return Math.max(25, Math.min(height * 0.045, 64));
-  };
-
   return ( <div className="Specifications">
     <div className="title-box">
             <p>Specifications</p>

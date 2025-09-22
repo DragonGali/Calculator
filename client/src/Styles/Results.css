@@ -1,32 +1,39 @@
 .Results .wrapper {
     overflow: visible;
-    /* height: clamp(162px, 29vh, 29vh); */
     aspect-ratio: 8 / 4.5;
 }
 
-/* .Results .vertical-container {
-    display: flex;
-    flex-flow: column;
-    gap: clamp(4px, 0.5vh, 0.5vh);
-    margin-top: clamp(5px, 1vh, 1vh);
+.Results .vertical-container {
+  display: flex;
+  flex-flow: column;
+  margin-top: 1%;
+  gap: 2%;
+  height: 85%;
+  width: 100%;
 }
 
 .Results .type-box {
-    width: clamp(120px, 14.5vw, 14.5vw);
-    font-size: clamp(6px, 0.8vw, 0.8vw);
+    width: auto;
+    height: 100%;
+    flex-shrink: 0; /* Prevents shrinking */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    white-space: nowrap; /* Prevent text wrapping to the next line */
+    aspect-ratio: 5.5 / 1;
 }
 
 .Results .small {
-    width: clamp(60px, 5.5vw, 140px);
+    width: 20%;
 }
 
 .Results .horizontal-container {
-    display: flex;
-    flex-flow: row;
-    gap: clamp(4px, 0.5vw, 16px);
-    height: clamp(30px, 5vh, 5vh);
-    width: clamp(200px, 26vw, 500px);
-    justify-content: center;
+  display: flex;
+  flex-flow: row;
+  gap: 2%;
+  width: 95%;
+  height: auto;
+  margin-left: 2.5%;
+  aspect-ratio: 9 / 1;
 }
 
 .Results .value-box {
@@ -43,7 +50,7 @@
     border-color: var(--primary);
     border-width: 0.1em;
 
-    width: clamp(40px, 4vw, 100px);
+    width: 70%;
     font-size: clamp(12px, var(--font-regular), 22px);
 }
 
@@ -54,4 +61,4 @@
     margin-bottom: clamp(4px, 1vh, 16px);
     width: 96%;
     margin-left: clamp(2px, 0.5vw, 30px);
-} */
+}
