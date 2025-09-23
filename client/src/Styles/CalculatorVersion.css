@@ -1,18 +1,23 @@
 .CalculatorVersion .wrapper {
     aspect-ratio: 8 / 2;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .CalculatorVersion .title-box {
     width: 60%;
+    flex-shrink: 0; /* Prevents shrinking */
 }
 
 .CalculatorVersion .horizontal-container {
- display: flex;
-  flex-flow: row;
-  gap: 3%;
-  width: 90%;
-  height: 60%;
-  aspect-ratio: 10 / 1;
+    display: flex;
+    flex-flow: row;
+    gap: 3%;
+    width: 90%;
+    height: 60%;
+    flex-shrink: 0;
+    min-width: 0;
 }
 
 .CalculatorVersion .button {
@@ -23,7 +28,9 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    flex: 1 1 0;
+    min-width: 0;
+    box-sizing: border-box;
 
     font-size: var(--font-regular);
     font-weight: bold;

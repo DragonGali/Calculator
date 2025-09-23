@@ -11,16 +11,26 @@
   position: absolute;
   left: 0.3em;
   overflow: hidden;
+  height: 80%;
 }
 
 /* Forms */
 .ChooseApplication form {
   display: flex;
-  flex-wrap: wrap;
-  gap: calc(0.5px + 0.5vh);
   flex-direction: column;
+  height: 100%;
   overflow: hidden;
   margin-top: 0.5%;
+  justify-content: space-around;
+  
+  /* Performance optimizations */
+  contain: layout;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.ChooseApplication form > * {
+  flex-shrink: 0;
+  min-height: fit-content;
 }
 
 

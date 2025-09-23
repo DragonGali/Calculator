@@ -107,7 +107,7 @@
   border: 3px solid var(--primary);
   color: var(--blue-text);
   border-radius: 1em;
-  font-size: clamp(7.2px, 0.85vw, 20px);
+  font-size: max(0.85vw, 7.2px);
   font-weight: bold;
   font-family: 'Inter-Medium';
   cursor: pointer;

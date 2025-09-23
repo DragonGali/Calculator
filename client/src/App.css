@@ -1,11 +1,15 @@
 #flex-container {
   display: flex;
   flex-flow: column;
-  width: clamp(700px, 80%, 80%);
-  height: 100%;
-  gap: 1vh;
-  margin-top: 1vh;
+  width: 80%;
+  aspect-ratio: 16 / 8;
+  margin-top: 1%;
   transform: translate(10%);
+  min-width: 700px;
+  
+  contain: layout size; /* Prevents layout and size recalculations from bubbling */
+  transform-style: preserve-3d; /* Forces hardware acceleration */
+  will-change: auto; /* Optimize for changes */
 }
 
 
@@ -15,9 +19,14 @@
 
 .systems-container {
   display: grid;
-  grid-template-columns: 0.8fr 1.1fr 1.2fr; /* or change fractions to taste */
-  gap: clamp(5px, 0.5vh, 0.5vh) clamp(5px, 1vw, 1vw);
+  grid-template-columns: 0.8fr 1.1fr 1.2fr;
+  gap: 1% 1%;
   width: 100%;
+  margin-top: 1%;
+  
+  /* Add stability */
+  contain: layout;
+  min-height: 0; /* Prevents grid from expanding unexpectedly */
 }
 
 .systems-container > * {
@@ -25,18 +34,24 @@
   box-sizing: border-box;
   min-width: 0;
   height: fit-content;
+  
+  /* Prevent individual items from causing layout shifts */
+  contain: layout;
 }
 
 .systems-container > .bundle {
   display: flex;
   flex-direction: column;
-  gap: clamp(5px, 1vh, 1vh);
+  gap: 1.5%;
   box-sizing: border-box;
   height: 100%;
+  
+  /* Stabilize flex containers */
+  flex-shrink: 0;
+  min-height: 0;
 }
 
-
-/* Dynamic header styles */
+/* Rest of your existing styles remain the same */
 .app-view-header {
     display: grid;
     font-weight: bold;
@@ -47,7 +62,6 @@
     height: clamp(10px, 3vh, 3vh);
     border-right: clamp(3.2px, 0.29vw, 3.5px) solid var(--primary);
 }
-
 
 .app-pathogen-type-header {
     text-align: left;
@@ -64,6 +78,7 @@
 .app-log-header:not(:last-child) {
     border-right: 0.15em solid var(--primary);
 }
+
 .creator-name {
   position: fixed;
   bottom: 0.5%;
@@ -71,7 +86,3 @@
   font-size: var(--font-regular);
   font-weight: bold;
 }
-
-
-
-

@@ -51,14 +51,15 @@
     border-width: 0.1em;
 
     width: 70%;
-    font-size: clamp(12px, var(--font-regular), 22px);
+    font-size: var(--font-regular);
 }
 
 .Results .line {
     border: none;
-    border-top: clamp(2px, 0.4vh, 6px) solid var(--primary);
-    margin-top: clamp(4px, 1vh, 16px);
-    margin-bottom: clamp(4px, 1vh, 16px);
-    width: 96%;
-    margin-left: clamp(2px, 0.5vw, 30px);
+    background-color: var(--primary);
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    width: 94%;
+    height: 3%;
+    margin-left: 3%;
 }

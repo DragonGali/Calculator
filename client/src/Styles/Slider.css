@@ -82,14 +82,14 @@
 .range-slider::-moz-range-track {
   background: var(--grey-blue);
   border: 0;
-  height: clamp(5px, 1vh, 10px);
-  border-radius: clamp(4px, 0.5vw, 10px);
+  height: 1%;
+  border-radius: 0.5%;
 }
 
 /* Focus State */
 .range-slider:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 clamp(2px, 0.2vw, 4px) var(--white), 
-              0 0 0 clamp(4px, 0.4vw, 8px) var(--slider-hover);
+  box-shadow: 0 0 0 0.2% var(--white), 
+              0 0 0 0.2% var(--slider-hover);
 }
 
 /* Remove Focus Outline on Firefox */

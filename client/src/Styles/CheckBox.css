@@ -9,12 +9,12 @@
 }
 
 .check-box {
-  font-size: clamp(10px, 3vw, 32px); /* scales but never too small or too big */ 
+  font-size: max(3vw, 10px);
 }
 
 .check-box .label-text {
   color: var(--text);
-  font-size: clamp(10px, 1.05vw, 18px);
+  font-size: max(1.05vw, 10px);
   white-space: nowrap;
 }
 
@@ -33,7 +33,7 @@
   content: "\f096";
   font-family: "FontAwesome";
   font-style: normal;
-  font-size: clamp(16px, 1.7vw, 28px);
+  font-size: max(1.7vw, 16px);
   font-variant: normal;
   text-transform: none;
   -webkit-font-smoothing: antialiased;

@@ -14,7 +14,7 @@
 
   background-color: var(--background);
 
-  --font-regular: clamp(7px, 0.9vw, 22px);
+  --font-regular: max(0.9vw, 7px);
 }
 
 /* Reset styles */
@@ -52,6 +52,10 @@
     width: 100%;
     max-width: 100%;
     max-height: 100%;
+    contain: layout size style; /* Isolate layout, size, and style recalculations */
+    box-sizing: border-box; /* Include borders in size calculations */
+    transform: translateZ(0); /* Force hardware acceleration */
+    backface-visibility: hidden; /* Optimize rendering */
 }
 
 
@@ -66,7 +70,7 @@
   margin-left: 50%;
   transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
-  box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
+  box-shadow: -0.2em 0.2em 0em 0em rgba(89, 121, 145, 0.5);
   margin-bottom: -3%;
 }
 

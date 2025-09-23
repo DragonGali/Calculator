@@ -7,7 +7,7 @@
 
 .Dichlorination .title-box {
     flex: 0 0 1;
-    width: clamp(150px, 20vw, 20vw);
+    /* width: clamp(150px, 20vw, 20vw); */
 }
 
 .Dichlorination .wrapper {
