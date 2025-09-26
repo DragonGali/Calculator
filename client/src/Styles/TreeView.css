@@ -39,8 +39,7 @@
 .horizontal-line {
   position: absolute;
   top: 50%;
-  width: 5%;  /* instead of vw */
-  height: 0;   /* no need for vh here */
+  width: 5%;
   border-top: 0.1em dashed var(--primary);
 }
 

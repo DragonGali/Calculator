@@ -47,7 +47,7 @@ body {
 .systems-container > .bundle {
   display: flex;
   flex-direction: column;
-  gap: 1.5%;
+  gap: 2%;
   box-sizing: border-box;
   height: 100%;
   

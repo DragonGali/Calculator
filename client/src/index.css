@@ -11,6 +11,7 @@
   --tree-hover: #d2e1ed;
   --tree-select: #b9d5e9;
   --table-blue: #cadfef;
+  --simple-input: #5A7FFF;
 
   background-color: var(--background);
 
@@ -49,7 +50,7 @@
     position: relative;
     border-color: var(--primary);
     border-style: solid; 
-    border-radius: 1em;
+    border-radius: 10px;
     box-shadow: -0.2rem 0.2rem 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
     width: 100%;
@@ -118,8 +119,8 @@ p{
   border-radius: 0px;
   font-size: var(--font-regular);
   text-align: center;
-  background-color: var(--white);
-  color: var(--text);
+  background-color: var(--simple-input);
+  color: var(--white);
   box-sizing: border-box;
   outline: none;
 }
