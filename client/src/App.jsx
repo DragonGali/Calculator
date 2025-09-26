@@ -14,6 +14,7 @@ import FullTable from './Components/DraggableWindow.jsx'
 import data from "./data.js"
 import TableView from './Components/TableView.jsx'
 import DraggableWindow from './Components/DraggableWindow.jsx'
+import PasswordBox from './Components/PasswordBox.jsx'
 
 // const URL = 'https://dummyjson.com/test';
 
@@ -28,6 +29,7 @@ const App = () =>  {
   });
 
   const [unlockAll, setUnlockAll] = useState(false)//For Developer mode
+  const [openPasswordBox, setOpenPasswordBox] = useState(false)//For opening the password box, since it takes up all screen it has to be done at App
   
 
   useEffect(() => {
@@ -121,7 +123,7 @@ const App = () =>  {
 
           {/* Row 2, Column 1 */}
           <div className="bundle column-1" style={{ gridRow: "2", gridColumn: "1" }}>
-            <CalculatrVersion id="calculator-version" unlockAll={(e) => {setUnlockAll(e)}}/>
+            <CalculatrVersion id="calculator-version" unlockAll={(e) => {setUnlockAll(e)}} openPasswordBox={() => {setOpenPasswordBox(true)}}/>
             <PlotFigures id="plot-figures" unlockAll={unlockAll}/>
           </div>
 
@@ -144,8 +146,11 @@ const App = () =>  {
             />
             <Dichlorination id="dichlorination" />
           </div>
-
-        {fullTableOpened && (
+    </div>
+  </div>
+  <p className='creator-name'>Gali Kertser</p>
+  {openPasswordBox && <PasswordBox onClose={() => {setOpenPasswordBox(false);}} onPasswordCorrect={() =>{unlockAll(true)}}></PasswordBox>}
+  {fullTableOpened && (
           <DraggableWindow
             height={Math.max(200, Math.min(600, size.height * 0.6))}
             width={Math.max(500, Math.min(1000, size.width * 0.66))}
@@ -172,9 +177,6 @@ const App = () =>  {
             onClose={() => setFullTableOpened(false)}
           />
       )}
-    </div>
-  </div>
-  <p className='creator-name'>Gali Kertser</p>
   </div>
 )}
 

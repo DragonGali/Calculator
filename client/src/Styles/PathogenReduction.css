@@ -107,7 +107,7 @@
 
 .PathogenReduction .button {
   background-color: var(--background);
-  border: 3px solid var(--primary);
+  border: clamp(0.3em, 0.3em, 3px) solid var(--primary);
   color: var(--blue-text);
   border-radius: 1em;
   font-size: var(--font-regular);

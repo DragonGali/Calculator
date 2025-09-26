@@ -8,6 +8,7 @@
 .PlotFigures .title-box {
   flex: 0 0 1;
   width: 60%;
+  margin-bottom: -3%;
 }
 
 .PlotFigures .wrapper {
@@ -18,7 +19,7 @@
 .PlotFigures .vertical-container {
   display: flex;
   flex-flow: column;
-  margin-top: 1em;
+  margin-top: 5%;
   gap: 5%;
   height: 90%;
   width: 90%;

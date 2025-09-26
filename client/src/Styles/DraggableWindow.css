@@ -1,4 +1,4 @@
-/* .DraggableWindow {
+.DraggableWindow {
   position: fixed;
   background: #ffffff;
   border: 0.3em solid var(--text);
@@ -22,7 +22,7 @@
 }
 
 
-/* WebKit browsers (Chrome/Edge/Safari) 
+/* WebKit browsers (Chrome/Edge/Safari) */
 .draggable-content::-webkit-scrollbar {
   width: clamp(7px, 1.3vw, 1.3vw);
   height: 100%;
@@ -89,4 +89,4 @@
   flex: 1 1 auto;
   box-sizing: border-box;
   overflow: overlay;
-} */
+}
