@@ -50,13 +50,6 @@
 
 }
 
-.HODSystem .buttons {
-  display: flex;
-  flex-flow: row;
-  gap: 1em;
-  width: 100%;
-}
-
 .HODSystem .button {
   background-color: var(--background);
   font-size: var(--font-regular);
@@ -71,10 +64,23 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: 100%;
-  height: auto;
-  flex-shrink: 0; /* Prevents buttons from shrinking */
+  height: 100%;
 }
+
+
+.HODSystem .but-0 {
+  flex: 1;
+}
+
+.HODSystem .but-1 {
+  flex: 1.1;
+}
+
+.HODSystem .but-2 {
+  flex: 0.9;
+}
+
+
 
 .HODSystem .button p {
   margin: 0; /* Remove default paragraph margins */

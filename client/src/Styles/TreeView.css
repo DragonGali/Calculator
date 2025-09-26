@@ -39,19 +39,19 @@
 .horizontal-line {
   position: absolute;
   top: 50%;
-  width: 1vw;
-  height: 1vh;
+  width: 5%;  /* instead of vw */
+  height: 0;   /* no need for vh here */
   border-top: 0.1em dashed var(--primary);
 }
-
 
 .tree-item-wrapper {
   display: flex;
   align-items: center;
-  padding: 0.4rem 0.75rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  flex: 1;
+  padding-left: 1em;
+  border-radius: 0.5em;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 1;
 }
 
 .tree-item-wrapper:hover {
@@ -64,12 +64,13 @@
 }
 
 .expand-indicator {
-  margin-right: 0.5rem;
-  font-size: var(--font-regular);
+  margin-right: 0.5em;
+  font-size: 1em;
   transition: transform 0.2s ease;
   color: #6c757d;
   text-align: center;
   flex-shrink: 0;
+  aspect-ratio: 1 / 1; /* keeps square shape */
 }
 
 .expand-indicator.expanded {
@@ -91,26 +92,11 @@
   display: none;
 }
 
-
-
 /* Accessibility improvements */
 .tree-item-wrapper:focus {
-  outline: 2px solid var(--highlight);
-  outline-offset: -2px;
+  outline: 0.2em solid var(--highlight);
+  outline-offset: -0.2em;
 }
 
-/* Smooth animations */
-.tree-children {
-  animation: slideDown 0.2s ease-out;
-}
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+

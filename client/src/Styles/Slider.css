@@ -50,7 +50,7 @@
   appearance: none;
   width: 0.6em;
   height: 0.6em;
-  border-radius: 50%;
+  border-radius: 50em;
   background: var(--highlight);
   cursor: pointer;
   position: relative;
@@ -67,7 +67,7 @@
   width: 0.6em;
   height: 0.6em;
   border: 0;
-  border-radius: 50%;
+  border-radius: 50em;
   background: var(--highlight);
   cursor: pointer;
   position: relative;
@@ -83,13 +83,13 @@
   background: var(--grey-blue);
   border: 0;
   height: 1%;
-  border-radius: 0.5%;
+  border-radius: 0.5em;
 }
 
 /* Focus State */
 .range-slider:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 0.2% var(--white), 
-              0 0 0 0.2% var(--slider-hover);
+  box-shadow: 0 0 0 0.2em var(--white), 
+              0 0 0 0.3em var(--slider-hover);
 }
 
 /* Remove Focus Outline on Firefox */
