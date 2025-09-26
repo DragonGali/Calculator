@@ -30,9 +30,9 @@
 .HODSystem .vertical-container {
   display: flex;
   flex-flow: column;
-  margin-top: 0.7em;
+  margin-top: 5%;
   gap: 5%;
-  height: 90%;
+  height: 92%;
   width: 100%;
 }
 
@@ -50,13 +50,6 @@
 
 }
 
-.HODSystem .buttons {
-  display: flex;
-  flex-flow: row;
-  gap: 1em;
-  width: 100%;
-}
-
 .HODSystem .button {
   background-color: var(--background);
   font-size: var(--font-regular);
@@ -71,13 +64,27 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: 100%;
-  height: auto;
-  flex-shrink: 0; /* Prevents buttons from shrinking */
+  height: 100%;
 }
+
+
+.HODSystem .but-0 {
+  flex: 1;
+}
+
+.HODSystem .but-1 {
+  flex: 1.1;
+}
+
+.HODSystem .but-2 {
+  flex: 0.9;
+}
+
+
 
 .HODSystem .button p {
   margin: 0; /* Remove default paragraph margins */
+  white-space: nowrap;
 }
 
 .HODSystem .button.IsPressed {
@@ -90,6 +97,7 @@
 }
 
 /* Specific styling for the checkbox container to align properly */
-.HODSystem .checkbox {
-  flex-shrink: 0; /* Prevents checkbox from shrinking */
+.HODSystem .check-box {
+  width: 29%;
+  flex-shrink: 0;
 }

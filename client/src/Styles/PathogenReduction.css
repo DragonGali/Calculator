@@ -64,11 +64,12 @@
   height: auto;
   aspect-ratio: 2.3 / 1;
   overflow: auto;
+  container-type: inline-size;
 }
 
 /* Scrollbars (scoped to component)  */
 .PathogenReduction .scroll-container::-webkit-scrollbar {
-  width: auto;
+  width: 3cqw;
   height: auto;
 }
 
@@ -100,6 +101,8 @@
   margin-top: 2%;
   gap: 2%;
   width: 100%;
+  aspect-ratio: 15 / 1;
+  height: auto;
 }
 
 .PathogenReduction .button {
@@ -107,22 +110,16 @@
   border: 3px solid var(--primary);
   color: var(--blue-text);
   border-radius: 1em;
-  font-size: clamp(7.2px, 0.85vw, 20px);
+  font-size: var(--font-regular);
   font-weight: bold;
-  font-family: 'Inter-Medium';
   cursor: pointer;
   text-align: center;
   width: 100%;
-  height: auto;
-  aspect-ratio: 5 / 1;
+  height: 100%;
   transition: background-color 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.PathogenReduction .button p {
-  margin: 0;
 }
 
 .PathogenReduction .button.IsPressed {

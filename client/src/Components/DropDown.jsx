@@ -34,7 +34,7 @@ const Dropdown = ({
 
   const getTransform = (index, isActive) => {
     if (!isActive) return `translateY(${3 * index}%)`;
-    return `translateY(${100 * (index + 1)}%)`;
+    return `translateY(${100 * (index)}%)`;
   };
 
   return (

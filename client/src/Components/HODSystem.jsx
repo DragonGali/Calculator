@@ -56,7 +56,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
-              className="checkbox"
+              className="check-box"
               checked={appState?.vertical}
               onChange={(checked) => { sendUpdate("HODSystem", "setVertical", { vertical: checked }) }}
             />
@@ -81,14 +81,12 @@ function HODSystem({ width, height, appState, sendUpdate}) {
           {/* Buttons */}
           <div className="horizontal-container">
             {data.HODButtons.map((button, index) => (
-              <div className="buttons" key={index}>
                 <div
-                  className={`button ${appState?.pressedButton === button ? 'IsPressed' : 'NotPressed'}`}
+                  className={`button but-${index} ${appState?.pressedButton === button ? 'IsPressed' : 'NotPressed'}`}
                   onClick={() => handleClick(button)}
                 >
                   <p>{button}</p>
                 </div>
-              </div>
             ))}
           </div>
 

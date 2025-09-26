@@ -11,10 +11,14 @@
   --tree-hover: #d2e1ed;
   --tree-select: #b9d5e9;
   --table-blue: #cadfef;
+  --simple-input: #5A7FFF;
 
   background-color: var(--background);
 
-  --font-regular: clamp(7px, 0.9vw, 22px);
+  --font-regular: clamp(0.45rem, 0.9vw, 0.9rem);
+  --font-checkbox: clamp(0.6rem, 1.1vw, 1.5rem);
+  --checkbox-size: clamp(0.8rem, 1.5vw, 1.8rem);
+  --choose-application: clamp(0.45rem, 0.9vw, 0.9rem);
 }
 
 /* Reset styles */
@@ -45,9 +49,9 @@
     justify-content: center;
     position: relative;
     border-color: var(--primary);
-    border-style: solid;
-    border-radius: 1rem;
-    box-shadow: clamp(-2px, -0.2vw, -6px) clamp(px, 0.2vw, 6px) 0 rgba(89, 121, 145, 0.4);
+    border-style: solid; 
+    border-radius: 10px;
+    box-shadow: -0.2rem 0.2rem 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
     width: 100%;
     max-width: 100%;
@@ -62,19 +66,17 @@
   text-align: center;
   position: relative;
   background-color: var(--title-box);
+  margin: 0 auto;
   padding: 0.6%;
-  margin-left: 50%;
-  transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
   box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
-  margin-bottom: clamp(-8px, -2vh, -50px);
+  margin-bottom: -3%;
 }
 
 .title-box p {
     font-family: 'Inter-Medium';
     color: var(--white);
     font-size: var(--font-regular);
-    margin: 0;
     white-space: nowrap;
 }
 
@@ -117,8 +119,8 @@ p{
   border-radius: 0px;
   font-size: var(--font-regular);
   text-align: center;
-  background-color: var(--white);
-  color: var(--text);
+  background-color: var(--simple-input);
+  color: var(--white);
   box-sizing: border-box;
   outline: none;
 }
@@ -133,6 +135,5 @@ p{
   filter: blur(0.35em); /*styling for all the locked features*/
   pointer-events: none;
 }
-
 
 

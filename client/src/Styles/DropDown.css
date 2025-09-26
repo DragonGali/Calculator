@@ -83,11 +83,9 @@
 /* Dropdown list */
 .dropdown-list {
   position: absolute;
-  top: 0px;
   width: 100%;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  top: 85%;
 
   /* Hidden by default */
   opacity: 0;

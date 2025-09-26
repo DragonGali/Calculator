@@ -1,4 +1,6 @@
 .progress-bar-container {
+  width: 20%;
+  height: 100%;
   position: relative;
   border: 0.1em solid var(--primary);
   padding: 0.15em; /*Gap between the fill and the walls*/
