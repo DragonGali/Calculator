@@ -83,7 +83,6 @@
 
 
 .HODSystem .button p {
-  margin: 0; /* Remove default paragraph margins */
   white-space: nowrap;
 }
 
