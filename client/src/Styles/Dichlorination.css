@@ -7,7 +7,7 @@
 
 .Dichlorination .title-box {
     flex: 0 0 1;
-    width: clamp(150px, 20vw, 20vw);
+    width: 70%;
 }
 
 .Dichlorination .wrapper {
@@ -15,22 +15,31 @@
     aspect-ratio: auto;
 }
 
-/*
+
 .Dichlorination .vertical-container {
-    display: flex;
-    flex-flow: column;
-    gap: 1vh;
-    margin-top: clamp(5px, 1vh, 1vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  height: 80%;
+  width: 95%;
+  margin-top: 2.5%;
+  box-sizing: border-box;
 }
 
 .Dichlorination .horizontal-container {
-    display: flex;
-    flex-flow: row;
-    gap: clamp(5px, 0.5vw, 30px);
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  width: 100%;
+  height: 40%;
+  align-items: center;
 }
 
 .Dichlorination .type-box {
-    width: clamp(65px, 8.5vw, 8.5vw);
+    width: 30%;
+    height: 100%;
 }
 
 .Dichlorination .value-box {
@@ -45,6 +54,7 @@
     border-style: solid;
     border-color: var(--primary);
     border-width: 0.2em;
-    width: clamp(50px, 5vw, 150px);
-    font-size: clamp(12px, var(--font-regular), 18px);
-} */
+    width: 20%;
+    height: 100%;
+    font-size: var(--font-regular);
+} 

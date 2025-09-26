@@ -12,9 +12,9 @@
 .Specifications .vertical-container {
   display: flex;
   flex-flow: column;
-  margin-top: 0.5em;
+  margin-top: 2%;
   gap: 2%;
-  height: 93%;
+  height: 90%;
   width: 100%;
 }
 
@@ -34,7 +34,7 @@
     display: flex;
     align-items: center; /* Vertically center the text */
     white-space: nowrap; /* Prevent text wrapping to the next line */
-    aspect-ratio: 4.3 / 1;
+    aspect-ratio: 4.5 / 1;
 }
 
 
@@ -62,11 +62,13 @@
     font-weight: bold;
     font-family: 'Inter-Medium';
     cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.Specifications .button p {
-    padding-top: 3%;
-}
+
 
 .Specifications .button:hover {
     filter: brightness(1.3);

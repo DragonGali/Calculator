@@ -11,7 +11,7 @@ const Results = ({width, height}) => {
             <p>Results</p>
     </div>
     <div className="wrapper">
-      {/* <div className="vertical-container">
+      <div className="vertical-container">
         {data.Results.map((field, index) => (
         <div key={index}>
           <div className="horizontal-container">
@@ -23,7 +23,7 @@ const Results = ({width, height}) => {
               <p>{field.value}</p>
             </div>
 
-            {/* Scale or Dropdown }
+            {/* Scale or Dropdown */}
             {field.options ? (
               //If the row contains "options" than its a drop-down.
               <DropDown
@@ -42,11 +42,11 @@ const Results = ({width, height}) => {
             
           </div>
           
-          {/* Separator line after first row }
+          {/* Separator line after first row */}
           {index === 0 && (<hr className="line"/>)}
         </div>
       ))}
-        </div> */}
+        </div>
     </div>
     
     </div>
