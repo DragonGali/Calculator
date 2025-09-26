@@ -9,12 +9,16 @@
 }
 
 .check-box {
-  font-size: max(3vw, 10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
+
 
 .check-box .label-text {
   color: var(--text);
-  font-size: max(1.05vw, 10px);
+  font-size: var(--font-checkbox);
   white-space: nowrap;
 }
 
@@ -33,14 +37,10 @@
   content: "\f096";
   font-family: "FontAwesome";
   font-style: normal;
-  font-size: max(1.7vw, 16px);
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
+  font-size: var(--checkbox-size);
   display: inline-block;
-  margin-right: 0.2em;
+  margin-right: 5%;
   color: var(--primary);
-  line-height: 1; /* Add this to prevent extra spacing */
 }
 
 input[type="checkbox"]:checked + .label-text:before {

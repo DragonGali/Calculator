@@ -50,11 +50,11 @@ const PathogenReduction = ({openFullTable}) => {
             <p>Pathogens - Log Reduction Dosage [mJ/cm²]</p>
     </div>
     <div className="wrapper">
-      <div className='vertical-container'>
+      {/* <div className='vertical-container'>
         {getHeaderText()}
           <div className='container'>
             <div className='scroll-container'>
-              {/* Conditional component rendering */}
+              {/* Conditional component rendering }
               {viewMode === buttons[0] && (
                 <TreeView data={data.PathogenReduction.treeView.treeData} />
               )}
@@ -80,7 +80,7 @@ const PathogenReduction = ({openFullTable}) => {
                </div>
           ))}
       </div>
-    </div>
+    </div> */}
     </div>
     </div>
   

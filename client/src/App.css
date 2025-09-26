@@ -1,17 +1,22 @@
+/* Prevent layout shift when scrollbar appears */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Alternative: Apply to body if html doesn't work */
+body {
+  scrollbar-gutter: stable;
+}
+
 #flex-container {
   display: flex;
   flex-flow: column;
   width: 80%;
   aspect-ratio: 16 / 8;
   margin-top: 1%;
-  transform: translate(10%);
+  margin: 0 auto;
   min-width: 700px;
-  
-  contain: layout size; /* Prevents layout and size recalculations from bubbling */
-  transform-style: preserve-3d; /* Forces hardware acceleration */
-  will-change: auto; /* Optimize for changes */
 }
-
 
 #atlantium-img {
   width: 100%;

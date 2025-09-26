@@ -7,9 +7,11 @@
   aspect-ratio: 8 / 2;
 }
 
-/* .PathogenInactivation .title-box {
-  width: clamp(140px, 20vw, 20vw);
+.PathogenInactivation .title-box {
+  width: 70%;
 }
+
+/*
 
 .PathogenInactivation .horizontal-container {
   display: flex;

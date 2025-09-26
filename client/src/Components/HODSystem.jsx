@@ -56,7 +56,7 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
-              className="checkbox"
+              className="check-box"
               checked={appState?.vertical}
               onChange={(checked) => { sendUpdate("HODSystem", "setVertical", { vertical: checked }) }}
             />

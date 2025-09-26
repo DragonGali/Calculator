@@ -14,7 +14,10 @@
 
   background-color: var(--background);
 
-  --font-regular: max(0.9vw, 7px);
+  --font-regular: clamp(0.45rem, 0.9vw, 0.9rem);
+  --font-checkbox: clamp(0.6rem, 1.1vw, 1.5rem);
+  --checkbox-size: clamp(0.8rem, 1.5vw, 1.8rem);
+  --choose-application: clamp(0.45rem, 0.9vw, 0.9rem);
 }
 
 /* Reset styles */
@@ -46,16 +49,12 @@
     position: relative;
     border-color: var(--primary);
     border-style: solid; 
-    border-radius: 1rem;
-    box-shadow: -0.2% 0.2% 0 rgba(89, 121, 145, 0.4);
+    border-radius: 1em;
+    box-shadow: -0.2rem 0.2rem 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
     width: 100%;
     max-width: 100%;
     max-height: 100%;
-    contain: layout size style; /* Isolate layout, size, and style recalculations */
-    box-sizing: border-box; /* Include borders in size calculations */
-    transform: translateZ(0); /* Force hardware acceleration */
-    backface-visibility: hidden; /* Optimize rendering */
 }
 
 
@@ -66,11 +65,10 @@
   text-align: center;
   position: relative;
   background-color: var(--title-box);
+  margin: 0 auto;
   padding: 0.6%;
-  margin-left: 50%;
-  transform: translateX(-50%);
   z-index: 1; border-radius: 4px;
-  box-shadow: -0.2em 0.2em 0em 0em rgba(89, 121, 145, 0.5);
+  box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
   margin-bottom: -3%;
 }
 
@@ -78,7 +76,6 @@
     font-family: 'Inter-Medium';
     color: var(--white);
     font-size: var(--font-regular);
-    margin: 0;
     white-space: nowrap;
 }
 

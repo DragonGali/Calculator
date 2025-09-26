@@ -3,6 +3,10 @@
     aspect-ratio: 8 / 4.5;
 }
 
+.Results .title-box {
+    width: 50%;
+}
+
 .Results .vertical-container {
   display: flex;
   flex-flow: column;

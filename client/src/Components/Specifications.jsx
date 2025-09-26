@@ -22,7 +22,7 @@ const Specifications = ({width, height}) => {
             <p>Specifications</p>
     </div>
     <div className="wrapper">
-        <div className="vertical-container">
+        {/* <div className="vertical-container">
                 {topData.map((field,index) => (
                   <div className="horizontal-container" key={index}>
                     <div className="type-box">
@@ -51,7 +51,7 @@ const Specifications = ({width, height}) => {
                     </div>
                 ))}
                 </div>
-        </div>
+        </div> */}
     </div>
     </div>
   )
