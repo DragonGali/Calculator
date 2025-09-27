@@ -177,6 +177,8 @@ const App = () =>  {
             onClose={() => setFullTableOpened(false)}
           />
       )}
+      <DraggableWindow height={Math.max(200, Math.min(600, size.height * 0.6))}
+            width={Math.max(500, Math.min(1000, size.width * 0.5))} content={"hello"}/>
   </div>
 )}
 
