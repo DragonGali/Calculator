@@ -2,12 +2,13 @@ import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PlotFigures.css';
 import data from "../data";
 
-function PlotFigures ({unlockAll}) {
+function PlotFigures ({unlockAll, openChart}) {
 
   const [pressedButton, setPressedButton] = useState(null);
 
     const handleClick = (button) => {
     setPressedButton(button);
+    openChart();
   }
    
 

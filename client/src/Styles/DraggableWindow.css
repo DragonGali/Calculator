@@ -6,11 +6,15 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   cursor: default;
-  transform: translate(25%, 15%);
+  transform: translate(35%, 18%);
   z-index: 9999999;
   padding-right: 0.5vw;
   display: flex;
   flex-flow: column;
+  width: 50%;
+  height: auto;
+  aspect-ratio: 5 / 2.7;
+  min-width: 450px;
 }
 
 .DraggableWindow.large {
@@ -21,10 +25,9 @@
   left: 0;
 }
 
-
 /* WebKit browsers (Chrome/Edge/Safari) */
 .draggable-content::-webkit-scrollbar {
-  width: clamp(7px, 1.3vw, 1.3vw);
+  width: clamp(15px, 1.3vw, 1.3vw);
   height: 100%;
   position: absolute;
 }
@@ -32,7 +35,7 @@
 .draggable-content::-webkit-scrollbar-track {
   background: var(--background);
   border-radius: 100vw;
-  margin: clamp(2px, 1vh, 1vh);
+  margin: 1vh;
 }
 
 .draggable-content::-webkit-scrollbar-thumb {
@@ -47,28 +50,28 @@
   cursor: grab;
 }
 
-
 .DraggableWindow .draggable-header {
   background: var(--highlight);
   color: var(--white);
-  font-size: clamp(10px, 1.2vw, 1.2vw);
+  font-size: var(--font-title);
   font-weight: bold;
   cursor: grab;
   user-select: none;
   width: 105%;
+  height: 8%;
 }
 
 .DraggableWindow .draggable-header .icons {
     position: absolute;
     right: 0.5vw;
-    top: clamp(3.5px, 0.7vh, 0.7vh);
+    top: 0.7vh;
     display: flex;
     flex-flow: row-reverse;
     gap: 0.5vw;
 }
 
 .DraggableWindow .draggable-header .icon{
-    width: clamp(10px, 1.5vw, 1.5vw);
+    width: 1.5vw;
     cursor: pointer;
 }
 

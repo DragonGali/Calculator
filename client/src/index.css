@@ -20,6 +20,7 @@
   --checkbox-size: clamp(0.8rem, 1.5vw, 1.8rem);
   --choose-application: clamp(0.45rem, 0.9vw, 0.9rem);
   --results-type-box: clamp(0.45rem, 0.8vw, 0.9rem);
+  --font-title: clamp(0.6rem, 1.3vw, 1.1rem);
 }
 
 /* Reset styles */
