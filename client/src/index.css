@@ -11,7 +11,7 @@
   --tree-hover: #d2e1ed;
   --tree-select: #b9d5e9;
   --table-blue: #cadfef;
-  --simple-input: #5A7FFF;
+  --simple-input: #d2e1ed;
 
   background-color: var(--background);
 
@@ -19,6 +19,8 @@
   --font-checkbox: clamp(0.6rem, 1.1vw, 1.5rem);
   --checkbox-size: clamp(0.8rem, 1.5vw, 1.8rem);
   --choose-application: clamp(0.45rem, 0.9vw, 0.9rem);
+  --results-type-box: clamp(0.45rem, 0.8vw, 0.9rem);
+  --font-title: clamp(0.6rem, 1.3vw, 1.1rem);
 }
 
 /* Reset styles */
@@ -48,8 +50,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    border-color: var(--primary);
-    border-style: solid; 
+    border: solid var(--primary) clamp(0.2em, 0.2em, 3px);
     border-radius: 10px;
     box-shadow: -0.2rem 0.2rem 0 rgba(89, 121, 145, 0.4);
     overflow: hidden;
@@ -70,7 +71,7 @@
   padding: 0.6%;
   z-index: 1; border-radius: 4px;
   box-shadow: -0.2vw 0.2vw 0vw 0vw rgba(89, 121, 145, 0.5);
-  margin-bottom: -3%;
+  margin-bottom: -2.3%;
 }
 
 .title-box p {
@@ -91,8 +92,7 @@ label input {
 .type-box {
   font-family: "Inter-Medium";
   font-weight: bold;
-  border-style: solid;
-  border-color: var(--primary);
+  border: solid var(--primary) clamp(0.3em, 0.3em, 3px);
   color: var(--blue-text);
   font-size: var(--font-regular);
   
@@ -120,7 +120,7 @@ p{
   font-size: var(--font-regular);
   text-align: center;
   background-color: var(--simple-input);
-  color: var(--white);
+  color: var(--text);
   box-sizing: border-box;
   outline: none;
 }

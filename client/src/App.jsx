@@ -14,6 +14,8 @@ import FullTable from './Components/DraggableWindow.jsx'
 import data from "./data.js"
 import TableView from './Components/TableView.jsx'
 import DraggableWindow from './Components/DraggableWindow.jsx'
+import PasswordBox from './Components/PasswordBox.jsx'
+import SimpleChart from './Components/SimpleChart.jsx'
 
 // const URL = 'https://dummyjson.com/test';
 
@@ -28,6 +30,8 @@ const App = () =>  {
   });
 
   const [unlockAll, setUnlockAll] = useState(false)//For Developer mode
+  const [openPasswordBox, setOpenPasswordBox] = useState(false)//For opening the password box, since it takes up all screen it has to be done at App
+  const [openChart, setOpenChart] = useState(false)//For opening the chart draggable window
   
 
   useEffect(() => {
@@ -121,8 +125,8 @@ const App = () =>  {
 
           {/* Row 2, Column 1 */}
           <div className="bundle column-1" style={{ gridRow: "2", gridColumn: "1" }}>
-            <CalculatrVersion id="calculator-version" unlockAll={(e) => {setUnlockAll(e)}}/>
-            <PlotFigures id="plot-figures" unlockAll={unlockAll}/>
+            <CalculatrVersion id="calculator-version" unlockAll={(e) => {setUnlockAll(e)}} openPasswordBox={() => {setOpenPasswordBox(true)}}/>
+            <PlotFigures id="plot-figures" unlockAll={unlockAll} openChart={() => {setOpenChart(true)}}/>
           </div>
 
           {/* Row 2, Column 2 */}
@@ -144,8 +148,11 @@ const App = () =>  {
             />
             <Dichlorination id="dichlorination" />
           </div>
-
-        {fullTableOpened && (
+    </div>
+  </div>
+  <p className='creator-name'>Gali Kertser</p>
+  {openPasswordBox && <PasswordBox onClose={() => {setOpenPasswordBox(false);}} onPasswordCorrect={() =>{unlockAll(true)}}></PasswordBox>}
+  {fullTableOpened && (
           <DraggableWindow
             height={Math.max(200, Math.min(600, size.height * 0.6))}
             width={Math.max(500, Math.min(1000, size.width * 0.66))}
@@ -172,9 +179,24 @@ const App = () =>  {
             onClose={() => setFullTableOpened(false)}
           />
       )}
-    </div>
-  </div>
-  <p className='creator-name'>Gali Kertser</p>
+      {openChart && <DraggableWindow height={Math.max(200, Math.min(600, size.height * 0.6))}
+            width={Math.max(500, Math.min(1000, size.width * 0.5))}
+            onClose={() => {setOpenChart(false)}}
+            title="Charts"
+            content={<SimpleChart
+                      labels={['Jan', 'Feb', 'Mar', 'Apr']}
+                      datasets={[
+                        { label: 'Apples', data: [3, 2, 5, 4] },
+                        { label: 'Oranges', data: [1, 3, 2, 6] },
+                        { label: 'Bananas', data: [4, 1, 3, 2] }
+                      ]}
+                      type="line"
+                      title="Fruit Sales Over Time"
+                      xTitle="Months"
+                      yTitle="Quantity"
+                    />}>
+
+      </DraggableWindow>}
   </div>
 )}
 
