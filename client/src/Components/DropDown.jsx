@@ -47,7 +47,7 @@ const Dropdown = ({
           className="dropdown-label"
           onClick={handleToggle}
         >
-          {selectedValue || placeholder}
+          <span className='dropdown-text'>{selectedValue || placeholder}</span>
           <span className="dropdown-arrow">
             {isActive ? '▲' : '▼'}
           </span>

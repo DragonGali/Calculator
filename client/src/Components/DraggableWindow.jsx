@@ -1,7 +1,7 @@
 import React, { useState , useEffect, useRef} from 'react';
 import '../Styles/DraggableWindow.css';
 
-const DraggableWindow = ({content, onClose, title, height, width}) => {
+const DraggableWindow = ({content, onClose, title}) => {
   const [position, setPosition] = useState({ x: 100, y: 100 });
   const [dragging, setDragging] = useState(false);
   const [isSmall, setIsSmall] = useState(true);
@@ -27,11 +27,10 @@ const DraggableWindow = ({content, onClose, title, height, width}) => {
     setDragging(false);
   };
 
-
   return (
     <div
       className={`DraggableWindow ${isSmall ? '' : 'large'}`}
-      style={{ top: position.y, left: position.x, height: isSmall ? height : undefined, width: isSmall ? width : undefined}}
+      style={{ top: position.y, left: position.x }}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
@@ -51,6 +50,5 @@ const DraggableWindow = ({content, onClose, title, height, width}) => {
     </div>
   );
 };
-
 
 export default DraggableWindow;

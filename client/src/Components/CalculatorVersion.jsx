@@ -4,28 +4,20 @@ import data from "../data";
 
 import PasswordBox from './PasswordBox';
 
-const CalculatorVersion = ({unlockAll}) => {
-
-  const [pressedButton, setPressedButton] = useState(null);
-  const [openPasswordBox, setOpenPasswordBox] = useState(false)
-
+const CalculatorVersion = ({unlockAll, openPasswordBox}) => {
+  
   useEffect(() => {
     console.log(unlockAll);
   }, [unlockAll])
 
   const handleClick = (button) => {
-    setPressedButton(button);
-  }
-
-  useEffect(() => {
-    if(pressedButton === data.CalculatorVersionButtons[0]) { //If the button pressed is 'Developer' the passwordBox will open.
-      setOpenPasswordBox(true);
+    if (button === data.CalculatorVersionButtons[0]) { 
+      openPasswordBox();
+    } 
+    else if (button === data.CalculatorVersionButtons[1]) { 
+      unlockAll(false);
     }
-
-    else if(pressedButton === data.CalculatorVersionButtons[1]) {//Setting things back to hidden if you press the 'Marketing' button.
-      unlockAll(false)
-    }
-  }, [pressedButton])
+  };
    
 
   return ( <div className="CalculatorVersion">
@@ -41,7 +33,6 @@ const CalculatorVersion = ({unlockAll}) => {
                 ))}
             </div>
     </div>
-    {openPasswordBox && <PasswordBox onClose={() => {setOpenPasswordBox(false); setPressedButton(null)}} onPasswordCorrect={() =>{unlockAll(true)}}></PasswordBox>}
     
     </div>
   

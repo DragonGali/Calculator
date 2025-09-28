@@ -23,11 +23,12 @@
     display: flex;
     align-items: center; /* Vertically center the text */
     white-space: nowrap; /* Prevent text wrapping to the next line */
-    aspect-ratio: 5.5 / 1;
+    aspect-ratio: 5 / 1;
+    font-size: var(--results-type-box);
 }
 
 .Results .small {
-    width: 20%;
+    width: 25%;
 }
 
 .Results .horizontal-container {
@@ -54,7 +55,7 @@
     border-color: var(--primary);
     border-width: 0.1em;
 
-    width: 70%;
+    width: 60%;
     font-size: var(--font-regular);
 }
 
