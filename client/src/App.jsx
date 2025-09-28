@@ -160,32 +160,16 @@ const App = () =>  {
 
   {/* Footer */}
   <footer className="footer">
-    <div className="footer-credits">
-      <div className="footer-credit">
-          <p><span className="footer-name">Gali Kertser </span> - Frontend Development & Design</p>
-          <a 
-            href="https://wa.me/0544482095" 
-            className="whatsapp-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon />
-            Contact
-          </a>
-      </div>
-      <div className="footer-credit">
-          <p><span className="footer-name">Mike Kertser - </span> Backend Development</p>
-        <a 
-          href="https://wa.me/0546490221" 
-          className="whatsapp-link"
-          target="_blank"
-          rel="noopener noreferrer"
+    <p>Gali Kertser, Mike Kertser</p>
+    <a 
+        href="https://wa.me/0546490221" 
+        className="whatsapp-link"
+        target="_blank"
+        rel="noopener noreferrer"
         >
-          <WhatsAppIcon />
-          Contact
-        </a>
-      </div>
-    </div>
+        <WhatsAppIcon />
+        Contact
+    </a>
   </footer>
 
   {openPasswordBox && <PasswordBox onClose={() => {setOpenPasswordBox(false);}} onPasswordCorrect={() =>{unlockAll(true)}}></PasswordBox>}

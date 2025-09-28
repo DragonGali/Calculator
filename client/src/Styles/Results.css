@@ -42,7 +42,7 @@
 }
 
 .Results .value-box {
-    background-color: white;
+    background-color: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,11 +50,7 @@
     color: var(--text);
     font-family: 'Inter-Light';
     font-weight: bold;
-    border-style: solid;
     border-radius: 0.5em;
-    border-color: var(--primary);
-    border-width: 0.1em;
-
     width: 60%;
     font-size: var(--font-regular);
 }

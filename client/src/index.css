@@ -14,6 +14,7 @@
   --simple-input: #d2e1ed;
   --footer: #c0beeb;
 
+
   background-color: var(--background);
 
   --font-regular: clamp(0.45rem, 0.9vw, 0.9rem);
