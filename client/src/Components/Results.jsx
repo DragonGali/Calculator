@@ -1,3 +1,19 @@
+/**
+ * Results.jsx
+ * 
+ * Displays calculated results in rows with values and optional dropdowns.
+ * 
+ * - Props:
+ *   - `width`, `height`: used to size dropdowns proportionally
+ * 
+ * - Features:
+ *   - Iterates over `data.Results` to render each field
+ *   - Uses `DropDown` for fields with options
+ *   - Displays scale text for other fields
+ *   - Adds a separator line after the first row
+ */
+
+
 import { useState, useEffect, Fragment} from 'react'
 import '../Styles/Results.css';
 import data from "../data";

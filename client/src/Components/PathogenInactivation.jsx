@@ -2,14 +2,12 @@ import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PathogenInactivation.css';
 import data from "../data";
 
-import InputField from './InputField';
 import ProgressBar from './ProgressBar.jsx'
 
 function PathogenInactivation () {
 
   const [pressedButton, setPressedButton] = useState(null);
   const [expectedLI, setExepectedLI] = useState(3);
-
     const handleClick = (button) => {
     setPressedButton(button);
   }

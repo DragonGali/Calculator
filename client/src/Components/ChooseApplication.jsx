@@ -1,14 +1,23 @@
+/**
+ * ChooseApplication.jsx
+ * 
+ * Lets the user select which application/purpose they want to use the app for.
+ * 
+ * - Renders a list of radio buttons from `data.options`.
+ * - Syncs the selected option with server state via `sendUpdate`.
+ * - Highlights the current choice stored in `appState.selectedOption`.
+ */
+
 import { Fragment } from 'react';
 import '../Styles/ChooseApplication.css';
 import data from "../data";
 
-function ChooseApplication({ appState, sendUpdate }) {
+function ChooseApplication({ appState, updateState }) {
   // appState is the ChooseApplication section from the server
-  const selectedOption = appState?.selectedOption || "";
+  const selectedOption = appState?.Application || "";
 
   const handleChange = (option) => {
-    // send the update to the server
-    sendUpdate("ChooseApplication", "selectOption", { selectedOption: option });
+    updateState({Application : option})
   };
 
   return (

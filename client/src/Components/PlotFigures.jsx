@@ -1,3 +1,18 @@
+/**
+ * PlotFigures.jsx
+ * 
+ * Displays buttons to open chart plots.
+ * 
+ * - Props:
+ *   - `unlockAll`: enables developer features (unused here visually)
+ *   - `openChart`: callback to open the chart window
+ * 
+ * - Features:
+ *   - Tracks pressed button locally
+ *   - Clicking a button opens the chart via `openChart`
+ */
+
+
 import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PlotFigures.css';
 import data from "../data";

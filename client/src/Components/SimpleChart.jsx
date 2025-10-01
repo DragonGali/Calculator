@@ -1,3 +1,23 @@
+/**
+ * SimpleChart.jsx
+ *
+ * A reusable chart component using Chart.js for line or bar charts.
+ * 
+ * Props:
+ * - labels: Array of X-axis labels
+ * - datasets: Array of { label, data } for each series
+ * - type: 'line' or 'bar'
+ * - title: Chart title
+ * - xTitle: X-axis label
+ * - yTitle: Y-axis label
+ *
+ * Features:
+ * - Uses CSS variables for colors
+ * - Supports multiple datasets with auto-assigned colors
+ * - Responsive and non-animated for fast updates
+ */
+
+
 import React, { useEffect, useRef } from 'react';
 import {
   Chart as ChartJS,

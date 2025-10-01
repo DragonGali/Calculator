@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+/**
+ * TreeView.jsx
+ *
+ * Renders hierarchical data as a tree with expandable/collapsible nodes.
+ * Each node can be selected and shows connecting lines for clarity.
+ *
+ * Props:
+ * - data: array of objects { label, children? } representing the tree structure
+ *
+ * State:
+ * - expandedItems: Set of expanded node IDs
+ * - selectedItem: currently selected node ID
+ *
+ * Features:
+ * - Recursive rendering via TreeItem component
+ * - Expand/collapse indicator for nodes with children
+ * - Lines connecting parent and child nodes
+ */
 
+
+import React, { useState } from 'react';
 import "../Styles/TreeView.css"
 
-/**
- * TreeView Component
- * A scalable tree view component with expand/collapse functionality and connecting lines
- * 
- */
 const TreeView = ({ data, className = '' }) => {
   // State to track which items are expanded
   const [expandedItems, setExpandedItems] = useState(new Set());

@@ -4,6 +4,24 @@ import Checkbox from '../Components/CheckBox';
 import '../Styles/HODSystem.css';
 import data from "../data";
 
+/**
+ * HODSystem.jsx
+ * 
+ * Configuration panel for the HOD System.
+ * 
+ * - Props:
+ *   - `width`, `height`: layout (unused here but passed in)
+ *   - `appState`: server state slice for HODSystem
+ *   - `sendUpdate`: callback to update server state
+ * 
+ * - Features:
+ *   - Dropdowns for module and model selection
+ *   - Custom checkbox for vertical mode
+ *   - Text input for branch units
+ *   - Button group for mode selection (first auto-selected on mount)
+ */
+
+
 function HODSystem({ width, height, appState, sendUpdate}) {
 
   
