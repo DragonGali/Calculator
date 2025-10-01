@@ -9,7 +9,6 @@ function PathogenInactivation () {
 
   const [pressedButton, setPressedButton] = useState(null);
   const [expectedLI, setExepectedLI] = useState(3);
-
     const handleClick = (button) => {
     setPressedButton(button);
   }

@@ -102,8 +102,14 @@
   z-index: 9999999999999999999999999999;
 }
 
-.footer p {
+.footer #creator-names {
   margin-left: 0.5%;
+  font-style: italic;
+}
+
+.footer #version{
+  position: absolute;
+  right: clamp(60px, 7%, 7%);
   font-style: italic;
 }
 

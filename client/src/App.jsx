@@ -160,7 +160,8 @@ const App = () =>  {
 
   {/* Footer */}
   <footer className="footer">
-    <p>Gali Kertser, Mike Kertser</p>
+    <p id="creator-names">Gali Kertser, Mike Kertser</p>
+    <p id="version">UV Dose Calculator v.11.20</p>
     <a 
         href="https://wa.me/0546490221" 
         className="whatsapp-link"
