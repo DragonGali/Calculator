@@ -167,6 +167,7 @@ const App = () =>  {
             />
             <Dichlorination id="dichlorination" />
           </div>
+
         </div>
       </div>
 
@@ -212,6 +213,7 @@ const App = () =>  {
                     {`${1 + i * 0.5}-Log`}
                   </div>
                 ))}
+                
               </div>
 
               <TableView data={data.PathogenReduction.FullTable.tableData} />
