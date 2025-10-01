@@ -1,3 +1,22 @@
+/**
+ * Slider.jsx
+ *
+ * Custom slider with an editable numeric input.
+ * 
+ * Props:
+ * - min: minimum value (default 0)
+ * - max: maximum value (default 500)
+ * - step: step size (default 1)
+ * - initialValue: starting value (default 100)
+ *
+ * Features:
+ * - Slider and input are synchronized
+ * - Input only allows numeric values
+ * - Clamps input to min/max
+ * - Editable input clears on focus for easy typing
+ */
+
+
 import React, { useState } from 'react';
 import '../Styles/Slider.css';
 

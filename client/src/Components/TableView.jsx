@@ -1,15 +1,23 @@
+/**
+ * TableView.jsx
+ *
+ * Displays tabular data dynamically with selectable rows.
+ * Used in PathogenReduction and FullTable views.
+ *
+ * Props:
+ * - data: array of objects, each representing a row; keys other than "name" are shown as dose values
+ * - isFullTable: boolean to adjust layout (default false)
+ *
+ * State:
+ * - selectedRowIndex: highlights the row clicked by the user
+ */
+
+
 import React from 'react';
 import { useState } from 'react';
 import "../Styles/TableView.css"
 
 const TableView = ({ data, isFullTable = false}) => {
-
-  /* This is the TableView component, I use it twice in the application, when viewing
-     it from PathogenReduction and when opening the FullTable. This component helps display the
-     table data into a tabular format with a great presentation. Later on I plan to load the data from a database.
-
-     */
-
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
 
   // Figure out which keys are dose values (exclude "name")

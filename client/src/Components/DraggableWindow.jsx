@@ -1,3 +1,21 @@
+/**
+ * DraggableWindow.jsx
+ * 
+ * A reusable draggable window component.
+ * 
+ * - Props:
+ *   - `title`: header text
+ *   - `content`: React node shown inside the window
+ *   - `onClose`: callback for closing
+ * 
+ * - Features:
+ *   - Dragging via header
+ *   - Expand/restore toggle (small vs. large)
+ *   - Close button
+ *   - Supports rendering multiple instances independently
+ */
+
+
 import React, { useState , useEffect, useRef} from 'react';
 import '../Styles/DraggableWindow.css';
 

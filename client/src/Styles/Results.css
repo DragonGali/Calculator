@@ -42,7 +42,7 @@
 }
 
 .Results .value-box {
-    background-color: var(--primary);
+    background-color: var(--grey-blue);
     display: flex;
     justify-content: center;
     align-items: center;

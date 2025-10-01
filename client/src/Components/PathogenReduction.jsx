@@ -1,3 +1,19 @@
+/**
+ * PathogenReduction.jsx
+ * 
+ * Displays pathogen log-reduction dosages in different views.
+ * 
+ * - Props:
+ *   - `openFullTable`: callback to open the full table view
+ * 
+ * - Features:
+ *   - Three view modes: tree, table, full table
+ *   - Buttons toggle between views
+ *   - Header text changes according to selected view
+ *   - Renders `TreeView` or `TableView` depending on mode
+ */
+
+
 import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PathogenReduction.css';
 import data from "../data";

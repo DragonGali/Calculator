@@ -1,3 +1,10 @@
+/**
+ * Checkbox.jsx
+ * 
+ * A custom-styled checkbox component with a label.
+ * Can be disabled, set to checked, and calls onChange when toggled.
+ */
+
 import React from 'react';
 import '../Styles/CheckBox.css';
 
@@ -14,7 +21,7 @@ const Checkbox = ({
           type="checkbox"
           checked={checked}
           disabled={disabled}
-          onChange={(e) => onChange(e.target.checked)}
+          onChange={(e) => onChange(e.target.checked)} // call parent handler
         />
         <span className="label-text">{text}</span>
       </label>

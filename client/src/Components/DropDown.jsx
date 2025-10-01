@@ -1,3 +1,21 @@
+/**
+ * Dropdown.jsx
+ * 
+ * A custom dropdown menu with animated stacked options.
+ * 
+ * - Props:
+ *   - `options`: array of { label, value } items (or strings)
+ *   - `placeholder`: text shown before selection
+ *   - `label` / `emptyText`: optional label strings
+ *   - `colors`: alternating background colors for options
+ *   - `value` + `onChange`: controlled usage
+ * 
+ * - Features:
+ *   - Works controlled or uncontrolled
+ *   - Animated expand/collapse
+ *   - Customizable colors per option
+ */
+
 import React, { useState, useEffect } from 'react';
 import '../Styles/DropDown.css';
 
@@ -7,8 +25,8 @@ const Dropdown = ({
   label = "You Selected",
   emptyText = "Empty",
   colors = ['var(--primary)', 'var(--title-box)'],
-  value,          // controlled value
-  onChange        // controlled callback
+  value,
+  onChange
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [internalValue, setInternalValue] = useState('');
