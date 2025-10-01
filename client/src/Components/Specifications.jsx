@@ -1,3 +1,20 @@
+/**
+ * Specifications.jsx
+ *
+ * Component for setting various parameters via sliders, dropdowns, and buttons.
+ *
+ * Structure:
+ * - Top section: multiple rows with label, slider, and unit
+ * - Bottom section: a main slider, dropdown, and action buttons
+ *
+ * Props:
+ * - width, height: used for responsive sizing (currently passed but not directly used)
+ *
+ * State:
+ * - pressedButton: tracks which bottom section button is pressed
+ */
+
+
 import { useState, useEffect, Fragment} from 'react'
 import '../Styles/Specifications.css';
 import data from "../data";

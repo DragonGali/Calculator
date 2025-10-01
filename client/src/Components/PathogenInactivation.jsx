@@ -2,7 +2,6 @@ import { useState, useEffect, Fragment} from 'react'
 import '../Styles/PathogenInactivation.css';
 import data from "../data";
 
-import InputField from './InputField';
 import ProgressBar from './ProgressBar.jsx'
 
 function PathogenInactivation () {

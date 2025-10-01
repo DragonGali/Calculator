@@ -1,3 +1,21 @@
+/**
+ * PasswordBox.jsx
+ * 
+ * A full-screen password input component for developer access.
+ * 
+ * - Props:
+ *   - `onClose`: called when the box is closed/cancelled
+ *   - `onPasswordCorrect`: called when the correct password is entered
+ * 
+ * - Features:
+ *   - Blinking cursor effect
+ *   - Hidden input keeps value synced with custom display
+ *   - Shows error message briefly on wrong password
+ *   - Supports Enter to submit and Escape to cancel
+ */
+
+
+
 import React, { useState, useEffect, useRef } from 'react';
 import '../Styles/PasswordBox.css';
 import data from "../data";
