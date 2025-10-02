@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Dropdown from '../Components/DropDown';
 import Checkbox from '../Components/CheckBox';
 import '../Styles/HODSystem.css';
 import data from "../data";
+
+import apiService from '../apiService';
 
 /**
  * HODSystem.jsx
@@ -21,17 +23,62 @@ import data from "../data";
  *   - Button group for mode selection (first auto-selected on mount)
  */
 
+const HODSystem = ({ width, height, appState, updateState }) => {
+  const [models, setModels] = useState([]);
+  const [modules, setModules] = useState([]);
+  const [modelMap, setModelMap] = useState({}); // { "RZ-104": ["11","12"], "RZ-163": ["11","12"], ... }
 
-function HODSystem({ width, height, appState, sendUpdate}) {
+  // Process response into models + modules
+  const processOptions = (systems) => {
+    const map = {};
 
-  
-  // When button is clicked, notify server + update state
-  const handleClick = (button) => {
-    sendUpdate("HODSystem", "setPressedButton", { pressedButton: button });
+    Object.values(systems).forEach(series => {
+      series.forEach(item => {
+        const parts = item.split("-");
+        const base = parts.slice(0, -1).join("-"); // everything except last
+        const mod = parts[parts.length - 1];       // last part (the module)
+
+        if (!map[base]) {
+          map[base] = [];
+        }
+        if (!map[base].includes(mod)) {
+          map[base].push(mod);
+        }
+      });
+    });
+
+    setModelMap(map);
+    setModels(Object.keys(map));
   };
-  
 
-  // On mount, select first button if none is chosen
+  // Fetch options from server
+  useEffect(() => {
+    const fetchOptions = async () => {
+      const result = await apiService.getSupportedSystems();
+      if (result.success) {
+        processOptions(result.systems);
+      } else {
+        console.error('Failed to load systems:', result.error);
+      }
+    };
+
+    fetchOptions();
+  }, []);
+
+  // When Model changes → update available modules
+  useEffect(() => {
+    if (appState?.Model && modelMap[appState.Model]) {
+      setModules(modelMap[appState.Model]);
+    } else {
+      setModules([]);
+    }
+  }, [appState?.Model, modelMap]);
+
+  const handleClick = (button) => {
+    updateState({ "Lamp Type": button });
+  };
+
+  // Auto-select first button on mount
   useEffect(() => {
     if (!appState?.pressedButton) {
       handleClick(data.HODButtons[0]);
@@ -45,20 +92,6 @@ function HODSystem({ width, height, appState, sendUpdate}) {
       </div>
       <div className="wrapper">
         <div className="vertical-container">
-          
-          {/* Module */}
-          <div className="horizontal-container">
-            <div className="type-box">
-              <p>Module:</p>
-            </div>
-            <Dropdown
-              className="drop-down"
-              options={[...data.modules]}
-              placeholder={data.modules[0].label}
-              value={appState?.module} // controlled
-              onChange={(option) => { sendUpdate("HODSystem", "setModule", { module: option }) }}
-            />
-          </div>
 
           {/* Model */}
           <div className="horizontal-container">
@@ -67,16 +100,32 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             </div>
             <Dropdown
               className="drop-down"
-              options={[...data.model]}
-              placeholder={data.model[0].label}
-              value={appState?.model}
-              onChange={(option) => { sendUpdate("HODSystem", "setModel", { model: option }) }}
+              options={models}
+              placeholder={models[0]}
+              value={appState?.Model}
+              onChange={(option) => {
+                updateState({ Model: option, Module: null }); // reset module when model changes
+              }}
+            />
+          </div>
+
+          {/* Module */}
+          <div className="horizontal-container">
+            <div className="type-box">
+              <p>Module:</p>
+            </div>
+            <Dropdown
+              className="drop-down"
+              options={modules}
+              placeholder={modules[0]}
+              value={appState?.Module}
+              onChange={(option) => updateState({ Module: option })}
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
               className="check-box"
-              checked={appState?.vertical}
-              onChange={(checked) => { sendUpdate("HODSystem", "setVertical", { vertical: checked }) }}
+              checked={appState?.Vertical}
+              onChange={(checked) => updateState({ Vertical: checked })}
             />
           </div>
 
@@ -88,8 +137,8 @@ function HODSystem({ width, height, appState, sendUpdate}) {
             <input
               type="text"
               className="simple-input"
-              value={appState?.branch ?? 1}
-              onChange={(e) => { sendUpdate("HODSystem", "setBranch", { branch: e.target.value }) }}
+              value={appState?.Branch}
+              onChange={(e) => updateState({ Branch: e.target.value })}
             />
             <div className="type-box small">
               <p>[Units]</p>
@@ -99,12 +148,13 @@ function HODSystem({ width, height, appState, sendUpdate}) {
           {/* Buttons */}
           <div className="horizontal-container">
             {data.HODButtons.map((button, index) => (
-                <div
-                  className={`button but-${index} ${appState?.pressedButton === button ? 'IsPressed' : 'NotPressed'}`}
-                  onClick={() => handleClick(button)}
-                >
-                  <p>{button}</p>
-                </div>
+              <div
+                key={index}
+                className={`button but-${index} ${appState?.["Lamp Type"] === button ? 'IsPressed' : 'NotPressed'}`}
+                onClick={() => handleClick(button)}
+              >
+                <p>{button}</p>
+              </div>
             ))}
           </div>
 

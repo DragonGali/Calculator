@@ -13,8 +13,8 @@ const useAppState = () => {
   const [appState, setAppState] = useState({
     // Maps to backend fields
     Application: "Municipal EPA",
-    Module: "RZ-104",
-    Model: "11",
+    Module: "11",
+    Model: "RZ-104",
     Branch: "1",
     Position: "Vertical",
     "Lamp Type": "Regular",

@@ -2,7 +2,6 @@
     aspect-ratio: 8 / 2;
     width: 100%;
     min-width: 0;
-    overflow: hidden;
 }
 
 .CalculatorVersion .title-box {
