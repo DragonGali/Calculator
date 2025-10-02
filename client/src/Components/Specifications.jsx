@@ -15,62 +15,180 @@
  */
 
 
-import { useState, useEffect, Fragment} from 'react'
+/**
+ * Specifications.jsx (Updated with Dynamic Ranges from Backend)
+ *
+ * Component for setting UV system parameters.
+ * Fetches min/max ranges from backend based on selected system.
+ */
+
+import { useState, useEffect } from 'react';
 import '../Styles/Specifications.css';
-import data from "../data";
+import Slider from '../Components/Slider.jsx';
+import DropDown from '../Components/DropDown.jsx';
+import apiService from '../apiService';
 
-import Slider from '../Components/Slider.jsx'
-import DropDown from '../Components/DropDown.jsx'
-
-const Specifications = ({width, height}) => {
-
-  //All the texts that are used in the buttons and dropdowns.
-  const topData = data.Specifications.top;
-  const bottomData = data.Specifications.bottom;
-
+const Specifications = ({ appState, updateState}) => {
   const [pressedButton, setPressedButton] = useState(null);
+  const [ranges, setRanges] = useState(null);
+  const [isLoadingRanges, setIsLoadingRanges] = useState(false);
 
-  const handleClick = (button) => {
-    setPressedButton(button);
-  }
+  // Fetch parameter ranges when system type changes
+  useEffect(() => {
+    const fetchRanges = async () => {
+      const systemType = `${appState?.Module}-${appState?.Model}`;
+      setIsLoadingRanges(true);
+      
+      const result = await apiService.getParameterRanges(systemType);
+      
+      if (result.success) {
+        setRanges(result.ranges);
+      } else {
+        console.error('Failed to load ranges:', result.error);
+        // Use default ranges if fetch fails
+        setRanges({
+          flow: { min: 10.0, max: 500.0, unit: "m3/h" },
+          uvt: { min: 70.0, max: 98.0, unit: "%" }
+        });
+      }
+      
+      setIsLoadingRanges(false);
+    };
 
-  return ( <div className="Specifications">
-    <div className="title-box">
-            <p>Specifications</p>
-    </div>
-    <div className="wrapper">
+    if (appState?.Module && appState?.Model) {
+      fetchRanges();
+    }
+  }, [appState?.Module, appState?.Model]);
+
+  // Use ranges from backend or defaults
+  const flowMin = ranges?.flow?.min ?? 10;
+  const flowMax = ranges?.flow?.max ?? 500;
+  const uvtMin = ranges?.uvt?.min ?? 70;
+  const uvtMax = ranges?.uvt?.max ?? 98;
+
+  return (
+    <div className="Specifications">
+      <div className="title-box">
+        <p>Specifications</p>
+        {isLoadingRanges && (
+          <span style={{ marginLeft: '10px', fontSize: '0.8em', color: 'var(--highlight)' }}>
+            Loading ranges...
+          </span>
+        )}
+      </div>
+      <div className="wrapper">
         <div className="vertical-container">
-                {topData.map((field,index) => (
-                  <div className="horizontal-container" key={index}>
-                    <div className="type-box">
-                        <p>{field[0]}</p>
-                    </div>
-                    <Slider  min={field[1]} max={field[2]}></Slider>
-                    <div className="type-box">
-                        <p>{field[3]}</p>
-                    </div>
-                </div>
-                ))}
-                <hr className='line'></hr>
-                <div className='horizontal-container'>
-                    <div className='type-box'>
-                      <p>{bottomData.fieldName}</p>
-                    </div>
-                    <Slider className="slider"/>
-                    <DropDown options={[...bottomData.options]}
-                    placeholder={bottomData.options[0].value}>
-                    </DropDown>
-                </div>
-                <div className='horizontal-container'>
-                  {bottomData.buttons.map((button, index) => (
-                    <div className='button' key={index} onClick={() => handleClick(button)}>
-                            <p>{button}</p>
-                    </div>
-                ))}
-                </div>
+          {/* Efficiency - typically 0-100% */}
+          <div className="horizontal-container">
+            <div className="type-box">
+              <p>Efficiency:</p>
+            </div>
+            <Slider
+              min={0}
+              max={100}
+              step={1}
+              value={appState?.Efficiency}
+              onChange={(value) => updateState({ Efficiency: value })}
+            />
+            <div className="type-box">
+              <p>[% Efficiency]</p>
+            </div>
+          </div>
+
+          {/* Relative Drive - typically 0-100% */}
+          <div className="horizontal-container">
+            <div className="type-box">
+              <p>Relative Drive:</p>
+            </div>
+            <Slider
+              min={0}
+              max={100}
+              step={1}
+              value={appState?.["Relative Drive"]}
+              onChange={(value) => updateState({ "Relative Drive": value })}
+            />
+            <div className="type-box">
+              <p>[% Power]</p>
+            </div>
+          </div>
+
+          {/* UVT @ 254nm - uses backend ranges */}
+          <div className="horizontal-container">
+            <div className="type-box">
+              <p>UVT @ 254nm:</p>
+            </div>
+            <Slider
+              min={uvtMin}
+              max={uvtMax}
+              step={0.1}
+              value={appState?.["UVT-1cm@254nm"]}
+              onChange={(value) => updateState({ "UVT-1cm@254nm": value })}
+            />
+            <div className="type-box">
+              <p>[%-1cm]</p>
+            </div>
+          </div>
+
+          {/* UVT @ 215nm - uses backend ranges */}
+          <div className="horizontal-container">
+            <div className="type-box">
+              <p>UVT @ 215nm:</p>
+            </div>
+            <Slider
+              min={uvtMin}
+              max={uvtMax}
+              step={0.1}
+              value={appState?.["UVT-1cm@215nm"]}
+              onChange={(value) => updateState({ "UVT-1cm@215nm": value })}
+            />
+            <div className="type-box">
+              <p>[%-1cm]</p>
+            </div>
+          </div>
+
+          <hr className='line'></hr>
+
+          {/* Flow Rate - uses backend ranges */}
+          <div className='horizontal-container'>
+            <div className='type-box'>
+              <p>Flow Rate:</p>
+            </div>
+            <Slider
+              min={flowMin}
+              max={flowMax}
+              step={1}
+              value={appState?.["Flow Rate"]}
+              onChange={(value) => updateState({ "Flow Rate": value })}
+            />
+            <DropDown
+              options={[
+                { label: 'm³/h', value: 'm3/h' },
+                { label: 'US GPM', value: 'US GPM' }
+              ]}
+              value={appState?.["Flow Units"]}
+              onChange={(value) => updateState({ "Flow Units": value })}
+            />
+          </div>
+
+          {/* Action Buttons */}
+          <div className='horizontal-container'>
+            <div 
+              className={`button ${pressedButton === 'Reset To Default Values' ? 'IsPressed' : ''}`}
+              onClick={() => setPressedButton("Reset To Default Values")}
+            >
+              <p>Reset To Default Values</p>
+            </div>
+            <div 
+              className={`button ${pressedButton === 'Flow For Target Dose' ? 'IsPressed' : ''}`}
+              onClick={() => setPressedButton("Flow For Target Dose")}
+            >
+              <p>Flow For Target Dose</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
+
 export default Specifications;

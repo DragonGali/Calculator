@@ -105,13 +105,13 @@ const App = () =>  {
               appState={appState} 
               updateState={updateState}
             />
-            {/* <HODSystem 
+            <HODSystem 
               id="hod-system" 
               width={size.width} 
               height={size.height} 
               appState={appState} 
-              sendUpdate={sendUpdate}
-            /> */}
+              updateState={updateState}
+            />
           </div>
 
           {/* Row 1, Column 2 */}
@@ -122,6 +122,7 @@ const App = () =>  {
             className="column-2"
             unlockAll={unlockAll}
             style={{ gridRow: "1", gridColumn: "2" }}
+            updateState={updateState}
           />
 
           {/* Row 1, Column 3 */}
