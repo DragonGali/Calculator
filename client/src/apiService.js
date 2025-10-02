@@ -5,7 +5,7 @@
  * Matches the exact API structure from the backend.
  */
 
-const API_BASE_URL = 'http://0.0.0.0:5000';
+import { API_BASE_URL } from './config';
 
 class APIService {
   /**

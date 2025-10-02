@@ -26,7 +26,7 @@ import apiService from '../apiService';
 const HODSystem = ({ width, height, appState, updateState }) => {
   const [models, setModels] = useState([]);
   const [modules, setModules] = useState([]);
-  const [modelMap, setModelMap] = useState({}); // { "RZ-104": ["11","12"], "RZ-163": ["11","12"], ... }
+  const [modelMap, setModelMap] = useState({});
 
   // Process response into models + modules
   const processOptions = (systems) => {
@@ -104,7 +104,7 @@ const HODSystem = ({ width, height, appState, updateState }) => {
               placeholder={models[0]}
               value={appState?.Model}
               onChange={(option) => {
-                updateState({ Model: option, Module: null }); // reset module when model changes
+                updateState({ Model: option}); // reset module when model changes
               }}
             />
           </div>

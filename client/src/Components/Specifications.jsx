@@ -30,35 +30,12 @@ import apiService from '../apiService';
 
 const Specifications = ({ appState, updateState}) => {
   const [pressedButton, setPressedButton] = useState(null);
-  const [ranges, setRanges] = useState(null);
-  const [isLoadingRanges, setIsLoadingRanges] = useState(false);
+  const [ranges, setRanges] = useState(appState?.ranges);
 
   // Fetch parameter ranges when system type changes
   useEffect(() => {
-    const fetchRanges = async () => {
-      const systemType = `${appState?.Module}-${appState?.Model}`;
-      setIsLoadingRanges(true);
-      
-      const result = await apiService.getParameterRanges(systemType);
-      
-      if (result.success) {
-        setRanges(result.ranges);
-      } else {
-        console.error('Failed to load ranges:', result.error);
-        // Use default ranges if fetch fails
-        setRanges({
-          flow: { min: 10.0, max: 500.0, unit: "m3/h" },
-          uvt: { min: 70.0, max: 98.0, unit: "%" }
-        });
-      }
-      
-      setIsLoadingRanges(false);
-    };
-
-    if (appState?.Module && appState?.Model) {
-      fetchRanges();
-    }
-  }, [appState?.Module, appState?.Model]);
+    
+  }, []);
 
   // Use ranges from backend or defaults
   const flowMin = ranges?.flow?.min ?? 10;
@@ -70,11 +47,6 @@ const Specifications = ({ appState, updateState}) => {
     <div className="Specifications">
       <div className="title-box">
         <p>Specifications</p>
-        {isLoadingRanges && (
-          <span style={{ marginLeft: '10px', fontSize: '0.8em', color: 'var(--highlight)' }}>
-            Loading ranges...
-          </span>
-        )}
       </div>
       <div className="wrapper">
         <div className="vertical-container">
@@ -166,6 +138,7 @@ const Specifications = ({ appState, updateState}) => {
                 { label: 'US GPM', value: 'US GPM' }
               ]}
               value={appState?.["Flow Units"]}
+              placeholder={appState?.["Flow Units"]}
               onChange={(value) => updateState({ "Flow Units": value })}
             />
           </div>

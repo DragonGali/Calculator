@@ -8,13 +8,20 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import apiService from '../apiService';
 
+
 const useAppState = () => {
+
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [lastError, setLastError] = useState(null);
+  const [isServerHealthy, setIsServerHealthy] = useState(false);
+  const [parameterRanges, setParameterRanges] = useState(null);
+
   // Main application state - matches backend parameter names
   const [appState, setAppState] = useState({
     // Maps to backend fields
     Application: "Municipal EPA",
-    Module: "11",
     Model: "RZ-104",
+    Module: "11",
     Branch: "1",
     Position: "Vertical",
     "Lamp Type": "Regular",
@@ -35,13 +42,12 @@ const useAppState = () => {
       "Average Lamp Power Consumption": null,
       "Expected LI": null,
       calculation_details: null
-    }
+    },
+
+    ranges: parameterRanges
+
   });
 
-  const [isCalculating, setIsCalculating] = useState(false);
-  const [lastError, setLastError] = useState(null);
-  const [isServerHealthy, setIsServerHealthy] = useState(false);
-  const [parameterRanges, setParameterRanges] = useState(null);
   
   // Prevent calculation on initial mount
   const isInitialMount = useRef(true);
@@ -66,7 +72,7 @@ const useAppState = () => {
 
   // Load parameter ranges when system type changes
   useEffect(() => {
-    const systemType = `${appState.Module}-${appState.Model}`;
+    const systemType = `${appState.Model}-${appState.Module}`;
     if (isServerHealthy) {
       apiService.getParameterRanges(systemType).then(result => {
         if (result.success) {
