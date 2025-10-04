@@ -27,21 +27,17 @@ import '../Styles/Specifications.css';
 import Slider from '../Components/Slider.jsx';
 import DropDown from '../Components/DropDown.jsx';
 import apiService from '../apiService';
+import useAppState from '../hooks/useAppState';
 
 const Specifications = ({ appState, updateState}) => {
-  const [pressedButton, setPressedButton] = useState(null);
-  const [ranges, setRanges] = useState(appState?.ranges);
+  const {getRanges, parameterRanges} = useAppState();
+  const ranges = appState?.ranges;
+  const [pressedButton, setPressedButton] = useState();
 
   // Fetch parameter ranges when system type changes
   useEffect(() => {
-    
-  }, []);
-
-  // Use ranges from backend or defaults
-  const flowMin = ranges?.flow?.min ?? 10;
-  const flowMax = ranges?.flow?.max ?? 500;
-  const uvtMin = ranges?.uvt?.min ?? 70;
-  const uvtMax = ranges?.uvt?.max ?? 98;
+    console.log("ranges: ", appState?.ranges);
+  }, [appState?.ranges]);
 
   return (
     <div className="Specifications">
@@ -53,17 +49,17 @@ const Specifications = ({ appState, updateState}) => {
           {/* Efficiency - typically 0-100% */}
           <div className="horizontal-container">
             <div className="type-box">
-              <p>Efficiency:</p>
+              <p>Lamp Efficiency:</p>
             </div>
             <Slider
-              min={0}
-              max={100}
+              min={ranges?.efficiency?.min}
+              max={ranges?.efficiency?.max}
               step={1}
               value={appState?.Efficiency}
               onChange={(value) => updateState({ Efficiency: value })}
             />
             <div className="type-box">
-              <p>[% Efficiency]</p>
+              <p>[{ranges?.efficiency?.unit} Efficiency]</p>
             </div>
           </div>
 
@@ -73,14 +69,14 @@ const Specifications = ({ appState, updateState}) => {
               <p>Relative Drive:</p>
             </div>
             <Slider
-              min={0}
-              max={100}
+              min={ranges?.drive?.min}
+              max={ranges?.drive?.max}
               step={1}
               value={appState?.["Relative Drive"]}
               onChange={(value) => updateState({ "Relative Drive": value })}
             />
             <div className="type-box">
-              <p>[% Power]</p>
+              <p>[{ranges?.drive?.unit} Power]</p>
             </div>
           </div>
 
@@ -90,14 +86,14 @@ const Specifications = ({ appState, updateState}) => {
               <p>UVT @ 254nm:</p>
             </div>
             <Slider
-              min={uvtMin}
-              max={uvtMax}
+              min={ranges?.uvt?.min}
+              max={ranges?.uvt?.max}
               step={0.1}
               value={appState?.["UVT-1cm@254nm"]}
               onChange={(value) => updateState({ "UVT-1cm@254nm": value })}
             />
             <div className="type-box">
-              <p>[%-1cm]</p>
+              <p>[{ranges?.uvt?.unit}]</p>
             </div>
           </div>
 
@@ -107,8 +103,8 @@ const Specifications = ({ appState, updateState}) => {
               <p>UVT @ 215nm:</p>
             </div>
             <Slider
-              min={uvtMin}
-              max={uvtMax}
+              min={ranges?.uvt?.min}
+              max={ranges?.uvt?.max}
               step={0.1}
               value={appState?.["UVT-1cm@215nm"]}
               onChange={(value) => updateState({ "UVT-1cm@215nm": value })}
@@ -126,8 +122,8 @@ const Specifications = ({ appState, updateState}) => {
               <p>Flow Rate:</p>
             </div>
             <Slider
-              min={flowMin}
-              max={flowMax}
+              min={ranges?.flow?.min}
+              max={ranges?.flow?.max}
               step={1}
               value={appState?.["Flow Rate"]}
               onChange={(value) => updateState({ "Flow Rate": value })}

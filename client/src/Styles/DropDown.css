@@ -91,13 +91,13 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   background: var(--white);
   opacity: 0;
+  pointer-events: none;
 }
 
 .dropdown-item {
   position: relative; /* participate in flow */
   margin: 0;
   padding: 0;
-
   flex: 0 0 auto;    /* prevent stretching in flex */
 }
 

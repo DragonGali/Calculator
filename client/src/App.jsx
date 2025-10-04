@@ -62,7 +62,7 @@ const App = () =>  {
     isCalculating,
     lastError,
     isServerHealthy,
-    checkServerHealth
+    checkServerHealth,
   } = useAppState();
 
   
@@ -123,6 +123,7 @@ const App = () =>  {
             unlockAll={unlockAll}
             style={{ gridRow: "1", gridColumn: "2" }}
             updateState={updateState}
+            appState={appState}
           />
 
           {/* Row 1, Column 3 */}

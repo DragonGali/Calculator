@@ -10,17 +10,7 @@ import apiService from '../apiService';
  * HODSystem.jsx
  * 
  * Configuration panel for the HOD System.
- * 
- * - Props:
- *   - `width`, `height`: layout (unused here but passed in)
- *   - `appState`: server state slice for HODSystem
- *   - `sendUpdate`: callback to update server state
- * 
- * - Features:
- *   - Dropdowns for module and model selection
- *   - Custom checkbox for vertical mode
- *   - Text input for branch units
- *   - Button group for mode selection (first auto-selected on mount)
+ * Auto-selects first module when model changes.
  */
 
 const HODSystem = ({ width, height, appState, updateState }) => {
@@ -49,6 +39,13 @@ const HODSystem = ({ width, height, appState, updateState }) => {
 
     setModelMap(map);
     setModels(Object.keys(map));
+    
+    // Set initial model if not set
+    const firstModel = Object.keys(map)[0];
+    if (firstModel && !appState?.Model) {
+      const firstModule = map[firstModel][0];
+      updateState({ Model: firstModel, Module: firstModule });
+    }
   };
 
   // Fetch options from server
@@ -65,25 +62,20 @@ const HODSystem = ({ width, height, appState, updateState }) => {
     fetchOptions();
   }, []);
 
-  // When Model changes → update available modules
+  // When Model changes → update available modules AND auto-select first one
   useEffect(() => {
     if (appState?.Model && modelMap[appState.Model]) {
-      setModules(modelMap[appState.Model]);
+      const availableModules = modelMap[appState.Model];
+      setModules(availableModules);
+      
+      // Auto-select first module if current module is not in the list
+      if (availableModules.length > 0 && !availableModules.includes(appState?.Module)) {
+        updateState({ Module: availableModules[0] });
+      }
     } else {
       setModules([]);
     }
   }, [appState?.Model, modelMap]);
-
-  const handleClick = (button) => {
-    updateState({ "Lamp Type": button });
-  };
-
-  // Auto-select first button on mount
-  useEffect(() => {
-    if (!appState?.pressedButton) {
-      handleClick(data.HODButtons[0]);
-    }
-  }, []);
 
   return (
     <div className="HODSystem">
@@ -100,11 +92,12 @@ const HODSystem = ({ width, height, appState, updateState }) => {
             </div>
             <Dropdown
               className="drop-down"
-              options={models}
-              placeholder={models[0]}
+              options={models.map(m => ({ label: m, value: m }))}
+              placeholder={models[0] || "Select Model"}
               value={appState?.Model}
               onChange={(option) => {
-                updateState({ Model: option}); // reset module when model changes
+                // When model changes, module will auto-update via useEffect
+                updateState({ Model: option });
               }}
             />
           </div>
@@ -116,16 +109,16 @@ const HODSystem = ({ width, height, appState, updateState }) => {
             </div>
             <Dropdown
               className="drop-down"
-              options={modules}
-              placeholder={modules[0]}
+              options={modules.map(m => ({ label: m, value: m }))}
+              placeholder={modules[0] || "Select Module"}
               value={appState?.Module}
               onChange={(option) => updateState({ Module: option })}
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
               className="check-box"
-              checked={appState?.Vertical}
-              onChange={(checked) => updateState({ Vertical: checked })}
+              checked={appState?.Position === "Vertical"}
+              onChange={(checked) => updateState({ Position: checked ? "Vertical" : "Horizontal" })}
             />
           </div>
 
@@ -137,7 +130,7 @@ const HODSystem = ({ width, height, appState, updateState }) => {
             <input
               type="text"
               className="simple-input"
-              value={appState?.Branch}
+              value={appState?.Branch || "1"}
               onChange={(e) => updateState({ Branch: e.target.value })}
             />
             <div className="type-box small">
@@ -150,8 +143,8 @@ const HODSystem = ({ width, height, appState, updateState }) => {
             {data.HODButtons.map((button, index) => (
               <div
                 key={index}
-                className={`button but-${index} ${appState?.["Lamp Type"] === button ? 'IsPressed' : 'NotPressed'}`}
-                onClick={() => handleClick(button)}
+                className={`button but-${index} ${appState?.["Lamp Type"] === button.replaceAll(" ", "") ? 'IsPressed' : 'NotPressed'}`}
+                onClick={() => updateState({"Lamp Type" : button.replaceAll(" ", "")})}
               >
                 <p>{button}</p>
               </div>

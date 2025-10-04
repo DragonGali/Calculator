@@ -51,6 +51,7 @@
     font-family: 'Inter-Light';
     font-weight: bold;
     border-radius: 0.5em;
+    border: solid 0.15em var(--primary);
     width: 60%;
     font-size: var(--font-regular);
 }
