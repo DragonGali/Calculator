@@ -9,12 +9,15 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import apiService from '../apiService';
 
 const useAppState = () => {
-  // Main application state - matches backend parameter names
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [lastError, setLastError] = useState(null);
+  const [isServerHealthy, setIsServerHealthy] = useState(false);
+
+  // Main application state (includes ranges)
   const [appState, setAppState] = useState({
-    // Maps to backend fields
     Application: "Municipal EPA",
-    Module: "11",
     Model: "RZ-104",
+    Module: "11",
     Branch: "1",
     Position: "Vertical",
     "Lamp Type": "Regular",
@@ -26,8 +29,8 @@ const useAppState = () => {
     "Flow Units": "m3/h",
     "D-1Log": 18.0,
     Pathogen: "Cryptosporidium",
-    
-    // Results from backend
+
+    // Results
     results: {
       "Reduction Equivalent Dose": null,
       "Head Loss": null,
@@ -35,20 +38,16 @@ const useAppState = () => {
       "Average Lamp Power Consumption": null,
       "Expected LI": null,
       calculation_details: null
-    }
+    },
+
+    // Ranges (this will auto-update)
+    ranges: null
   });
 
-  const [isCalculating, setIsCalculating] = useState(false);
-  const [lastError, setLastError] = useState(null);
-  const [isServerHealthy, setIsServerHealthy] = useState(false);
-  const [parameterRanges, setParameterRanges] = useState(null);
-  
-  // Prevent calculation on initial mount
   const isInitialMount = useRef(true);
-  // Debounce timer
   const calculateTimer = useRef(null);
 
-  // Check server health on mount
+  // Check server health once on mount
   useEffect(() => {
     checkServerHealth();
   }, []);
@@ -64,21 +63,31 @@ const useAppState = () => {
     return result.healthy;
   };
 
-  // Load parameter ranges when system type changes
-  useEffect(() => {
-    const systemType = `${appState.Module}-${appState.Model}`;
-    if (isServerHealthy) {
-      apiService.getParameterRanges(systemType).then(result => {
-        if (result.success) {
-          setParameterRanges(result.ranges);
-        }
-      });
+  // Fetch parameter ranges from backend for the current system
+  const getRanges = useCallback(async (systemType) => {
+    if (!isServerHealthy) {
+      console.warn("Server not healthy, skipping getRanges");
+      return;
     }
-  }, [appState.Module, appState.Model, isServerHealthy]);
+    try {
+      const result = await apiService.getParameterRanges(systemType);
+      if (result.success) {
+        // Store directly inside appState so any component can read appState.ranges
+        setAppState(prev => ({
+          ...prev,
+          ranges: result.ranges
+        }));
+        console.log(appState.ranges);
+      } else {
+        setLastError(result.error);
+      }
+    } catch (err) {
+      console.error("Error getting ranges:", err);
+      setLastError(err.message);
+    }
+  }, [isServerHealthy]);
 
-  /**
-   * Calculate results by sending current state to backend
-   */
+  // Recalculate results
   const calculateResults = useCallback(async () => {
     if (!isServerHealthy) {
       console.warn('Server not healthy, skipping calculation');
@@ -88,7 +97,6 @@ const useAppState = () => {
     setIsCalculating(true);
     setLastError(null);
 
-    // Prepare request body - only send fields backend expects
     const requestBody = {
       Application: appState.Application,
       Module: appState.Module,
@@ -109,7 +117,6 @@ const useAppState = () => {
     const result = await apiService.calculate(requestBody);
 
     if (result.success) {
-      // Update results in state with backend response
       setAppState(prev => ({
         ...prev,
         results: {
@@ -128,11 +135,7 @@ const useAppState = () => {
     setIsCalculating(false);
   }, [appState, isServerHealthy]);
 
-  /**
-   * Update state and trigger recalculation (debounced)
-   * 
-   * @param {object} updates - Object with fields to update
-   */
+  // Update appState and trigger recalculation (debounced)
   const updateState = useCallback((updates) => {
     console.log('State update:', updates);
 
@@ -146,7 +149,7 @@ const useAppState = () => {
       clearTimeout(calculateTimer.current);
     }
 
-    // Debounce calculation (wait 500ms after last change)
+    // Debounce recalculation
     calculateTimer.current = setTimeout(() => {
       if (!isInitialMount.current && isServerHealthy) {
         calculateResults();
@@ -154,18 +157,25 @@ const useAppState = () => {
     }, 500);
   }, [calculateResults, isServerHealthy]);
 
-  // Mark that initial mount is complete
+  // Automatically fetch ranges when Model or Module changes
+  useEffect(() => {
+    if (!isInitialMount.current && isServerHealthy) {
+      const systemType = `${appState.Model}-${appState.Module}`;
+      getRanges(systemType);
+    }
+  }, [appState.Model, appState.Module, getRanges, isServerHealthy]);
+
+  // Initial calculation + initial ranges fetch
   useEffect(() => {
     if (isInitialMount.current && isServerHealthy) {
       isInitialMount.current = false;
-      // Do initial calculation
+      const systemType = `${appState.Model}-${appState.Module}`;
+      getRanges(systemType);
       calculateResults();
     }
-  }, [isServerHealthy, calculateResults]);
+  }, [isServerHealthy, calculateResults, getRanges]);
 
-  /**
-   * Manual recalculation trigger (immediate, no debounce)
-   */
+  // Manual recalculation (no debounce)
   const recalculate = useCallback(() => {
     if (calculateTimer.current) {
       clearTimeout(calculateTimer.current);
@@ -180,8 +190,7 @@ const useAppState = () => {
     isCalculating,
     lastError,
     isServerHealthy,
-    checkServerHealth,
-    parameterRanges
+    checkServerHealth
   };
 };
 
