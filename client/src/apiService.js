@@ -6,7 +6,7 @@
  */
 
 import config from '../config.json';
-const API_BASE_URL = `http://${config.SERVER_IP}:${config.PORT}`;
+const API_BASE_URL = config.API_BASE_URL;
 
 class APIService {
   /**
