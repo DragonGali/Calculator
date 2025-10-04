@@ -15,7 +15,6 @@ const CalculatorVersion = ({unlockAll, openPasswordBox}) => {
   
   // Logs unlockAll changes (mainly for debugging)
   useEffect(() => {
-    console.log(unlockAll);
   }, [unlockAll])
 
   // Handles button actions: open password box for Developer, or lock features

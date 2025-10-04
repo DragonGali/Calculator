@@ -5,7 +5,8 @@
  * Matches the exact API structure from the backend.
  */
 
-import config from './config';
+import config from '../config.json';
+const API_BASE_URL = `http://${config.SERVER_IP}:${config.PORT}`;
 
 class APIService {
   /**
@@ -14,7 +15,7 @@ class APIService {
    */
   async checkHealth() {
     try {
-      const response = await fetch(`${config.API_BASE_URL}/health`);
+      const response = await fetch(`${API_BASE_URL}/health`);
       const data = await response.json();
       return {
         success: true,
@@ -37,7 +38,7 @@ class APIService {
    */
   async getSupportedSystems() {
     try {
-      const response = await fetch(`${config.API_BASE_URL}/systems/supported`);
+      const response = await fetch(`${API_BASE_URL}/systems/supported`);
       const data = await response.json();
       return {
         success: true,
@@ -60,7 +61,7 @@ class APIService {
    */
   async getParameterRanges(systemType) {
     try {
-      const response = await fetch(`${config.API_BASE_URL}/system/${systemType}/ranges`);
+      const response = await fetch(`${API_BASE_URL}/system/${systemType}/ranges`);
       const data = await response.json();
       return {
         success: true,
@@ -86,7 +87,7 @@ class APIService {
     try {
       console.log('Sending to backend:', params);
 
-      const response = await fetch(`${config.API_BASE_URL}/calculate`, {
+      const response = await fetch(`${API_BASE_URL}/calculate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
