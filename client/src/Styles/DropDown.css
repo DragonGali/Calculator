@@ -96,9 +96,6 @@
 
 .dropdown-item {
   position: relative; /* participate in flow */
-  margin: 0;
-  padding: 0;
-  flex: 0 0 auto;    /* prevent stretching in flex */
 }
 
 .dropdown-item:hover {

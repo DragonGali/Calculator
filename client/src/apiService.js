@@ -85,24 +85,38 @@ class APIService {
    */
   async calculate(params) {
     try {
-      console.log('Sending to backend:', params);
+      // Ensure Model and Module are in correct order
+      const requestBody = {
+        ...params,
+        Model: params.Model,
+        Module: params.Module
+      };
 
       const response = await fetch(`${API_BASE_URL}/calculate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(params)
+        body: JSON.stringify(requestBody)
       });
 
+      // Get response text first
+      const responseText = await response.text();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'Calculation failed');
+        let errorMessage = 'Calculation failed';
+        try {
+          const errorData = JSON.parse(responseText);
+          errorMessage = errorData.detail || errorData.message || JSON.stringify(errorData);
+        } catch (e) {
+          // If response is not JSON, use the text directly
+          errorMessage = responseText || `HTTP ${response.status}: ${response.statusText}`;
+        }
+        throw new Error(errorMessage);
       }
 
-      const data = await response.json();
-      console.log('Received from backend:', data);
-
+      // Parse successful response
+      const data = JSON.parse(responseText);
       return {
         success: true,
         data: data

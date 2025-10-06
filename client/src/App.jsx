@@ -157,6 +157,8 @@ const App = () =>  {
             height={size.height}
             className="column-2"
             style={{ gridRow: "2", gridColumn: "2" }}
+            appState={appState}
+            updateState={updateState}
           />
 
           {/* Row 2, Column 3 */}
