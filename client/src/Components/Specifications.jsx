@@ -29,7 +29,7 @@ import DropDown from '../Components/DropDown.jsx';
 import apiService from '../apiService';
 import useAppState from '../hooks/useAppState';
 
-const Specifications = ({ appState, updateState}) => {
+const Specifications = ({ appState, updateState, unlockAll}) => {
   const {getRanges, parameterRanges} = useAppState();
   const ranges = appState?.ranges;
   const [pressedButton, setPressedButton] = useState();
@@ -98,17 +98,19 @@ const Specifications = ({ appState, updateState}) => {
           </div>
 
           {/* UVT @ 215nm - uses backend ranges */}
-          <div className="horizontal-container">
+          <div className={`horizontal-container`}>
             <div className="type-box">
               <p>UVT @ 215nm:</p>
             </div>
-            <Slider
-              min={ranges?.uvt?.min}
-              max={ranges?.uvt?.max}
-              step={0.1}
-              value={appState?.["UVT-1cm@215nm"]}
-              onChange={(value) => updateState({ "UVT-1cm@215nm": value })}
-            />
+            <div className={`horizontal-container ${unlockAll ? '' : 'locked'}`}>
+              <Slider
+                min={ranges?.uvt?.min}
+                max={ranges?.uvt?.max}
+                step={0.1}
+                value={appState?.["UVT-1cm@215nm"]}
+                onChange={(value) => updateState({ "UVT-1cm@215nm": value })}
+              />
+            </div>
             <div className="type-box">
               <p>[%-1cm]</p>
             </div>

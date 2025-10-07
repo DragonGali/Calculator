@@ -3,79 +3,71 @@ import Dropdown from '../Components/DropDown';
 import Checkbox from '../Components/CheckBox';
 import '../Styles/HODSystem.css';
 import data from "../data";
-
 import apiService from '../apiService';
 
 /**
  * HODSystem.jsx
  * 
  * Configuration panel for the HOD System.
- * Auto-selects first module when model changes.
+ * Auto-selects first model when module changes.
  */
 
 const HODSystem = ({ width, height, appState, updateState }) => {
-  const [models, setModels] = useState([]);
-  const [modules, setModules] = useState([]);
-  const [modelMap, setModelMap] = useState({});
+  const [modules, setModules] = useState([]); // now the base types like "RZ-104"
+  const [models, setModels] = useState([]);   // now the variants like "11", "12"
+  const [moduleMap, setModuleMap] = useState({});
 
-  // Process response into models + modules
+  const options = appState?.dropDownOptions?.["RZ Series"];
+
   const processOptions = (systems) => {
     const map = {};
 
-    Object.values(systems).forEach(series => {
-      series.forEach(item => {
-        const parts = item.split("-");
-        const base = parts.slice(0, -1).join("-"); // everything except last
-        const mod = parts[parts.length - 1];       // last part (the module)
+    // Iterate over the dictionary entries
+    Object.entries(systems).forEach(([key, item]) => {
+      const parts = item.split("-");
+      const module = parts.slice(0, -1).join("-"); // everything except last part
+      const model = parts[parts.length - 1];       // last part
 
-        if (!map[base]) {
-          map[base] = [];
-        }
-        if (!map[base].includes(mod)) {
-          map[base].push(mod);
-        }
-      });
+      if (!map[module]) {
+        map[module] = [];
+      }
+      if (!map[module].includes(model)) {
+        map[module].push(model);
+      }
     });
 
-    setModelMap(map);
-    setModels(Object.keys(map));
-    
-    // Set initial model if not set
-    const firstModel = Object.keys(map)[0];
-    if (firstModel && !appState?.Model) {
-      const firstModule = map[firstModel][0];
-      updateState({ Model: firstModel, Module: firstModule });
+    setModuleMap(map);
+    setModules(Object.keys(map));
+
+    // Set initial module if not set
+    const firstModule = Object.keys(map)[0];
+    if (firstModule && !appState?.Module) {
+      const firstModel = map[firstModule][0];
+      updateState({ Module: firstModule, Model: firstModel });
     }
   };
 
   // Fetch options from server
   useEffect(() => {
-    const fetchOptions = async () => {
-      const result = await apiService.getSupportedSystems();
-      if (result.success) {
-        processOptions(result.systems);
-      } else {
-        console.error('Failed to load systems:', result.error);
-      }
-    };
+    if (options) {
+      processOptions(options);
+    }
+  }, [appState?.dropDownOptions]);
 
-    fetchOptions();
-  }, []);
-
-  // When Model changes → update available modules AND auto-select first one
+  // When Module changes → update available models AND auto-select first one
   useEffect(() => {
-    if (appState?.Model && modelMap[appState.Model]) {
-      const availableModules = modelMap[appState.Model];
-      setModules(availableModules);
-      
-      // Auto-select first module if current module is not in the list
-      if (availableModules.length > 0 && !availableModules.includes(appState?.Module)) {
-        updateState({ Module: availableModules[0] });
+    if (appState?.Module && moduleMap[appState.Module]) {
+      const availableModels = moduleMap[appState.Module];
+      setModels(availableModels);
+
+      // Auto-select first model if current model is not in the list
+      if (availableModels.length > 0 && !availableModels.includes(appState?.Model)) {
+        updateState({ Model: availableModels[0] });
       }
     } else {
-      setModules([]);
+      setModels([]);
     }
-  }, [appState?.Model, modelMap]);
+  }, [appState?.Module, moduleMap]);
 
   return (
     <div className="HODSystem">
@@ -84,23 +76,6 @@ const HODSystem = ({ width, height, appState, updateState }) => {
       </div>
       <div className="wrapper">
         <div className="vertical-container">
-
-          {/* Model */}
-          <div className="horizontal-container">
-            <div className="type-box">
-              <p>Model:</p>
-            </div>
-            <Dropdown
-              className="drop-down"
-              options={models.map(m => ({ label: m, value: m }))}
-              placeholder={models[0] || "Select Model"}
-              value={appState?.Model}
-              onChange={(option) => {
-                // When model changes, module will auto-update via useEffect
-                updateState({ Model: option });
-              }}
-            />
-          </div>
 
           {/* Module */}
           <div className="horizontal-container">
@@ -112,13 +87,32 @@ const HODSystem = ({ width, height, appState, updateState }) => {
               options={modules.map(m => ({ label: m, value: m }))}
               placeholder={modules[0] || "Select Module"}
               value={appState?.Module}
-              onChange={(option) => updateState({ Module: option })}
+              onChange={(option) => {
+                // When module changes, model will auto-update via useEffect
+                updateState({ Module: option });
+              }}
+            />
+          </div>
+
+          {/* Model */}
+          <div className="horizontal-container">
+            <div className="type-box">
+              <p>Model:</p>
+            </div>
+            <Dropdown
+              className="drop-down"
+              options={models.map(m => ({ label: m, value: m }))}
+              placeholder={models[0] || "Select Model"}
+              value={appState?.Model}
+              onChange={(option) => updateState({ Model: option })}
             />
             <Checkbox
               items={[{ id: 1, text: 'Vertical', disabled: false }]}
               className="check-box"
               checked={appState?.Position === "Vertical"}
-              onChange={(checked) => updateState({ Position: checked ? "Vertical" : "Horizontal" })}
+              onChange={(checked) =>
+                updateState({ Position: checked ? "Vertical" : "Horizontal" })
+              }
             />
           </div>
 
@@ -143,8 +137,14 @@ const HODSystem = ({ width, height, appState, updateState }) => {
             {data.HODButtons.map((button, index) => (
               <div
                 key={index}
-                className={`button but-${index} ${appState?.["Lamp Type"] === button.replaceAll(" ", "") ? 'IsPressed' : 'NotPressed'}`}
-                onClick={() => updateState({"Lamp Type" : button.replaceAll(" ", "")})}
+                className={`button but-${index} ${
+                  appState?.["Lamp Type"] === button.replaceAll(" ", "")
+                    ? 'IsPressed'
+                    : 'NotPressed'
+                }`}
+                onClick={() =>
+                  updateState({ "Lamp Type": button.replaceAll(" ", "") })
+                }
               >
                 <p>{button}</p>
               </div>
@@ -154,7 +154,7 @@ const HODSystem = ({ width, height, appState, updateState }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default HODSystem;

@@ -20,7 +20,7 @@ import data from "../data";
 
 import DropDown from '../Components/DropDown.jsx';
 
-const Results = ({width, height}) => {
+const Results = ({appState, updateState}) => {
 
   return ( <div className="Results">
     <div className="title-box">
@@ -36,7 +36,7 @@ const Results = ({width, height}) => {
             </div>
 
             <div className="value-box">
-              <p>{field.value}</p>
+              <p>{Object.values(appState?.results)[index]}</p>
             </div>
 
             {/* Scale or Dropdown */}
@@ -45,8 +45,6 @@ const Results = ({width, height}) => {
               <DropDown
                 className="drop-down"
                 options={[...field.options]}
-                height={Math.max(30, Math.min(height * 0.0485, 64))}
-                width={Math.max(53, Math.min(width * 0.055, 200))}
                 placeholder={field.options[0].value}
               />
             ) : (

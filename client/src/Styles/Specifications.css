@@ -1,6 +1,4 @@
  .Specifications .wrapper {
-    overflow: visible;
-    /* height: clamp(232px, 42.7vh, 42.7vh); */
     aspect-ratio: 8 / 5.3;
 }
 

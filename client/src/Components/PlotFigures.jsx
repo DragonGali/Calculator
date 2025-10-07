@@ -27,7 +27,7 @@ function PlotFigures ({unlockAll, openChart}) {
   }
    
 
-  return ( <div className={`PlotFigures ${unlockAll ? '' : ''}`}>
+  return ( <div className={`PlotFigures ${unlockAll ? '' : 'locked'}`}>
     <div className="title-box">
             <p>Plot Figures</p>
     </div>

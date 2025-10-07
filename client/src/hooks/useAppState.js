@@ -16,8 +16,8 @@ const useAppState = () => {
   // Main application state (includes ranges)
   const [appState, setAppState] = useState({
     Application: "Municipal EPA",
-    Model: "RZ-104",
-    Module: "11",
+    Module: "RZ-104",
+    Model: "11",
     Branch: "1",
     Position: "Vertical",
     "Lamp Type": "Regular",
@@ -41,7 +41,8 @@ const useAppState = () => {
     },
 
     // Ranges (this will auto-update)
-    ranges: null
+    ranges: null,
+    dropDownOptions: null
   });
 
   const isInitialMount = useRef(true);
@@ -77,7 +78,6 @@ const useAppState = () => {
           ...prev,
           ranges: result.ranges
         }));
-        console.log(appState.ranges);
       } else {
         setLastError(result.error);
       }
@@ -86,6 +86,31 @@ const useAppState = () => {
       setLastError(err.message);
     }
   }, [isServerHealthy]);
+
+  const getDropDownOptions = useCallback(async () => {
+
+    if (!isServerHealthy) {
+      console.warn("Server not healthy, skipping getDropDownOptions");
+      return;
+    }
+
+    try {
+      const result = await apiService.getSupportedSystems();
+      if (result.success) {
+        console.log(result.systems);
+        setAppState(prev => ({
+          ...prev,
+          dropDownOptions: result.systems
+        }));
+      } else {
+        setLastError(result.error);
+      }
+    } catch (err) {
+      console.error("Error getting ranges:", err);
+      setLastError(err.message);
+    }
+
+  }, [isServerHealthy])
 
   // Recalculate results
   const calculateResults = useCallback(async () => {
@@ -117,6 +142,7 @@ const useAppState = () => {
     const result = await apiService.calculate(requestBody);
 
     if (result.success) {
+      console.log(result.data);
       setAppState(prev => ({
         ...prev,
         results: {
@@ -137,8 +163,6 @@ const useAppState = () => {
 
   // Update appState and trigger recalculation (debounced)
   const updateState = useCallback((updates) => {
-    console.log('State update:', updates);
-
     setAppState(prev => ({
       ...prev,
       ...updates
@@ -160,20 +184,21 @@ const useAppState = () => {
   // Automatically fetch ranges when Model or Module changes
   useEffect(() => {
     if (!isInitialMount.current && isServerHealthy) {
-      const systemType = `${appState.Model}-${appState.Module}`;
+      const systemType = `${appState.Module}-${appState.Model}`;
       getRanges(systemType);
     }
-  }, [appState.Model, appState.Module, getRanges, isServerHealthy]);
+  }, [appState.Model, appState.Module, getRanges, getDropDownOptions, isServerHealthy]);
 
   // Initial calculation + initial ranges fetch
   useEffect(() => {
     if (isInitialMount.current && isServerHealthy) {
       isInitialMount.current = false;
-      const systemType = `${appState.Model}-${appState.Module}`;
+      const systemType = `${appState.Module}-${appState.Model}`;
       getRanges(systemType);
+      getDropDownOptions();
       calculateResults();
     }
-  }, [isServerHealthy, calculateResults, getRanges]);
+  }, [isServerHealthy, calculateResults, getRanges, getDropDownOptions]);
 
   // Manual recalculation (no debounce)
   const recalculate = useCallback(() => {

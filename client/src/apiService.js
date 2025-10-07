@@ -6,7 +6,7 @@
  */
 
 import config from '../config.json';
-const API_BASE_URL = `http://${config.SERVER_IP}:${config.PORT}`;
+const API_BASE_URL = config.API_BASE_URL;
 
 class APIService {
   /**
@@ -27,6 +27,55 @@ class APIService {
       return {
         success: false,
         healthy: false,
+        error: error.message
+      };
+    }
+  }
+
+  /**
+   * User authentication - uses MongoDB backend
+   * POST /login
+   * 
+   * @param {string} username - The username
+   * @param {string} password - The password
+   */
+  async login(username, password) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        return {
+          success: false,
+          error: data.detail || 'Login failed'
+        };
+      }
+
+      // Check if login was successful
+      if (data.status === 'success') {
+        return {
+          success: true,
+          role: data.role,
+          calculator_type: data.calculator_type,
+          message: data.message
+        };
+      } else {
+        return {
+          success: false,
+          error: data.message || 'Login failed'
+        };
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      return {
+        success: false,
         error: error.message
       };
     }
@@ -85,24 +134,38 @@ class APIService {
    */
   async calculate(params) {
     try {
-      console.log('Sending to backend:', params);
+      // Ensure Model and Module are in correct order
+      const requestBody = {
+        ...params,
+        Model: params.Model,
+        Module: params.Module
+      };
 
       const response = await fetch(`${API_BASE_URL}/calculate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(params)
+        body: JSON.stringify(requestBody)
       });
 
+      // Get response text first
+      const responseText = await response.text();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'Calculation failed');
+        let errorMessage = 'Calculation failed';
+        try {
+          const errorData = JSON.parse(responseText);
+          errorMessage = errorData.detail || errorData.message || JSON.stringify(errorData);
+        } catch (e) {
+          // If response is not JSON, use the text directly
+          errorMessage = responseText || `HTTP ${response.status}: ${response.statusText}`;
+        }
+        throw new Error(errorMessage);
       }
 
-      const data = await response.json();
-      console.log('Received from backend:', data);
-
+      // Parse successful response
+      const data = JSON.parse(responseText);
       return {
         success: true,
         data: data
