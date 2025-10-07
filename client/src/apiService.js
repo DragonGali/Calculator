@@ -33,6 +33,55 @@ class APIService {
   }
 
   /**
+   * User authentication - uses MongoDB backend
+   * POST /login
+   * 
+   * @param {string} username - The username
+   * @param {string} password - The password
+   */
+  async login(username, password) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        return {
+          success: false,
+          error: data.detail || 'Login failed'
+        };
+      }
+
+      // Check if login was successful
+      if (data.status === 'success') {
+        return {
+          success: true,
+          role: data.role,
+          calculator_type: data.calculator_type,
+          message: data.message
+        };
+      } else {
+        return {
+          success: false,
+          error: data.message || 'Login failed'
+        };
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      return {
+        success: false,
+        error: error.message
+      };
+    }
+  }
+
+  /**
    * Get supported systems from backend
    * GET /systems/supported
    */

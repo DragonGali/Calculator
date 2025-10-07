@@ -2,6 +2,7 @@
  * PasswordBox.jsx
  * 
  * A full-screen password input component for developer access.
+ * Uses the backend login endpoint with a default "Developer" username.
  * 
  * - Props:
  *   - `onClose`: called when the box is closed/cancelled
@@ -12,20 +13,24 @@
  *   - Hidden input keeps value synced with custom display
  *   - Shows error message briefly on wrong password
  *   - Supports Enter to submit and Escape to cancel
+ *   - Fetches authentication from MongoDB backend
  */
-
-
 
 import React, { useState, useEffect, useRef } from 'react';
 import '../Styles/PasswordBox.css';
-import data from "../data";
+import apiService from '../apiService';
 
 const PasswordBox = ({ onClose, onPasswordCorrect }) => {
   const [password, setPassword] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [isTyping, setIsTyping] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('Wrong Password!');
   const inputRef = useRef(null);
+
+  // Default username for developer access
+  const DEFAULT_USERNAME = 'Developer';
 
   // blinking cursor
   useEffect(() => {
@@ -36,16 +41,54 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
   // focus the hidden input on mount
   useEffect(() => inputRef.current?.focus(), []);
 
-  const checkPassword = (value = password) => {
-    const correct = data.password;
-    if (value === correct) {
-      onPasswordCorrect?.(true);
-      onClose?.();
-    } else {
+  const checkPassword = async (value = password) => {
+    if (!value.trim()) {
+      setErrorMessage('Please enter a password');
       setShowError(true);
-      setPassword('');
       setTimeout(() => setShowError(false), 2000);
-      inputRef.current?.focus();
+      return;
+    }
+
+    setIsVerifying(true);
+    
+    try {
+      // Use the login endpoint with default username
+      const result = await apiService.login(DEFAULT_USERNAME, value);
+      
+      if (result.success) {
+        // Store user info for later use
+        localStorage.setItem('userRole', result.role);
+        localStorage.setItem('calculatorType', result.calculator_type);
+        
+        onPasswordCorrect?.(true);
+        onClose?.();
+      } else {
+        // Map backend error messages to user-friendly messages
+        let displayError = 'Wrong Password!';
+        
+        if (result.error.includes('Wrong Login Name')) {
+          displayError = 'Developer account not found';
+        } else if (result.error.includes('Wrong Password')) {
+          displayError = 'Wrong Password!';
+        } else if (result.error.includes('Expired')) {
+          displayError = 'Access Expired. Contact Admin.';
+        } else {
+          displayError = result.error;
+        }
+        
+        setErrorMessage(displayError);
+        setShowError(true);
+        setPassword('');
+        setTimeout(() => setShowError(false), 3000);
+        inputRef.current?.focus();
+      }
+    } catch (error) {
+      console.error('Password verification error:', error);
+      setErrorMessage('Server error. Please try again.');
+      setShowError(true);
+      setTimeout(() => setShowError(false), 2000);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -64,7 +107,7 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
     <div className="PasswordBox">
       <div className='container'>
         <p className={`title ${showError ? 'error' : ''}`}>
-          {showError ? 'Wrong Password!' : 'Please Enter Developer Password:'}
+          {showError ? errorMessage : 'Please Enter Developer Password:'}
         </p>
 
         {/* clickable typing area — focuses the real (hidden) input */}
@@ -73,7 +116,11 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
           onClick={() => inputRef.current?.focus()}
           tabIndex={0}
         >
-          {renderPasswordDisplay()}
+          {isVerifying ? (
+            <span className="password-text">Verifying...</span>
+          ) : (
+            renderPasswordDisplay()
+          )}
         </div>
 
         {/* Real input keeps value in sync; Enter uses e.currentTarget.value (no race) */}
@@ -87,13 +134,14 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
             setTimeout(() => setIsTyping(false), 100);
           }}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Enter' && !isVerifying) {
               // use the input's current value (guaranteed correct)
               checkPassword(e.currentTarget.value);
             } else if (e.key === 'Escape') {
               onClose?.();
             }
           }}
+          disabled={isVerifying}
           // visually hidden but focusable
           style={{
             position: 'absolute',
@@ -109,9 +157,18 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
 
         <div className='password-buttons'>
           <div className='password-button'>
-            <p onClick={() => checkPassword(password)}>OK</p>
+            <p 
+              onClick={() => !isVerifying && checkPassword(password)}
+              style={{ opacity: isVerifying ? 0.5 : 1, cursor: isVerifying ? 'not-allowed' : 'pointer' }}
+            >
+              {isVerifying ? 'Verifying...' : 'OK'}
+            </p>
           </div>
-          <div className='password-button' onClick={onClose}>
+          <div 
+            className='password-button' 
+            onClick={!isVerifying ? onClose : undefined}
+            style={{ opacity: isVerifying ? 0.5 : 1, cursor: isVerifying ? 'not-allowed' : 'pointer' }}
+          >
             <p>Cancel</p>
           </div>
         </div>

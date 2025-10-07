@@ -4,7 +4,7 @@ import data from "../data";
 
 import ProgressBar from './ProgressBar.jsx'
 
-function PathogenInactivation () {
+const PathogenInactivation = ({unlockAll}) => {
 
   const [pressedButton, setPressedButton] = useState(null);
   const [expectedLI, setExepectedLI] = useState(3);
@@ -36,7 +36,7 @@ function PathogenInactivation () {
 
             <input
              type="text"
-             className='simple-input'
+             className={`simple-input ${unlockAll ? '' : 'locked'}`}
              placeholder='' value="3"
              />
 

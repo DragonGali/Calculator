@@ -18,7 +18,7 @@
  * - Editable input clears on focus for easy typing
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/Slider.css';
 
 const Slider = ({ 
@@ -31,6 +31,13 @@ const Slider = ({
   const [inputValue, setInputValue] = useState(value?.toString() || '');
   const [isEditing, setIsEditing] = useState(false);
 
+  // Sync inputValue with incoming value prop changes (e.g., from server updates)
+  useEffect(() => {
+    if (!isEditing && value !== undefined && value !== null) {
+      setInputValue(value.toString());
+    }
+  }, [value, isEditing]);
+
   const handleSliderChange = (e) => {
     const newValue = Number(e.target.value);
     onChange(newValue);
@@ -38,11 +45,19 @@ const Slider = ({
   };
 
   const handleInputKeyPress = (e) => {
-    // Only allow digits and control keys
-    if (!/[\d]/.test(e.key) &&
-        !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key)) {
+    // Allow digits, one ".", and control keys
+    if (
+      !/[\d.]/.test(e.key) &&
+      !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key)
+    ) {
       e.preventDefault();
     }
+
+    // Prevent typing more than one "."
+    if (e.key === '.' && e.target.value.includes('.')) {
+      e.preventDefault();
+    }
+
     if (e.key === 'Enter') {
       e.target.blur();
     }
@@ -50,7 +65,9 @@ const Slider = ({
 
   const handleInputChange = (e) => {
     const inputVal = e.target.value;
-    if (/^\d*$/.test(inputVal)) {
+
+    // Allow empty string, numbers, or decimals like "12.", "12.3"
+    if (/^\d*\.?\d*$/.test(inputVal)) {
       setInputValue(inputVal);
     }
   };
