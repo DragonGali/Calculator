@@ -5,23 +5,22 @@
  * Uses the backend login endpoint with both username and password.
  * 
  * - Props:
- *   - `onClose`: called when the box is closed/cancelled
  *   - `onLoginSuccess`: called when login is successful
  * 
  * - Features:
  *   - Blinking cursor effect on active field
  *   - Hidden inputs keep values synced with custom display
  *   - Shows error message briefly on wrong credentials
- *   - Supports Enter to submit and Escape to cancel
+ *   - Supports Enter to submit
  *   - Tab to switch between fields
  *   - Fetches authentication from MongoDB backend
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, appState, updateState } from 'react';
 import '../Styles/LoginBox.css';
 import apiService from '../apiService';
 
-const LoginBox = ({ onClose, onLoginSuccess }) => {
+const LoginBox = ({ onLoginSuccess, appState, updateState}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [activeField, setActiveField] = useState('username'); // 'username' or 'password'
@@ -69,12 +68,10 @@ const LoginBox = ({ onClose, onLoginSuccess }) => {
       
       if (result.success) {
         // Store user info for later use
-        localStorage.setItem('userRole', result.role);
-        localStorage.setItem('calculatorType', result.calculator_type);
-        localStorage.setItem('username', usernameValue);
+        updateState({'username' : usernameValue});
+        updateState({'password' : passwordValue});
         
-        onLoginSuccess?.(true);
-        onClose?.();
+        onLoginSuccess(true);
       } else {
         // Map backend error messages to user-friendly messages
         let displayError = 'Invalid credentials!';
@@ -192,8 +189,6 @@ const LoginBox = ({ onClose, onLoginSuccess }) => {
               } else {
                 checkLogin(e.currentTarget.value, password);
               }
-            } else if (e.key === 'Escape') {
-              onClose?.();
             } else if (e.key === 'Tab') {
               e.preventDefault();
               passwordInputRef.current?.focus();
@@ -227,8 +222,6 @@ const LoginBox = ({ onClose, onLoginSuccess }) => {
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !isVerifying) {
               checkLogin(username, e.currentTarget.value);
-            } else if (e.key === 'Escape') {
-              onClose?.();
             } else if (e.key === 'Tab') {
               e.preventDefault();
               usernameInputRef.current?.focus();
@@ -248,7 +241,6 @@ const LoginBox = ({ onClose, onLoginSuccess }) => {
           }}
         />
 
-        <div className='login-buttons'>
           <div className='login-button'>
             <p 
               onClick={() => !isVerifying && checkLogin(username, password)}
@@ -256,14 +248,6 @@ const LoginBox = ({ onClose, onLoginSuccess }) => {
             >
               {isVerifying ? 'Verifying...' : 'Login'}
             </p>
-          </div>
-          <div 
-            className='login-button' 
-            onClick={!isVerifying ? onClose : undefined}
-            style={{ opacity: isVerifying ? 0.5 : 1, cursor: isVerifying ? 'not-allowed' : 'pointer' }}
-          >
-            <p>Cancel</p>
-          </div>
         </div>
       </div>
     </div>
