@@ -30,7 +30,7 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
   const inputRef = useRef(null);
 
   // Default username for developer access
-  const DEFAULT_USERNAME = 'Developer';
+  const DEFAULT_USERNAME = 'Admin';
 
   // blinking cursor
   useEffect(() => {
