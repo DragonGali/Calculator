@@ -145,6 +145,7 @@ const useAppState = () => {
     const result = await apiService.calculate(requestBody);
 
     if (result.success) {
+      console.log(result);
       setAppState(prev => ({
         ...prev,
         results: {
@@ -169,6 +170,8 @@ const useAppState = () => {
       ...prev,
       ...updates
     }));
+
+    console.log(appState);
 
     // Clear existing timer
     if (calculateTimer.current) {

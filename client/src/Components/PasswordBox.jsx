@@ -20,7 +20,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Styles/PasswordBox.css';
 import apiService from '../apiService';
 
-const PasswordBox = ({ onClose, onPasswordCorrect }) => {
+const PasswordBox = ({ onClose, onPasswordCorrect, appState, updateState }) => {
   const [password, setPassword] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [isTyping, setIsTyping] = useState(false);
@@ -28,9 +28,6 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
   const [isVerifying, setIsVerifying] = useState(false);
   const [errorMessage, setErrorMessage] = useState('Wrong Password!');
   const inputRef = useRef(null);
-
-  // Default username for developer access
-  const DEFAULT_USERNAME = 'Admin';
 
   // blinking cursor
   useEffect(() => {
@@ -53,12 +50,11 @@ const PasswordBox = ({ onClose, onPasswordCorrect }) => {
     
     try {
       // Use the login endpoint with default username
-      const result = await apiService.login(DEFAULT_USERNAME, value);
+      const result = await apiService.login(appState.username, value);
       
       if (result.success) {
         // Store user info for later use
-        localStorage.setItem('userRole', result.role);
-        localStorage.setItem('calculatorType', result.calculator_type);
+        updateState({"password" : value})
         
         onPasswordCorrect?.(true);
         onClose?.();

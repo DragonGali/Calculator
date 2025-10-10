@@ -17,7 +17,7 @@ import React from 'react';
 import { useState } from 'react';
 import "../Styles/TableView.css"
 
-const TableView = ({ data, isFullTable = false}) => {
+const TableView = ({ data, isFullTable = false, appState, updateState}) => {
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
 
   // Figure out which keys are dose values (exclude "name")
@@ -30,6 +30,7 @@ const TableView = ({ data, isFullTable = false}) => {
   //Sets a row as selected
   const handleRowClick = (index) => {
     setSelectedRowIndex(index);
+    updateState({"Pathogen" : data[index].name});
   }
 
   return (

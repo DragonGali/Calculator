@@ -52,7 +52,7 @@ const PathogenInactivation = ({unlockAll}) => {
               <div className='value-box' style={{width:"26%"}}>
                 <p>{expectedLI}</p>
               </div>
-              <ProgressBar/>
+              <ProgressBar progress='3' maxProgress='5'/>
           </div>
       </div>
       <div className='vertical-container'>
