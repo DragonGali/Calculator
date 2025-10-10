@@ -102,7 +102,7 @@ const Specifications = ({ appState, updateState, unlockAll}) => {
             <div className="type-box">
               <p>UVT @ 215nm:</p>
             </div>
-            <div className={`horizontal-container ${unlockAll ? '' : 'locked'}`}>
+            <div className={`${unlockAll ? '' : 'locked'}`}>
               <Slider
                 min={ranges?.uvt?.min}
                 max={ranges?.uvt?.max}
@@ -112,7 +112,7 @@ const Specifications = ({ appState, updateState, unlockAll}) => {
               />
             </div>
             <div className="type-box">
-              <p>[%-1cm]</p>
+              <p>[{ranges?.uvt?.unit}]</p>
             </div>
           </div>
 

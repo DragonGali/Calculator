@@ -66,7 +66,7 @@ const App = () =>  {
   } = useAppState();
 
   
-  const [unlockAll, setUnlockAll] = useState(false); // Developer mode toggle (unlocks extra features). 
+  const [unlockAll, setUnlockAll] = useState(true); // Developer mode toggle (unlocks extra features). 
   const [openPasswordBox, setOpenPasswordBox] = useState(false); // Controls whether the password box modal is shown.
   const [openChart, setOpenChart] = useState(false); // Controls whether the chart draggable window is shown. 
   const [fullTableOpened, setFullTableOpened] = useState(false);//Controls whether the full pathogen table window is open.

@@ -99,7 +99,6 @@ const Slider = ({
         type="text"
         value={isEditing ? inputValue : value}
         onChange={handleInputChange}
-        onKeyPress={handleInputKeyPress}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         className="range-value-display"
