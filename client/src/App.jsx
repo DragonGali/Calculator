@@ -43,7 +43,7 @@ import useAppState from './hooks/useAppState';
 // =======================
 // Main App Component
 // =======================
-const App = () =>  {
+const App = ({appState, updateState}) =>  {
 
   /**
    * Track window size so child components
@@ -53,20 +53,8 @@ const App = () =>  {
     width: window.innerWidth,
     height: window.innerHeight
   });
-
-  // Use the custom hook for state management
-  const {
-    appState,
-    updateState,
-    recalculate,
-    isCalculating,
-    lastError,
-    isServerHealthy,
-    checkServerHealth,
-  } = useAppState();
-
   
-  const [unlockAll, setUnlockAll] = useState(false); // Developer mode toggle (unlocks extra features). 
+  const [unlockAll, setUnlockAll] = useState(true); // Developer mode toggle (unlocks extra features). 
   const [openPasswordBox, setOpenPasswordBox] = useState(false); // Controls whether the password box modal is shown.
   const [openChart, setOpenChart] = useState(false); // Controls whether the chart draggable window is shown. 
   const [fullTableOpened, setFullTableOpened] = useState(false);//Controls whether the full pathogen table window is open.

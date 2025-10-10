@@ -40,9 +40,13 @@ const useAppState = () => {
       calculation_details: null
     },
 
-    // Ranges (this will auto-update)
+    //this will auto-update
     ranges: null,
-    dropDownOptions: null
+    dropDownOptions: null,
+
+    //current login info
+    username: null,
+    password: null
   });
 
   const isInitialMount = useRef(true);
@@ -97,7 +101,6 @@ const useAppState = () => {
     try {
       const result = await apiService.getSupportedSystems();
       if (result.success) {
-        console.log(result.systems);
         setAppState(prev => ({
           ...prev,
           dropDownOptions: result.systems
@@ -142,7 +145,6 @@ const useAppState = () => {
     const result = await apiService.calculate(requestBody);
 
     if (result.success) {
-      console.log(result.data);
       setAppState(prev => ({
         ...prev,
         results: {
