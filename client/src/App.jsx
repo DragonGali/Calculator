@@ -122,6 +122,8 @@ const App = ({appState, updateState}) =>  {
             height={size.height}
             className="column-3"
             style={{ gridRow: "1", gridColumn: "3" }}
+            appState={appState}
+            updateState={updateState}
           />
 
           {/* Row 2, Column 1 */}
@@ -183,6 +185,8 @@ const App = ({appState, updateState}) =>  {
         <PasswordBox 
           onClose={() => setOpenPasswordBox(false)} 
           onPasswordCorrect={() => setUnlockAll(true)}
+          appState={appState}
+          updateState={updateState}
         />
       )}
 

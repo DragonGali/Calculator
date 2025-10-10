@@ -21,7 +21,7 @@ import data from "../data";
 import TreeView from "../Components/TreeView.jsx"
 import TableView from "../Components/TableView.jsx"
 
-const PathogenReduction = ({openFullTable}) => {
+const PathogenReduction = ({openFullTable, appState, updateState}) => {
 
   const buttons = data.PathogenReduction.buttons;
 
@@ -72,10 +72,10 @@ const PathogenReduction = ({openFullTable}) => {
             <div className='scroll-container'>
               {/* Conditional component rendering */}
               {viewMode === buttons[0] && (
-                <TreeView data={data.PathogenReduction.treeView.treeData} />
+                <TreeView data={data.PathogenReduction.treeView.treeData} appState={appState} updateState={updateState}/>
               )}
               {(viewMode === buttons[1] || viewMode === buttons[2]) && (
-                <TableView data={data.PathogenReduction.tableView.tableData}/>
+                <TableView data={data.PathogenReduction.tableView.tableData} appState={appState} updateState={updateState}/>
               )}
             </div>
           </div>

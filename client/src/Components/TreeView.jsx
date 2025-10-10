@@ -17,11 +17,10 @@
  * - Lines connecting parent and child nodes
  */
 
-
 import React, { useState } from 'react';
-import "../Styles/TreeView.css"
+import '../Styles/TreeView.css';
 
-const TreeView = ({ data, className = '' }) => {
+const TreeView = ({ data, className = '', appState, updateState }) => {
   // State to track which items are expanded
   const [expandedItems, setExpandedItems] = useState(new Set());
   // State to track the currently selected item
@@ -56,10 +55,10 @@ const TreeView = ({ data, className = '' }) => {
    * parentIsLast - Array tracking which parent levels are last children
    */
   const TreeItem = ({ item, level = 0, parentId = '', isLast = false, parentIsLast = [] }) => {
-    const itemId = `${parentId}${item.label}`;// Generate unique ID for this item
-    const hasChildren = item.children && item.children.length > 0; //Check if item has children
-    const isExpanded = expandedItems.has(itemId);// Check if item is currently expanded
-    const isSelected = selectedItem === itemId;// Check if item is currently selected
+    const itemId = `${parentId}${item.label}`; // Generate unique ID for this item
+    const hasChildren = item.children && item.children.length > 0; // Check if item has children
+    const isExpanded = expandedItems.has(itemId); // Check if item is currently expanded
+    const isSelected = selectedItem === itemId; // Check if item is currently selected
 
     return (
       <div className="tree-item">
@@ -73,6 +72,11 @@ const TreeView = ({ data, className = '' }) => {
             }
             // Always select the clicked item
             selectItem(itemId);
+            
+            // If this is a leaf node (no children), update appState
+            if (!hasChildren && updateState) {
+              updateState({ Pathogen: item.label });
+            }
           }}
         >
           {/* Container for connecting lines */}
@@ -142,6 +146,5 @@ const TreeView = ({ data, className = '' }) => {
     </div>
   );
 };
-
 
 export default TreeView;
